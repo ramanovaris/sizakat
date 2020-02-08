@@ -149,7 +149,6 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                         <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nik</th>
                                             <th>Nama Lengkap</th>
                                             <th>Jenis Kelamin</th>
                                             <th>Jabatan</th>
@@ -164,12 +163,12 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                                     ?> 
                                         <tr>
                                             <td><?php echo $no++ ?></td>
-                                            <td><?php echo $data['nik_petugas']; ?></td>
-                                            <td><?php echo $data['nama_petugas']; ?></td>
+                                            
+                                            <td><?php echo $data['nama']; ?></td>
                                             <td><?php echo $data['jenis_kelamin']; ?></td>
                                             <td><?php echo $data['jabatan']; ?></td>
                                             <td>
-                                                <a href="edit_petugas.php?nik_petugas=<?php echo $data['nik_petugas']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
+                                                <a href="edit_petugas.php?nik_petugas=<?php echo $data['id_petugas']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
                                                 
                                             </td>
                                             

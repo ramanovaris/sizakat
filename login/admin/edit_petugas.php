@@ -8,7 +8,7 @@ include "../config/koneksi.php";
 $level=$_SESSION['level'];
 $kode_login=$_SESSION['kode_login'];
 $sesi_username          = isset($_SESSION['username']) ? $_SESSION['username'] : NULL;
-if ($sesi_username != NULL |AND !empty($sesi_username) AND $_SESSION['level']=='Admin'  ) 
+if ($sesi_username != NULL AND $_SESSION['level']=='Admin') 
 {
 ?>
 
@@ -155,21 +155,19 @@ if ($sesi_username != NULL |AND !empty($sesi_username) AND $_SESSION['level']=='
                                                 <form  method="POST" action="code/simpan_edit_petugas.php">
 
                                                     <?php
-                                                        $sql = mysql_query("SELECT * FROM petugas WHERE nik_petugas='$_GET[nik_petugas]'"); 
+                                                        $sql = mysql_query("SELECT * FROM petugas WHERE id_petugas='$_GET[nik_petugas]'"); 
                                                         $data = mysql_fetch_array($sql);
                                                         $jk = $data['jenis_kelamin'];
                                                     ?>
-
                                                     <div class="form-group">
-                                                        <label for="userName">NIK<span class="text-danger">*</span></label>
-                                                        <input type="text" name="nik_petugas" parsley-trigger="change" required
-                                                               placeholder="NIK" class="form-control" id="userName" value="<?php echo $data['nik_petugas']; ?>">
+                                                        <input type="hidden" name="id_petugas" parsley-trigger="change" required
+                                                               placeholder="Nama Lengkap" class="form-control" id="id_petugas" value="<?php echo $data['id_petugas']; ?>">
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="userName">Nama Lengkap<span class="text-danger">*</span></label>
                                                         <input type="text" name="nama_petugas" parsley-trigger="change" required
-                                                               placeholder="Nama Lengkap" class="form-control" id="userName" value="<?php echo $data['nama_petugas']; ?>">
+                                                               placeholder="Nama Lengkap" class="form-control" id="userName" value="<?php echo $data['nama']; ?>">
                                                     </div>
 
                                                     <div class="form-group">

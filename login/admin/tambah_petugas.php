@@ -150,11 +150,11 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                                 <form  method="POST" action="code/simpan_petugas.php">
 
 
-                                                    <div class="form-group">
+                                                   <!--  <div class="form-group">
                                                         <label for="userName">NIK<span class="text-danger">*</span></label>
                                                         <input type="text" name="nik_petugas" parsley-trigger="change" required
                                                                placeholder="NIK" class="form-control" id="userName">
-                                                    </div>
+                                                    </div> -->
 
                                                     <div class="form-group">
                                                         <label for="userName">Nama Lengkap<span class="text-danger">*</span></label>
