@@ -7,6 +7,7 @@ include "../config/koneksi.php";
 
 $level=$_SESSION['level'];
 $kode_login=$_SESSION['kode_login'];
+$kode_akun=$_SESSION['kode_akun'];
 $sesi_username          = isset($_SESSION['username']) ? $_SESSION['username'] : NULL;
 if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='Admin'  ) 
 {
@@ -23,7 +24,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Data Perawat - RSIA</title>
+        <title>Tambah Penerima Zakat - SIZAKAT</title>
 
         <!-- date range picker -->
         <link href="../plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -90,6 +91,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                     <!--- Sidemenu -->
                     <div id="sidebar-menu">
                         
+
                         <?php
                             include "data_diri.php";
                             include "navigasi.php"; 
@@ -122,14 +124,14 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Data Perawat</h4>
+                                    <h4 class="page-title">Tambah Penerima Zakat</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="index.php">Dashboard</a>
                                         </li>
                                        
                                         <li class="active">
-                                            Data Perawat
+                                            Tambah Penerima Zakat
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -138,56 +140,76 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
 						</div>
                         <!-- end row -->
                         <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card-box table-responsive">
+                            <div class="col-xs-12">
+                                <div class="card-box">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-xs-12 col-md-8">
 
-                                    <h4 class="m-t-0 header-title"><b>Data Perawat</b></h4>
-                                    <a href="tambah_perawat.php" type="button" class="btn btn-info btn-bordered waves-effect w-md waves-light">Tambah</a>
-                                    
-                                    <table id="datatable-responsive"
-                                           class="table table-striped  table-colored table-info dt-responsive nowrap">
-                                        <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nik</th>
-                                            <th>Nama Lengkap</th>
-                                            <th>Jenis Kelamin</th>
-                                            <th>Alamat</th>
-                                            <th>Jabatan</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php 
-                                                $no = 1;
-                                                $query_mysql = mysql_query("SELECT * FROM perawat ORDER BY nik_perawat")or die(mysql_error());
-                                                while($data = mysql_fetch_array($query_mysql)){
-                                                    ?> 
-                                        <tr>
-                                            <td><?php echo $no++ ?></td>
-                                            <td><?php echo $data['nik_perawat']; ?></td>
-                                            <td><?php echo $data['nama_perawat']; ?></td>
-                                            <td><?php echo $data['jenis_kelamin']; ?></td>
-                                            <td><?php echo $data['alamat']; ?></td>
-                                            <td><?php echo $data['jabatan']; ?></td>
-                                            <td>
-                                                <a href="edit_perawat.php?nik_perawat=<?php echo $data['nik_perawat']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
+                                            <h4 class="header-title m-t-0">Tambah Penerima Zakat</h4>
+                                           
+                                            <div class="p-20">
+                                                <form  method="POST" action="code/simpan_tambah_penerima_zakat.php">
+                                                   
+
+            
+
+                                                   <div class="form-group">
+                                                        <input type="hidden" name="kode_akun" parsley-trigger="change" required
+                                                               placeholder="Nama Lengkap" class="form-control" id="kode_akun" value="<?php echo $kode_akun; ?>">
+
+                                                        <label for="userName">Jenis Zakat<span class="text-danger"></span></label>
+
+                                                        <select class="select2 form-control select2" name="jenis_zakat" data-placeholder="Pilih Kamar" required="">
+                                                        <option value="">--Pilih--</option>
+
+                                                        <?php
+                                                     
+                                                            $kota = mysql_query("SELECT * FROM jenis_zakat ORDER BY id");
+                                                            while($p=mysql_fetch_array($kota))
+                                                            {
+                                                            echo "<option value=\"$p[id]\">$p[nama_zakat]</option>\n";
+                                                            }
+                                                        ?>
+                                                      
+                                                        </select>
+                                                    </div>
+
+
+                                                    <div class="form-group">
+                                                        <label for="userName">Uraian<span class="text-danger"></span></label>
+                                                        <textarea row="1" name="uraian" class="form-control"></textarea>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="userName">Jumlah<span class="text-danger"></span></albel>
+                                                        <input type="number" name="jumlah" parsley-trigger="change" required
+                                                        placeholder="Rp." autocomplete="off" class="form-control" id="jumlah">
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-8 col-sm-offset-4">
+                                                            <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                                Simpan
+                                                            </button>
+                                                            <button type="reset"
+                                                                    class="btn btn-default waves-effect m-l-5" value="Go Back" onclick="history.back(-1)">
+                                                                Batal
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
                                                 
-                                            </td>
-                                            
-                                        </tr>
-                                            <?php  } ?>
-                                        </tbody>
-                                    </table>
+                                            </div>
+
+                                        </div>
+
+                                       
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
-
-
-                        
-
-                         
-
                         </div>
                         <!-- end row -->
 

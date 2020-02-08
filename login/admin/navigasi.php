@@ -8,12 +8,12 @@
 
 
                             <li class="has_sub">
-                                <a href="data_rekam_medis.php?status_pinjam=Sedang+Dipinjam" class="waves-effect"><i class="mdi mdi-stethoscope"></i><span class="badge badge-success pull-right"></span> <span>Data Pemberi Zakat</span> </a>
+                                <a href="data_pemberi_zakat.php" class="waves-effect"><i class="mdi mdi-account-multiple-plus"></i><span class="badge badge-success pull-right"></span> <span>Data Pemberi Zakat</span> </a>
 
                             </li>
 
                              <li class="has_sub">
-                                <a href="riwayat_rekam_medis.php" class="waves-effect"><i class=" mdi mdi-history"></i><span class="badge badge-success pull-right"></span> <span>Data Penyaluran Zakat</span> </a>
+                                <a href="data_penyalur_zakat.php" class="waves-effect"><i class=" mdi mdi-history"></i><span class="badge badge-success pull-right"></span> <span>Data Penyaluran Zakat</span> </a>
 
                             </li>
 

@@ -5,7 +5,6 @@ include "../config/timeout.php";
 //include "config/koneksi.php";
 include "../config/koneksi.php";
 
-
 $level=$_SESSION['level'];
 $kode_login=$_SESSION['kode_login'];
 $sesi_username          = isset($_SESSION['username']) ? $_SESSION['username'] : NULL;
@@ -24,7 +23,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Data Kamar - RSIA</title>
+        <title>Data Penyalur Zakat - SIZAKAT</title>
 
         <!-- date range picker -->
         <link href="../plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -121,63 +120,74 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
 
 
                         <div class="row">
-                            <div class="col-xs-12">
-                                <div class="page-title-box">
-                                    <h4 class="page-title">Data Kamar</h4>
+							<div class="col-xs-12">
+								<div class="page-title-box">
+                                    <h4 class="page-title">Data Penyaluran Zakat</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="index.php">Dashboard</a>
                                         </li>
                                        
                                         <li class="active">
-                                            Data Kamar
+                                          Data Penyaluran Zakat
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
                                 </div>
-                            </div>
-                        </div>
+							</div>
+						</div>
                         <!-- end row -->
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card-box table-responsive">
 
-                                    <h4 class="m-t-0 header-title"><b>Data Kamar</b></h4>
-                                    <a href="tambah_kamar.php" type="button" class="btn btn-info btn-bordered waves-effect w-md waves-light">Tambah</a>
+                                    <h4 class="m-t-0 header-title"><b>Data Penyaluran Zakat</b></h4>
+                                    <a href="tambah_perawat.php" type="button" class="btn btn-info btn-bordered waves-effect w-md waves-light">Tambah</a>
                                     
                                     <table id="datatable-responsive"
                                            class="table table-striped  table-colored table-info dt-responsive nowrap">
                                         <thead>
                                         <tr>
-                                            <th width="50">No Kamar</th>
-                                            <th>Nama Kamar</th>
-                                            <th>Jenis Kamar</th>
-                                            <th>Lantai</th>
-                                            <th>Status</th>
-                                            <th>Kapasitas</th>
-                                            <th>Biaya</th>
+                                            <th>No</th>
+                                            <th>Tanggal</th>
+                                            <th>NBKK</th>
+                                            <th>NIK</th>
+                                            <th>Nama</th>
+                                            <th>Alamat</th>
+                                            <th>Kecamatan</th>
+                                            <th>No.HP</th>
+                                            <th>Keterangan</th>
+                                            <th>Golongan</th>
+                                            <th>Jenis Program</th>
+                                            <th>Jumlah Dana</th>
+                                            
+                                          
                                             <th>Aksi</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                             <?php 
                                                 $no = 1;
-                                                $query_mysql = mysql_query("SELECT * FROM kamar ORDER BY no_kamar")or die(mysql_error());
+                                                $query_mysql = mysql_query("SELECT * FROM penyaluran_zakat ORDER BY tanggal")or die(mysql_error());
                                                 while($data = mysql_fetch_array($query_mysql)){
                                                     ?> 
                                         <tr>
-                                            <td><?php echo $data['no_kamar']; ?></td>
+                                            <td><?php echo $no++ ?></td>
+                                            <td><?php echo date('d F Y',strtotime($data['tanggal'])); ?></td>
+                                            <td><?php echo $data['nbkk']; ?></td>
+                                            <td><?php echo $data['nik']; ?></td>
                                             <td><?php echo $data['nama']; ?></td>
-                                            <td><?php echo $data['jenis_kamar']; ?></td>
-                                            <td><?php echo $data['lantai']; ?></td>
-                                            <td><?php echo $data['status']; ?></td>
-                                            <td><?php echo $data['kapasitas']; ?></td>
-                                            <td><?php echo 'Rp. '.number_format($data['biaya'], 0, ".", "."); ?></td>
-                                        
-                                            <td>
-                                                <a href="edit_kamar.php?no_kamar=<?php echo $data['no_kamar']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
+                                            <td><?php echo $data['alamat']; ?></td>
+                                            <td><?php echo $data['kecamatan']; ?></td>
+                                            <td><?php echo $data['no_hp']; ?></td>
+                                            <td><?php echo $data['keterangan']; ?></td>
+                                            <td><?php echo $data['golongan']; ?></td>
+                                          
+                                            <td><?php echo $data['jenis_program']; ?></td>
+                                             <td><?php echo 'Rp. '.number_format($data['jumlah_dana'], 0, ".", "."); ?></td>
 
-                                                <a onclick="javascript: return confirm('Anda yakin ingin menghapus ?')" href="code/hapus_kamar.php?no_kamar=<?php echo $data['no_kamar']; ?>"class="btn btn-icon waves-effect waves-light btn-danger m-b-5"> <i class="fa fa-remove"></i> </a>
+                                            <td>
+                                                <a href="edit_perawat.php?nik_perawat=<?php echo $data['nik_perawat']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
                                                 
                                             </td>
                                             

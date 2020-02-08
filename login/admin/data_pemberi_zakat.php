@@ -5,8 +5,10 @@ include "../config/timeout.php";
 //include "config/koneksi.php";
 include "../config/koneksi.php";
 
+
 $level=$_SESSION['level'];
 $kode_login=$_SESSION['kode_login'];
+$kode_akun=$_SESSION['kode_akun'];
 $sesi_username          = isset($_SESSION['username']) ? $_SESSION['username'] : NULL;
 if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='Admin'  ) 
 {
@@ -23,7 +25,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Tambah Kamar - RSIA</title>
+        <title>Data Pembari Zakat - SIZAKAT</title>
 
         <!-- date range picker -->
         <link href="../plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -90,7 +92,6 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                     <!--- Sidemenu -->
                     <div id="sidebar-menu">
                         
-
                         <?php
                             include "data_diri.php";
                             include "navigasi.php"; 
@@ -121,106 +122,76 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
 
 
                         <div class="row">
-							<div class="col-xs-12">
-								<div class="page-title-box">
-                                    <h4 class="page-title">Tambah Kamar</h4>
+                            <div class="col-xs-12">
+                                <div class="page-title-box">
+                                    <h4 class="page-title">Data Pemberi Zakat</h4>
+                                    <!-- <h4 class="page-title"><?php echo $kode_akun; ?></h4> -->
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="index.php">Dashboard</a>
                                         </li>
                                        
                                         <li class="active">
-                                            Tambah Kamar
+                                            Data Pemberi Zakat
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
                                 </div>
-							</div>
-						</div>
-                        <!-- end row -->
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="card-box">
-                                    <div class="row">
-                                        <div class="col-sm-12 col-xs-12 col-md-8">
-
-                                            <h4 class="header-title m-t-0">Data Kamar</h4>
-                                           
-                                            <div class="p-20">
-                                                <form  method="POST" action="code/simpan_kamar.php">
-                                                    <div class="form-group">
-                                                        <label for="userName">No Kamar<span class="text-danger">*</span></label>
-                                                        <input type="text" name="no_kamar" parsley-trigger="change" required
-                                                               placeholder="No Kamar" class="form-control" id="userName">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="userName">Nama Kamar<span class="text-danger">*</span></label>
-                                                        <input type="text" name="nama" parsley-trigger="change" required
-                                                               placeholder="Nama Kamar" class="form-control" id="userName">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="userName">Jenis Kamar<span class="text-danger">*</span></label>
-                                                        <input type="text" name="jenis_kamar" parsley-trigger="change" required
-                                                               placeholder="Jenis Kamar" class="form-control" id="userName">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="userName">Lantai<span class="text-danger">*</span></label>
-                                                        <input type="number" name="lantai" parsley-trigger="change" required
-                                                               placeholder="Lantai" class="form-control" id="userName">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="userName">Status<span class="text-danger">*</span></label>
-
-                                                        <select class="select2 form-control select2" name="status" data-placeholder="Pilih Status" required="">
-                                                            <option value="Tersedia">Tersedia</option>
-                                                            <option value="Penuh">Penuh</option>
-
-                                                     
-                                                        </select>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="userName">Kapasitas<span class="text-danger">*</span></label>
-                                                        <input type="number" name="kapasitas" parsley-trigger="change" required
-                                                               placeholder="Kapasitas" class="form-control" id="userName">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="userName">Biaya<span class="text-danger">*</span></label>
-                                                        <input type="number" name="biaya" parsley-trigger="change" required
-                                                               placeholder="Biaya" class="form-control" id="biaya">
-                                                    </div>
-
-                                                    
-
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-8 col-sm-offset-4">
-                                                            <button type="submit" class="btn btn-primary waves-effect waves-light">
-                                                                Simpan
-                                                            </button>
-                                                            <button type="reset"
-                                                                    class="btn btn-default waves-effect m-l-5" value="Go Back" onclick="history.back(-1)">
-                                                                Batal
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-
-                                                
-                                            </div>
-
-                                        </div>
-
-                                       
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
+                        <!-- end row -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card-box table-responsive">
+
+                                    <h4 class="m-t-0 header-title"><b>Data Pemberi Zakat</b></h4>
+                                    <a href="tambah_penerima_zakat.php" type="button" class="btn btn-info btn-bordered waves-effect w-md waves-light">Tambah</a>
+                                    
+                                    <table id="datatable-responsive"
+                                           class="table table-striped  table-colored table-info dt-responsive nowrap">
+                                        <thead>
+                                        <tr>
+                                            <th width="50">No</th>
+                                             <th>Tanggal</th>
+                                             <th>Jenis Zakat</th>
+                                            <th>Uraian</th>
+                                            <th>Jumlah</th>  
+                                            <th>Aksi</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
+                                                $no = 1;
+                                                $query_mysql = mysql_query("SELECT * FROM pemberi_zakat JOIN  jenis_zakat ON pemberi_zakat.jenis_zakat=jenis_zakat.id ORDER BY tanggal")or die(mysql_error());
+                                                while($data = mysql_fetch_array($query_mysql)){
+                                                    ?> 
+                                        <tr>
+                                            <td><?php echo $data['id']; ?></td>
+                                            <td><?php echo date('d F Y',strtotime($data['tanggal'])); ?></td>
+                                            <td><?php echo $data['nama_zakat']; ?></td>
+                                            <td><?php echo $data['uraian']; ?></td>
+                                            <td><?php echo 'Rp. '.number_format($data['jumlah'], 0, ".", "."); ?></td>
+                                         
+                                            <td>
+                                                <a href="edit_kamar.php?no_kamar=<?php echo $data['no_kamar']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
+
+                                                <a onclick="javascript: return confirm('Anda yakin ingin menghapus ?')" href="code/hapus_kamar.php?no_kamar=<?php echo $data['no_kamar']; ?>"class="btn btn-icon waves-effect waves-light btn-danger m-b-5"> <i class="fa fa-remove"></i> </a>
+                                                
+                                            </td>
+                                            
+                                        </tr>
+                                            <?php  } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        
+
+                         
+
                         </div>
                         <!-- end row -->
 

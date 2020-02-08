@@ -18,10 +18,12 @@ function anti_injection($data){
 
 // pastikan username dan password adalah berupa huruf atau angka.
 
-$login=sprintf("SELECT * FROM akun LEFT JOIN petugas ON akun.kode_akun=petugas.kode_akun WHERE username='$user' AND password='$pass'", mysql_real_escape_string($user), mysql_real_escape_string($pass));
+$login=sprintf("SELECT * FROM akun LEFT JOIN petugas ON akun.kode_akun=petugas.id_petugas WHERE username='$user' AND password='$pass'", mysql_real_escape_string($user), mysql_real_escape_string($pass));
 $cek_lagi=mysql_query($login);
 $ketemu=mysql_num_rows($cek_lagi);
 $r=mysql_fetch_array($cek_lagi);
+// var_dump($r);
+// die();
 
 // Apabila username dan password ditemukan
 if ($ketemu > 0){
