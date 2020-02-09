@@ -162,18 +162,18 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                         <tbody>
                                             <?php 
                                                 $no = 1;
-                                                $query_mysql = mysql_query("SELECT * FROM pemberi_zakat JOIN  jenis_zakat ON pemberi_zakat.jenis_zakat=jenis_zakat.id ORDER BY tanggal")or die(mysql_error());
+                                                $query_mysql = mysql_query("SELECT * FROM pemberi_zakat JOIN  jenis_zakat ON pemberi_zakat.jenis_zakat=jenis_zakat.id_jenis_zakat ORDER BY tanggal")or die(mysql_error());
                                                 while($data = mysql_fetch_array($query_mysql)){
                                                     ?> 
                                         <tr>
-                                            <td><?php echo $data['id']; ?></td>
+                                            <td><?php echo $no++; ?></td>
                                             <td><?php echo date('d F Y',strtotime($data['tanggal'])); ?></td>
                                             <td><?php echo $data['nama_zakat']; ?></td>
                                             <td><?php echo $data['uraian']; ?></td>
                                             <td><?php echo 'Rp. '.number_format($data['jumlah'], 0, ".", "."); ?></td>
                                          
                                             <td>
-                                                <a href="edit_kamar.php?no_kamar=<?php echo $data['no_kamar']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
+                                                <a href="edit_pemberi_zakat.php?id=<?php echo $data['id']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
 
                                                 <a onclick="javascript: return confirm('Anda yakin ingin menghapus ?')" href="code/hapus_kamar.php?no_kamar=<?php echo $data['no_kamar']; ?>"class="btn btn-icon waves-effect waves-light btn-danger m-b-5"> <i class="fa fa-remove"></i> </a>
                                                 

@@ -7,6 +7,7 @@ include "../config/koneksi.php";
 
 $level=$_SESSION['level'];
 $kode_login=$_SESSION['kode_login'];
+$kode_akun=$_SESSION['kode_akun'];
 $sesi_username          = isset($_SESSION['username']) ? $_SESSION['username'] : NULL;
 if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='Admin'  ) 
 {
@@ -23,7 +24,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Edit Kamar - RSIA</title>
+        <title>Tambah Penerima Zakat - SIZAKAT</title>
 
         <!-- date range picker -->
         <link href="../plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -121,22 +122,22 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
 
 
                         <div class="row">
-							<div class="col-xs-12">
-								<div class="page-title-box">
-                                    <h4 class="page-title">Edit Kamar</h4>
+                            <div class="col-xs-12">
+                                <div class="page-title-box">
+                                    <h4 class="page-title">Edit Pemberi Zakat</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="index.php">Dashboard</a>
                                         </li>
                                        
                                         <li class="active">
-                                            Edit Kamar
+                                            Edit Pemberi Zakat
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
                                 </div>
-							</div>
-						</div>
+                            </div>
+                        </div>
                         <!-- end row -->
                         <div class="row">
                             <div class="col-xs-12">
@@ -144,65 +145,49 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                     <div class="row">
                                         <div class="col-sm-12 col-xs-12 col-md-8">
 
-                                            <h4 class="header-title m-t-0">Edit Kamar</h4>
+                                            <h4 class="header-title m-t-0">Edit Pemberi Zakat</h4>
                                            
                                             <div class="p-20">
-                                                <form  method="POST" action="code/simpan_edit_kamar.php">
-                                                    <div class="form-group">
+                                                <form  method="POST" action="code/simpan_edit_penerima_zakat.php">
+                                                    <?php
+                                                        $sql = mysql_query("SELECT * FROM pemberi_zakat WHERE id = '$_GET[id]'"); 
+                                                        $data = mysql_fetch_array($sql);
+                                                    ?>
+                                                   <div class="form-group">
+                                                        <input type="hidden" name="id" parsley-trigger="change" required
+                                                               placeholder="Nama Lengkap" class="form-control" id="id" value="<?php echo $_GET[id]; ?>">
+                                                        <input type="hidden" name="kode_akun" parsley-trigger="change" required
+                                                               placeholder="Nama Lengkap" class="form-control" id="kode_akun" value="<?php echo $kode_akun; ?>">
 
+                                                        <label for="userName">Jenis Zakat  <span class="text-danger"></span></label>
+
+                                                        <select class="select2 form-control select2" name="jenis_zakat" required="">
                                                         <?php
-                                                        $sql = mysql_query("SELECT * FROM kamar WHERE no_kamar='$_GET[no_kamar]'"); 
-                                                        $data = mysql_fetch_array($sql)
+                                                            $tampil = mysql_query("SELECT * FROM jenis_zakat");
+                                                            while($w=mysql_fetch_array($tampil)){
+                                                                if ($data['jenis_zakat']==$w['id_jenis_zakat']){
+                                                                    $select="selected";
+                                                                }
+                                                                else{
+                                                                    $select="";
+                                                                }
+                                                                echo "<option value='$w[id_jenis_zakat]' $select>".$w['nama_zakat']."</option>";
+                                                            }
                                                         ?>
-
-                                                        <label for="userName">No Kamar<span class="text-danger">*</span></label>
-                                                        <input type="text" name="no_kamar" parsley-trigger="change" required
-                                                               placeholder="No Kamar" class="form-control" id="userName" value="<?php echo $data['no_kamar']; ?>">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="userName">Nama Kamar<span class="text-danger">*</span></label>
-                                                        <input type="text" name="nama" parsley-trigger="change" required
-                                                               placeholder="Nama Kamar" class="form-control" id="userName" value="<?php echo $data['nama']; ?>">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="userName">Jenis Kamar<span class="text-danger">*</span></label>
-                                                        <input type="text" name="jenis_kamar" parsley-trigger="change" required
-                                                               placeholder="Jenis Kamar" class="form-control" id="userName" value="<?php echo $data['jenis_kamar']; ?>">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="userName">Lantai<span class="text-danger">*</span></label>
-                                                        <input type="text" name="lantai" parsley-trigger="change" required
-                                                               placeholder="Lantai" class="form-control" id="userName" value="<?php echo $data['lantai']; ?>">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="userName">Status<span class="text-danger">*</span></label>
-
-                                                        <select class="select2 form-control select2" name="status" data-placeholder="Pilih Status" required="">
-                                                            <option value="<?php echo $data['status']; ?>"><?php echo $data['status']; ?></option>
-                                                            <option value="Tersedia">Tersedia</option>
-                                                            <option value="Penuh">Penuh</option>
-
-                                                     
                                                         </select>
                                                     </div>
 
+
                                                     <div class="form-group">
-                                                        <label for="userName">Kapasitas<span class="text-danger">*</span></label>
-                                                        <input type="number" name="kapasitas" parsley-trigger="change" required
-                                                               placeholder="Kapasitas" class="form-control" id="userName" value="<?php echo $data['kapasitas']; ?>">
+                                                        <label for="uraian">Uraian</label>
+                                                        <textarea class="form-control" name="uraian"  rows="2"><?php echo htmlspecialchars($data['uraian']); ?></textarea>
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="userName">Biaya<span class="text-danger">*</span></label>
-                                                        <input type="number" name="biaya" parsley-trigger="change" required
-                                                               placeholder="Biaya" class="form-control" id="biaya" value="<?php echo $data['biaya']; ?>">
+                                                        <label for="userName">Jumlah<span class="text-danger"></span></albel>
+                                                        <input type="number" name="jumlah" parsley-trigger="change" required
+                                                        autocomplete="off" class="form-control" id="jumlah" value="<?php echo $data['jumlah']; ?>" >
                                                     </div>
-
-                                                    
 
                                                     <div class="form-group row">
                                                         <div class="col-sm-8 col-sm-offset-4">

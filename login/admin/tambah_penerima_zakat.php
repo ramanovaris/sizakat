@@ -124,14 +124,14 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Tambah Penerima Zakat</h4>
+                                    <h4 class="page-title">Tambah Pemberi Zakat</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="index.php">Dashboard</a>
                                         </li>
                                        
                                         <li class="active">
-                                            Tambah Penerima Zakat
+                                            Tambah Pemberi Zakat
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -145,7 +145,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                     <div class="row">
                                         <div class="col-sm-12 col-xs-12 col-md-8">
 
-                                            <h4 class="header-title m-t-0">Tambah Penerima Zakat</h4>
+                                            <h4 class="header-title m-t-0">Tambah Pemberi Zakat</h4>
                                            
                                             <div class="p-20">
                                                 <form  method="POST" action="code/simpan_tambah_penerima_zakat.php">
@@ -164,10 +164,10 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
 
                                                         <?php
                                                      
-                                                            $kota = mysql_query("SELECT * FROM jenis_zakat ORDER BY id");
+                                                            $kota = mysql_query("SELECT * FROM jenis_zakat ORDER BY id_jenis_zakat");
                                                             while($p=mysql_fetch_array($kota))
                                                             {
-                                                            echo "<option value=\"$p[id]\">$p[nama_zakat]</option>\n";
+                                                            echo "<option value=\"$p[id_jenis_zakat]\">$p[nama_zakat]</option>\n";
                                                             }
                                                         ?>
                                                       

@@ -157,7 +157,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                                     <?php
                                                         $sql = mysql_query("SELECT * FROM petugas WHERE id_petugas='$_GET[nik_petugas]'"); 
                                                         $data = mysql_fetch_array($sql);
-                                                        $jk = $data['jenis_kelamin'];
+                                                      
                                                     ?>
                                                     <div class="form-group">
                                                         <input type="hidden" name="id_petugas" parsley-trigger="change" required
@@ -187,7 +187,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                                     <div class="form-group">
                                                         <label for="userName">Jabatan<span class="text-danger">*</span></label>
                                                         <input type="text" name="jabatan" parsley-trigger="change" required
-                                                               placeholder="Alamat" class="form-control" id="userName" value="<?php echo $data['jabatan']; ?>">
+                                                               placeholder="Alamat" class="form-control" id="userName" value="<?php echo $data['jabatan']; ?>"  >
                                                     </div>
 
                                                     <div class="form-group row">
