@@ -206,8 +206,17 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                             </td>
                                             
                                         </tr>
-                                            <?php  } ?>
+                                            <?php  
+                                                $total += $data['jumlah'];
+                                                } 
+                                            ?>
                                         </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="4"><b>Total<b></td>
+                                                <td><b><?php echo 'Rp. '. number_format($total, 0, ',', '.'); ?></b></td>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>

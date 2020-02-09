@@ -198,7 +198,6 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                             <td><?php echo $data['nama_zakat']; ?></td>
                                             <td><?php echo $data['uraian']; ?></td>
                                             <td><?php echo 'Rp. '.number_format($data['jumlah'], 0, ".", "."); ?></td>
-                                         
                                             <td>
                                                 <a href="edit_pemberi_zakat.php?id=<?php echo $data['id']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
 
@@ -207,9 +206,19 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                             </td>
                                             
                                         </tr>
-                                            <?php  } ?>
+                                            <?php  
+                                                $total += $data['jumlah'];
+                                                } 
+                                            ?>
                                         </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="4"><b>Total<b></td>
+                                                <td><b><?php echo 'Rp. '. number_format($total, 0, ',', '.'); ?></b></td>
+                                            </tr>
+                                        </tfoot>
                                     </table>
+                                    <!-- <p>Jumlah</p> -->
                                 </div>
                             </div>
                         </div>
