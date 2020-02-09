@@ -154,15 +154,13 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                             <th>NBKK</th>
                                             <th>NIK</th>
                                             <th>Nama</th>
+                                            <th>Jenis Program</th>
+                                            <th>Golongan</th>
+                                            <th>Jumlah Dana</th>
                                             <th>Alamat</th>
-                                            <th>Kecamatan</th>
                                             <th>No.HP</th>
                                             <th>Keterangan</th>
-                                            <th>Golongan</th>
-                                            <th>Jenis Program</th>
-                                            <th>Jumlah Dana</th>
-                                            
-                                          
+                                            <th>Kecamatan</th>
                                             <th>Aksi</th>
                                         </tr>
                                         </thead>
@@ -178,14 +176,13 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                             <td><?php echo $data['nbkk']; ?></td>
                                             <td><?php echo $data['nik']; ?></td>
                                             <td><?php echo $data['nama']; ?></td>
+                                            <td><?php echo $data['jenis_program']; ?></td>
+                                            <td><?php echo $data['golongan']; ?></td>
+                                            <td><?php echo 'Rp. '.number_format($data['jumlah_dana'], 0, ".", "."); ?></td>
                                             <td><?php echo $data['alamat']; ?></td>
-                                            <td><?php echo $data['kecamatan']; ?></td>
                                             <td><?php echo $data['no_hp']; ?></td>
                                             <td><?php echo $data['keterangan']; ?></td>
-                                            <td><?php echo $data['golongan']; ?></td>
-                                          
-                                            <td><?php echo $data['jenis_program']; ?></td>
-                                             <td><?php echo 'Rp. '.number_format($data['jumlah_dana'], 0, ".", "."); ?></td>
+                                            <td><?php echo $data['kecamatan']; ?></td>
 
                                              <td>
                                                 <a href="edit_penyalur_zakat.php?id=<?php echo $data['id']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
@@ -195,8 +192,17 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                             </td>
                                             
                                         </tr>
-                                            <?php  } ?>
+                                             <?php  
+                                                $total += $data['jumlah_dana'];
+                                                } 
+                                            ?>
                                         </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="7"><b>Total<b></td>
+                                                <td><b><?php echo 'Rp. '. number_format($total, 0, ',', '.'); ?></b></td>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
