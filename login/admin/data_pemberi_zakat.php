@@ -175,7 +175,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                             <td>
                                                 <a href="edit_pemberi_zakat.php?id=<?php echo $data['id']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
 
-                                                <a onclick="javascript: return confirm('Anda yakin ingin menghapus ?')" href="code/hapus_kamar.php?no_kamar=<?php echo $data['no_kamar']; ?>"class="btn btn-icon waves-effect waves-light btn-danger m-b-5"> <i class="fa fa-remove"></i> </a>
+                                                <a onclick="javascript: return confirm('Anda yakin ingin menghapus ?')" href="code/hapus_pemberi_zakat.php?id=<?php echo $data['id']; ?>"class="btn btn-icon waves-effect waves-light btn-danger m-b-5"> <i class="fa fa-remove"></i> </a>
                                                 
                                             </td>
                                             
