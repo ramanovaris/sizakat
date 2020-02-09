@@ -7,6 +7,8 @@ $jenis_zakat = $_POST['jenis_zakat'];
 $uraian = $_POST['uraian'];
 $jumlah = $_POST['jumlah'];
 $kode_akun = $_POST['kode_akun'];
+// var_dump($kode_akun);
+// die();
 
 $simpan = mysql_query("INSERT INTO pemberi_zakat VALUES('', '$uraian', '$jumlah', NULL, '$jenis_zakat', '$kode_akun')")or die(mysql_error());
 

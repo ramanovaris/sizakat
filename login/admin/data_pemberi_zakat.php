@@ -144,9 +144,30 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                             <div class="col-sm-12">
                                 <div class="card-box table-responsive">
 
-                                    <h4 class="m-t-0 header-title"><b>Data Pemberi Zakat</b></h4>
+                                    <h4 class="m-t-0 header-title"><b>Data Pemberi Zakat</b>
+                                    <!-- <h4 class="m-t-0 header-title"><b><?php echo $_GET['status_pinjam']; ?></b> -->
+                                    <form action="" method="get" enctype="multipart/form-data" > 
+                                        <div class="col-md-3">
+                                            <select name="jenis_zakat" id="jenis_zakat" class="form-control" onchange="form.submit()">
+                                                <option value="0">Semua Data</option>
+                                                <?php
+                                                $q = mysql_query("SELECT * FROM jenis_zakat"); 
+                                                while ($a = mysql_fetch_array($q)){
+                                                
+                                                if ($a['id_jenis_zakat'] == $_GET['jenis_zakat']) {
+                                                    echo "<option value='$a[id_jenis_zakat]' selected>$a[nama_zakat]</option>";
+                                                  }
+                                                else {
+                                                  echo "<option value='$a[id_jenis_zakat]'>$a[nama_zakat]</option>";
+                                                }
+                                                }
+                                                ?>   
+                                            </select>
+                                        </div>
+                                     </form>
+                                    </h4>
                                     <a href="tambah_penerima_zakat.php" type="button" class="btn btn-info btn-bordered waves-effect w-md waves-light">Tambah</a>
-                                    
+
                                     <table id="datatable-responsive"
                                            class="table table-striped  table-colored table-info dt-responsive nowrap">
                                         <thead>
@@ -161,10 +182,16 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                         </thead>
                                         <tbody>
                                             <?php 
+                                            if ($_GET['jenis_zakat']=='1'||$_GET['jenis_zakat']=='2'||$_GET['jenis_zakat']=='3'||$_GET['jenis_zakat']=='4'||$_GET['jenis_zakat']=='5') {
+                                               $no = 1;
+                                               $query_mysql = mysql_query("SELECT * FROM pemberi_zakat JOIN  jenis_zakat ON pemberi_zakat.jenis_zakat=jenis_zakat.id_jenis_zakat WHERE jenis_zakat='$_GET[jenis_zakat]'")or die(mysql_error());
+                                            }
+                                            else{
                                                 $no = 1;
                                                 $query_mysql = mysql_query("SELECT * FROM pemberi_zakat JOIN  jenis_zakat ON pemberi_zakat.jenis_zakat=jenis_zakat.id_jenis_zakat ORDER BY tanggal")or die(mysql_error());
+                                            }
                                                 while($data = mysql_fetch_array($query_mysql)){
-                                                    ?> 
+                                            ?> 
                                         <tr>
                                             <td><?php echo $no++; ?></td>
                                             <td><?php echo date('d F Y',strtotime($data['tanggal'])); ?></td>
