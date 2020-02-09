@@ -199,8 +199,8 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <td colspan="7"><b>Total<b></td>
-                                                <td><b><?php echo 'Rp. '. number_format($total, 0, ',', '.'); ?></b></td>
+                                                <td colspan="7"><h5><b>Total<b></h5></td>
+                                                <td><h5><b><?php echo 'Rp. '. number_format($total, 0, ',', '.'); ?></b></h5></td>
                                             </tr>
                                         </tfoot>
                                     </table>
