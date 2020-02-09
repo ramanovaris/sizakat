@@ -23,7 +23,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Data Petugas - RSIA</title>
+        <title>Data Petugas - SIZAKAT</title>
 
         <!-- date range picker -->
         <link href="../plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -169,6 +169,8 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                             <td><?php echo $data['jabatan']; ?></td>
                                             <td>
                                                 <a href="edit_petugas.php?nik_petugas=<?php echo $data['id_petugas']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
+
+                                                    <a onclick="javascript: return confirm('Anda yakin ingin menghapus ?')" href="code/hapus_petugas.php?id=<?php echo $data['id_petugas']; ?>"class="btn btn-icon waves-effect waves-light btn-danger m-b-5"> <i class="fa fa-remove"></i> </a>
                                                 
                                             </td>
                                             

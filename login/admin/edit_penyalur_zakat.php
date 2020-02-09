@@ -6,6 +6,7 @@ include "../config/timeout.php";
 include "../config/koneksi.php";
 
 $level=$_SESSION['level'];
+$kode_login=$_SESSION['kode_login'];
 $kode_akun=$_SESSION['kode_akun'];
 $sesi_username          = isset($_SESSION['username']) ? $_SESSION['username'] : NULL;
 if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='Admin'  ) 
@@ -23,7 +24,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Tambah Dokter - RSIA</title>
+        <title>Edit Penerima Zakat - SIZAKAT</title>
 
         <!-- date range picker -->
         <link href="../plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -35,11 +36,6 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <link href="../plugins/datatables/dataTables.colVis.css" rel="stylesheet" type="text/css"/>
         <link href="../plugins/datatables/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../plugins/datatables/fixedColumns.dataTables.min.css" rel="stylesheet" type="text/css"/>
-         <link href="../plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css" rel="stylesheet" />
-        <link href="../plugins/multiselect/css/multi-select.css"  rel="stylesheet" type="text/css" />
-        <link href="../plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-        <link href="../plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />
-        <link href="../plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -126,22 +122,22 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
 
 
                         <div class="row">
-							<div class="col-xs-12">
-								<div class="page-title-box">
-                                    <h4 class="page-title">Tambah Dokter</h4>
+                            <div class="col-xs-12">
+                                <div class="page-title-box">
+                                    <h4 class="page-title">Edit Penyalur Zakat</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="index.php">Dashboard</a>
                                         </li>
                                        
                                         <li class="active">
-                                            Tambah Dokter
+                                            Edit Penyalur Zakat
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
                                 </div>
-							</div>
-						</div>
+                            </div>
+                        </div>
                         <!-- end row -->
                         <div class="row">
                             <div class="col-xs-12">
@@ -149,58 +145,68 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                     <div class="row">
                                         <div class="col-sm-12 col-xs-12 col-md-8">
 
-                                            <h4 class="header-title m-t-0">Data DOkter</h4>
+                                            <h4 class="header-title m-t-0">Edit Penyalur Zakat</h4>
                                            
                                             <div class="p-20">
-                                                <form  method="POST" action="code/simpan_dokter.php">
+                                                <form  method="POST" action="code/simpan_edit_penyalur_zakat.php">
 
 
-                                                    <div class="form-group">
-                                                        <label for="userName">NIK<span class="text-danger">*</span></label>
-                                                        <input type="text" name="nik_dokter" parsley-trigger="change" required
-                                                               placeholder="NIK" class="form-control" id="userName">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="userName">Nama Lengkap<span class="text-danger">*</span></label>
-                                                        <input type="text" name="nama_dokter" parsley-trigger="change" required
-                                                               placeholder="Nama Lengkap" class="form-control" id="userName">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                    <label for="userName">Jenis Kelamin<span class="text-danger">*</span></label><br>
-                                                        <div class="radio radio-info radio-inline">
-                                                            <input type="radio" id="inlineRadio1" value="Laki-laki" name="jenis_kelamin" >
-                                                            <label for="inlineRadio1">Laki-laki</label>
-                                                        </div>
-                                                        <div class="radio radio-inline">
-                                                            <input type="radio" id="inlineRadio2" value="Perempuan" name="jenis_kelamin">
-                                                            <label for="inlineRadio2">Perempuan</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="userName">Spesialis Poli<span class="text-danger">*</span></label>
-
-                                                        <select class="select2 form-control select2" name="kode_poli" data-placeholder="Pilih Poli" required="">
-                                                            <option value="">--Pilih--</option>
 
                                                     <?php
-                                                     
-                                                        $kota = mysql_query("SELECT * FROM poli ORDER BY kode_poli");
-                                                        while($p=mysql_fetch_array($kota))
-                                                        {
-                                                        echo "<option value=\"$p[kode_poli]\">$p[nama_poli]</option>\n";
-                                                        }
+                                                        $sql = mysql_query("SELECT * FROM penyaluran_zakat WHERE id = '$_GET[id]'"); 
+                                                        $data = mysql_fetch_array($sql);
+                                                      
                                                     ?>
-                                                     
-                                                        </select>
+
+                                                  <input type="hidden" name="kode_akun" parsley-trigger="change" required placeholder="Nama Lengkap" class="form-control" id="kode_akun" value="<?php echo $kode_akun; ?>">
+
+            
+                                                    <div class="form-group">
+                                                  <input type="hidden" name="id" parsley-trigger="change" required
+                                                               placeholder="Nama Lengkap" class="form-control" id="id" value="<?php echo $_GET[id]; ?>">
+                                                    <label for="userName">NBKK<span class="text-danger">*</span></label>
+                                                    <input type="text" name="nbkk" parsley-trigger="change" required  class="form-control" id="userName" value="<?php echo $data['nbkk'];?>" >
+                                                    </div>
+                                                     <div class="form-group">
+                                                    <label for="userName">NIK</label>
+                                                        <input type="number" maxlength="20" name="nik" parsley-trigger="change" required
+                                                       class="form-control" id="nik" value="<?php echo $data['nik']; ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label for="userName">Nama</label>
+                                                    <input type="text" name="nama" parsley-trigger="change" required  class="form-control" id="userName" value="<?php echo $data['nama']; ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label for="userName">Alamat</label>
+                                                    <input type="text" name="alamat" parsley-trigger="change" required class="form-control" id="userName" value="<?php echo $data['alamat']; ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label for="userName">Kecamatan</label>
+                                                    <input type="text" name="kecamatan" parsley-trigger="change" required class="form-control" id="userName" value="<?php echo $data['kecamatan']; ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label for="userName">No.HP</label>
+                                                    <input type="number" name="nohp" parsley-trigger="change" required  class="form-control" id="userName" value="<?php echo $data['no_hp']; ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label for="userName">Keterangan</label>
+                                                    <input type="text" name="keterangan" parsley-trigger="change" required  class="form-control" id="userName" value="<?php echo $data['keterangan']; ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label for="userName">Golongan</label>
+                                                    <input type="text" name="golongan" parsley-trigger="change" required  class="form-control" id="userName" value="<?php echo $data['golongan']; ?>">
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label for="userName">Jenis Program</label>
+                                                    <input type="text" name="jenis_program" parsley-trigger="change" required  class="form-control" id="userName" value="<?php echo $data['jenis_program']; ?>">
                                                     </div>
 
+                                                  
+
                                                     <div class="form-group">
-                                                        <label for="userName">Alamat<span class="text-danger">*</span></label>
-                                                        <input type="text" name="alamat" parsley-trigger="change" required
-                                                               placeholder="Alamat" class="form-control" id="userName">
+                                                        <label for="userName">Jumlah Dana</label>
+                                                        <input type="number" name="jumlah" parsley-trigger="change" required
+                                                        placeholder="Rp." autocomplete="off" class="form-control" id="jumlah" value="<?php echo $data['jumlah_dana']; ?>">
                                                     </div>
 
                                                     <div class="form-group row">
@@ -319,26 +325,64 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <script src="assets/js/jquery.scrollTo.min.js"></script>
         <script src="../plugins/switchery/switchery.min.js"></script>
 
-        <script src="../plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.min.js"></script>
-        <script src="../plugins/multiselect/js/jquery.multi-select.js"></script>
-        <script src="../plugins/jquery-quicksearch/jquery.quicksearch.js"></script>
-        <script src="../plugins/select2/js/select2.min.js"></script>
-        <script src="../plugins/bootstrap-select/js/bootstrap-select.min.js"></script>
-        <script src="../plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js"></script>
-        <script src="../plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js"></script>
-        <script src="../plugins/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+        <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="../plugins/datatables/dataTables.bootstrap.js"></script>
 
-        <script src="../plugins/autocomplete/jquery.mockjax.js"></script>
-        <script src="../plugins/autocomplete/jquery.autocomplete.min.js"></script>
-        <script src="../plugins/autocomplete/countries.js"></script>
-        <script src="assets/pages/jquery.autocomplete.init.js"></script>
+        <script src="../plugins/datatables/dataTables.buttons.min.js"></script>
+        <script src="../plugins/datatables/buttons.bootstrap.min.js"></script>
+        <script src="../plugins/datatables/jszip.min.js"></script>
+        <script src="../plugins/datatables/pdfmake.min.js"></script>
+        <script src="../plugins/datatables/vfs_fonts.js"></script>
+        <script src="../plugins/datatables/buttons.html5.min.js"></script>
+        <script src="../plugins/datatables/buttons.print.min.js"></script>
+        <script src="../plugins/datatables/dataTables.fixedHeader.min.js"></script>
+        <script src="../plugins/datatables/dataTables.keyTable.min.js"></script>
+        <script src="../plugins/datatables/dataTables.responsive.min.js"></script>
+        <script src="../plugins/datatables/responsive.bootstrap.min.js"></script>
+        <script src="../plugins/datatables/dataTables.scroller.min.js"></script>
+        <script src="../plugins/datatables/dataTables.colVis.js"></script>
+        <script src="../plugins/datatables/dataTables.fixedColumns.min.js"></script>
 
-        <script src="assets/pages/jquery.form-advanced.init.js"></script>
-
+        <!-- init -->
+        <script src="assets/pages/jquery.datatables.init.js"></script>
 
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('#datatable').dataTable();
+                $('#datatable-keytable').DataTable({keys: true});
+                $('#datatable-responsive').DataTable();
+                $('#datatable-colvid').DataTable({
+                    "dom": 'C<"clear">lfrtip',
+                    "colVis": {
+                        "buttonText": "Change columns"
+                    }
+                });
+                $('#datatable-scroller').DataTable({
+                    ajax: "../plugins/datatables/json/scroller-demo.json",
+                    deferRender: true,
+                    scrollY: 380,
+                    scrollCollapse: true,
+                    scroller: true
+                });
+                var table = $('#datatable-fixed-header').DataTable({fixedHeader: true});
+                var table = $('#datatable-fixed-col').DataTable({
+                    scrollY: "300px",
+                    scrollX: true,
+                    scrollCollapse: true,
+                    paging: false,
+                    fixedColumns: {
+                        leftColumns: 1,
+                        rightColumns: 1
+                    }
+                });
+            });
+            TableManageButtons.init();
+
+        </script>
 
     </body>
 </html>

@@ -142,7 +142,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                 <div class="card-box table-responsive">
 
                                     <h4 class="m-t-0 header-title"><b>Data Penyaluran Zakat</b></h4>
-                                    <a href="tambah_perawat.php" type="button" class="btn btn-info btn-bordered waves-effect w-md waves-light">Tambah</a>
+                                    <a href="tambah_penyalur_zakat.php" type="button" class="btn btn-info btn-bordered waves-effect w-md waves-light">Tambah</a>
                                     
                                     <table id="datatable-responsive"
                                            class="table table-striped  table-colored table-info dt-responsive nowrap">
@@ -186,8 +186,10 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                             <td><?php echo $data['jenis_program']; ?></td>
                                              <td><?php echo 'Rp. '.number_format($data['jumlah_dana'], 0, ".", "."); ?></td>
 
-                                            <td>
-                                                <a href="edit_perawat.php?nik_perawat=<?php echo $data['nik_perawat']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
+                                             <td>
+                                                <a href="edit_penyalur_zakat.php?id=<?php echo $data['id']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
+
+                                                <a onclick="javascript: return confirm('Anda yakin ingin menghapus ?')" href="code/hapus_penyalur_zakat.php?id=<?php echo $data['id']; ?>"class="btn btn-icon waves-effect waves-light btn-danger m-b-5"> <i class="fa fa-remove"></i> </a>
                                                 
                                             </td>
                                             
