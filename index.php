@@ -9,7 +9,7 @@ include "config/koneksi.php";
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pesan Kamar - RSIA</title>
+    <title>SIZAKAT</title>
     <meta name="description" content="">
     <meta name="author" content="rometheme.net">  
 	
@@ -58,7 +58,7 @@ include "config/koneksi.php";
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-sm-4 col-md-2 col-lg-4">
-						<p class="mb-0"><em>RSIA - Layanan Cepat Pesan Kamar</em></p>
+						<p class="mb-0"><em>BAZNAS Tanah Laut</em></p>
 					</div>
 					<div class="col-sm-8 col-md-10 col-lg-8">
 						<div class="info pull-right">
@@ -77,7 +77,8 @@ include "config/koneksi.php";
 			<div class="container">
 			    <nav id="navbar-main" class="navbar navbar-expand-lg">
 			        <a class="navbar-brand" href="index.php">
-						<img src="images/logo2.png" alt=""/>
+						<img src="images/baznas_header.png" alt="" style="width: 350px;
+    height: 60px;" />
 					</a>
 			        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 			            <span class="navbar-toggler-icon"></span>
@@ -88,13 +89,8 @@ include "config/koneksi.php";
 			                <li class="nav-item">
 			                    <a class="nav-link active" href="index.php">Home</a>
 			                </li>
-			                <li class="nav-item">
-			                    <a class="nav-link" href="registrasi.php">Registrasi</a>
-			                </li>
-			               
+			          
 			                 
-			       
-
 			                <li class="nav-item">
 			                    <a class="nav-link" href="login">login</a>
 			                </li>
@@ -107,10 +103,10 @@ include "config/koneksi.php";
     </div>
 
 	<!-- BANNER -->
-    <div class="section banner-page" data-background="images/rsia.jpg">
+    <div class="section banner-page" data-background="images/baznas_tala.jpg">
 		<div class="content-wrap pos-relative">
 			<div class="d-flex justify-content-center bd-highlight mb-3">
-				<div class="title-page">Layanan Cepat Pesan Kamar</div>
+				<div class="title-page" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">Sistem Infomasi Badan Amil Zakat Nasional Kabupaten Tanah Laut</div>
 			</div>
 			<div class="d-flex justify-content-center bd-highlight mb-3">
 			    <nav aria-label="breadcrumb">
@@ -130,7 +126,7 @@ include "config/koneksi.php";
 
 					<div class="col-sm-12 col-md-12 col-lg-8">
 						
-						<h2 class="section-heading text-left mb-5">
+						<!-- <h2 class="section-heading text-left mb-5">
 							Pesan Kamar
 						</h2>
 						<p class="subheading text-left">Pesan Kamar cepat bagi pasien yang sudah terdaftar di member RSIA</p>
@@ -172,7 +168,7 @@ include "config/koneksi.php";
 									<button type="submit" class="btn btn-primary">KONFIRMASI</button>
 								</div>
 							
-						</form>	
+						</form> -->	
 						<script type="text/javascript">
 			            function isi_otomatis(){
 			                var no_rm = $("#no_rm").val();
@@ -240,12 +236,12 @@ include "config/koneksi.php";
 				
 				<div class="row">
 					<div class="col-sm-6 col-md-6 col-lg-3">
-						<div class="footer-item">
+						<!-- <div class="footer-item">
 							<img src="images/logo2.png" alt="logo bottom" class="logo-bottom">
 							<div class="spacer-30"></div>
 							<p>RSU Borneo Citra Medika Tanah Laut - Memberikan Kenyamanan Pelayanan Kesehatan Ibu, Anak, Keluarga, dan Masyarakat Khususnya di Kabupaten Tanah Laut.</p>
 							
-						</div>
+						</div> -->
 					</div>	
 
 					
@@ -290,7 +286,7 @@ include "config/koneksi.php";
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 col-md-12">
-						<p class="ftex">Copyright 2019 &copy; <span class="color-primary">RSIA</span><span class="color-primary"></span></p> 
+						<p class="ftex">Copyright 2019 &copy; <span class="color-primary">BAZNAS Tanah Laut</span><span class="color-primary"></span></p> 
 					</div>
 				</div>
 			</div>

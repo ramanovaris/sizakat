@@ -23,7 +23,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Edit Petugas - SIZAKAT</title>
+        <title>Edit Petugas - RSIA</title>
 
         <!-- date range picker -->
         <link href="../plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -157,7 +157,6 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                                     <?php
                                                         $sql = mysql_query("SELECT * FROM petugas WHERE id_petugas='$_GET[nik_petugas]'"); 
                                                         $data = mysql_fetch_array($sql);
-                                                        $jk = $data['jenis_kelamin'];
                                                       
                                                     ?>
                                                     <div class="form-group">

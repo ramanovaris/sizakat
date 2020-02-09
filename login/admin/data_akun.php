@@ -23,7 +23,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Dashboard - RSIA</title>
+        <title>Data Akun - SIZAKAT</title>
 
         <!-- date range picker -->
         <link href="../plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -158,7 +158,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                         <tbody>
                                             <?php 
                                                 $no = 1;
-                                                $query_mysql = mysql_query("SELECT * FROM akun JOIN petugas ON akun.kode_akun=petugas.id_akun ORDER BY akun.kode_akun")or die(mysql_error());
+                                                $query_mysql = mysql_query("SELECT * FROM akun  JOIN petugas ON akun.kode_akun=petugas.id_akun ")or die(mysql_error());
                                                 while($data = mysql_fetch_array($query_mysql)){
                                                     ?> 
                                         <tr>

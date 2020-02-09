@@ -16,7 +16,7 @@ $hitung4 = mysql_query("SELECT * FROM pesan_kamar WHERE kode_pesan='$kode_pesan'
 $data=mysql_fetch_array($hitung4);
 $no_kamar_lama = $data['no_kamar'];
 
-if ($tgl_keluar == "1970-01-01") {
+if ($tgl_keluar =="1970-01-01") {
 $update = mysql_query("UPDATE pesan_kamar SET no_kamar='$no_kamar', no_rm='$no_rm', tgl_pesan='$tgl_pesan', tgl_keluar=NULL, status='$status' WHERE kode_pesan='$kode_pesan'") or die(mysql_error());
 }
 else{
@@ -43,7 +43,7 @@ if ($kapasitas < 0 ) {
     $update_kapasitas = mysql_query("UPDATE kamar SET status ='Penuh' WHERE no_kamar='$no_kamar'") or die(mysql_error());
 }
 
-} elseif ($status=="Dibatalkan"){
+}elseif($status=="Dibatalkan"){
 $hitung2 = mysql_query("SELECT * FROM kamar WHERE no_kamar='$no_kamar'")or die(mysql_error());
 $data=mysql_fetch_array($hitung2);
 $nilai = $data['kapasitas'];
@@ -56,7 +56,7 @@ $kapasitas = $data2['kapasitas'];
 if ($kapasitas !=0 ) {
     $update_kapasitas = mysql_query("UPDATE kamar SET status ='Tersedia' WHERE no_kamar='$no_kamar'") or die(mysql_error());
 }
-} elseif ($tgl_keluar !="1970-01-01"){
+}elseif ($tgl_keluar !="1970-01-01"){
 $hitung = mysql_query("SELECT * FROM kamar WHERE no_kamar='$no_kamar'")or die(mysql_error());
 $data=mysql_fetch_array($hitung);
 $nilai = $data['kapasitas'];

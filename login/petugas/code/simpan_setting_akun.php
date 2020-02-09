@@ -41,7 +41,7 @@ if ($data['password']==$password_lama){
          else 
         echo "<script>
     alert('Password tidak sama');
-    window.location = '../setting_akun.php';
+    window.location = '../setting_akun_admin.php';
     </script>
     ";  
 }
@@ -49,7 +49,7 @@ else
 {
     echo "<script>
     alert('Password lama salah');
-    window.location = '../setting_akun.php';
+    window.location = '../setting_akun_admin.php';
     </script>
     ";
 

@@ -23,7 +23,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Dashboard - RSIA</title>
+        <title>Dashboard - SIZAKAT</title>
 
         <!-- date range picker -->
         <link href="../plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -133,7 +133,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                         <!-- end row -->
 
 
-                        <div class="row">
+                       <div class="row">
 
 
                             <?php
@@ -152,35 +152,40 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                 </div>
                             </div><!-- end col -->
 
+                               <?php
+                                $sql3 =mysql_query("SELECT * FROM pemberi_zakat");
+                                $total_petugas = mysql_num_rows($sql3)
+                            ?>
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card-box widget-box-two widget-two-success">
+                                    <i class="mdi mdi-account-convert widget-two-icon"></i>
+                                    <div class="wigdet-two-content text-white">
+                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Data Pemberi Zakat</p>
+                                        <h2 class="text-white"><span data-plugin="counterup"><?php echo $total_petugas; ?></span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
+                                        <p class="m-0"><b>Total Pemberi Zakat</b></p>
+                                    </div>
+                                </div>
+                            </div><!-- end col -->
+
+                               <?php
+                                $sql3 =mysql_query("SELECT * FROM penyaluran_zakat");
+                                $total_petugas = mysql_num_rows($sql3)
+                            ?>
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card-box widget-box-two widget-two-warning">
+                                    <i class="mdi mdi-account-convert widget-two-icon"></i>
+                                    <div class="wigdet-two-content text-white">
+                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Data Penyaluran Zakat</p>
+                                        <h2 class="text-white"><span data-plugin="counterup"><?php echo $total_petugas; ?></span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
+                                        <p class="m-0"><b>Total Penyalur</b></p>
+                                    </div>
+                                </div>
+                            </div><!-- end col -->
+
                            
                         </div>
-                            <hr>
-                            <h3>Statistik Pengguna</h3>
-                                <div class="row">
-                                    <div style="width: 600px;margin: 0px auto;">
-                                        <canvas id="myChart"></canvas>
-                                    </div>
-                                </div>
-
-                                <h3>Statistik Rekam Medis</h3>
-
-                                <div class="row">
-                                    <div style="width: 600px;margin: 0px auto;">
-                                        <canvas id="rekam_medis"></canvas>
-                                    </div>
-                                </div>
-
-                                <h3>Statistik Pesan Kamar</h3>
-
-                                <div class="row">
-                                    <div style="width: 600px;margin: 0px auto;">
-                                        <canvas id="pesan_kamar"></canvas>
-                                    </div>
-                                </div>
-
-                                <div id="chart-container">
-                                    <canvas id="graphCanvas"></canvas>
-                                </div>
 
                            
 

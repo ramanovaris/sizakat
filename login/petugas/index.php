@@ -23,7 +23,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Dashboard - RSIA</title>
+        <title>Dashboard - SIZAKAT</title>
 
         <!-- date range picker -->
         <link href="../plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -36,7 +36,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
         <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
+		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
 
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -113,8 +113,8 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
 
 
                         <div class="row">
-                            <div class="col-xs-12">
-                                <div class="page-title-box">
+							<div class="col-xs-12">
+								<div class="page-title-box">
                                     <h4 class="page-title">Dashboard</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
@@ -124,48 +124,17 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                         <li class="active">
                                             Dashboard
                                         </li>
+                                        
                                     </ol>
                                     <div class="clearfix"></div>
                                 </div>
-                            </div>
-                        </div>
+							</div>
+						</div>
                         <!-- end row -->
 
 
                         <div class="row">
 
-                            <?php
-                             $sql =mysql_query("SELECT * FROM pasien");
-                            $total = mysql_num_rows($sql)
-                           
-                            ?>
-
-                            <div class="col-lg-3 col-md-6">
-                                <div class="card-box widget-box-two widget-two-info">
-                                    <i class="mdi mdi-chart-areaspline widget-two-icon"></i>
-                                    <div class="wigdet-two-content text-white">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Pasien</p>
-                                        <h2 class="text-white"><span data-plugin="counterup"><?php echo $total; ?></span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
-                                        <p class="m-0"><b>Total Pasien</b></p>
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
-                            <?php
-                             $sql2 =mysql_query("SELECT * FROM dokter");
-                            $total_dokter = mysql_num_rows($sql2)
-                           
-                            ?>
-
-                            <div class="col-lg-3 col-md-6">
-                                <div class="card-box widget-box-two widget-two-primary">
-                                    <i class="mdi mdi-layers widget-two-icon"></i>
-                                    <div class="wigdet-two-content text-white">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Dokter</p>
-                                        <h2 class="text-white"><span data-plugin="counterup"><?php echo $total_dokter; ?></span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
-                                        <p class="m-0"><b>Total Dokter</b></p>
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
 
                             <?php
                                 $sql3 =mysql_query("SELECT * FROM petugas");
@@ -183,198 +152,44 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                 </div>
                             </div><!-- end col -->
 
-                            <?php
-                                $sql4 =mysql_query("SELECT * FROM perawat");
-                                $total_perawat = mysql_num_rows($sql4)
+                               <?php
+                                $sql3 =mysql_query("SELECT * FROM pemberi_zakat");
+                                $total_petugas = mysql_num_rows($sql3)
                             ?>
 
                             <div class="col-lg-3 col-md-6">
                                 <div class="card-box widget-box-two widget-two-success">
                                     <i class="mdi mdi-account-convert widget-two-icon"></i>
                                     <div class="wigdet-two-content text-white">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User Today">Perawat</p>
-                                        <h2 class="text-white"><span data-plugin="counterup"><?php echo $total_perawat; ?></span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
-                                        <p class="m-0"><b>Total Perawat</b></p>
+                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Data Pemberi Zakat</p>
+                                        <h2 class="text-white"><span data-plugin="counterup"><?php echo $total_petugas; ?></span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
+                                        <p class="m-0"><b>Total Pemberi Zakat</b></p>
                                     </div>
                                 </div>
                             </div><!-- end col -->
+
+                               <?php
+                                $sql3 =mysql_query("SELECT * FROM penyaluran_zakat");
+                                $total_petugas = mysql_num_rows($sql3)
+                            ?>
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card-box widget-box-two widget-two-warning">
+                                    <i class="mdi mdi-account-convert widget-two-icon"></i>
+                                    <div class="wigdet-two-content text-white">
+                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Data Penyaluran Zakat</p>
+                                        <h2 class="text-white"><span data-plugin="counterup"><?php echo $total_petugas; ?></span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
+                                        <p class="m-0"><b>Total Penyalur</b></p>
+                                    </div>
+                                </div>
+                            </div><!-- end col -->
+
+                           
                         </div>
-                            <hr>
-                            <h3>Statistik Pengguna</h3>
-                                <div class="row">
-                                    <div style="width: 600px;margin: 0px auto;">
-                                        <canvas id="myChart"></canvas>
-                                    </div>
-                                </div>
-
-                                <h3>Statistik Rekam Medis</h3>
-
-                                <div class="row">
-                                    <div style="width: 600px;margin: 0px auto;">
-                                        <canvas id="rekam_medis"></canvas>
-                                    </div>
-                                </div>
-
-                                <h3>Statistik Pesan Kamar</h3>
-
-                                <div class="row">
-                                    <div style="width: 600px;margin: 0px auto;">
-                                        <canvas id="pesan_kamar"></canvas>
-                                    </div>
-                                </div>
-
-                                <div id="chart-container">
-                                    <canvas id="graphCanvas"></canvas>
-                                </div>
-
-                            <script>
-                    var ctx = document.getElementById("myChart").getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ["Pasien", "Dokter", "Petugas", "Perawat"],
-                            datasets: [{
-                                label: '',
-                                data: [
-                               <?php
-                                $jumlah_teknik = mysql_query("SELECT * FROM pasien")or die(mysql_error());
-                                echo mysql_num_rows($jumlah_teknik);
-                                ?>, 
-                                <?php 
-                                $jumlah_tip = mysql_query("SELECT * FROM dokter")or die(mysql_error());
-                                echo mysql_num_rows($jumlah_tip);
-                                ?>, 
-                                <?php 
-                                $jumlah_mo = mysql_query("SELECT * FROM petugas")or die(mysql_error());
-                                echo mysql_num_rows($jumlah_mo);
-                                ?>, 
-                                <?php 
-                                $jumlah_ak = mysql_query("SELECT * FROM perawat")or die(mysql_error());
-                                echo mysql_num_rows($jumlah_ak);
-                            
-                                ?>
-                                ],
-                                backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)'
-                                ],
-                                borderColor: [
-                                'rgba(255,99,132,1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)'
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero:true
-                                    }
-                                }]
-                            }
-                        }
-                    });
-                </script>
-                <script>
-                    var ctx = document.getElementById("pesan_kamar").getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ["Dipesan", "Dibatalkan"],
-                            datasets: [{
-                                label: '',
-                                data: [
-                               <?php
-                        
                           
-                                $jumlah_1 = mysql_query("SELECT * FROM pesan_kamar WHERE status='Dipesan'")or die(mysql_error());
-                                echo mysql_num_rows($jumlah_1);
-                                ?>, 
-                                <?php 
-                                $jumlah_2 = mysql_query("SELECT * FROM pesan_kamar WHERE status='Dibatalkan'")or die(mysql_error());
-                                echo mysql_num_rows($jumlah_ak);
-                            
-                                ?>
-                                ],
-                                backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)'
-                                ],
-                                borderColor: [
-                                'rgba(255,99,132,1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)'
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero:true
-                                    }
-                                }]
-                            }
-                        }
-                    });
-                </script>
+                           
 
-                <script>
-                    var ctx = document.getElementById("rekam_medis").getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ["Sedang Dipinjam", "Sudah Dikembalikan"],
-                            datasets: [{
-                                label: '',
-                                data: [
-                               <?php
-                        
-                          
-                                $jumlah_1 = mysql_query("SELECT * FROM rekam_medis WHERE status='Sedang Dipinjam'")or die(mysql_error());
-                                echo mysql_num_rows($jumlah_1);
-                                ?>, 
-                                <?php 
-                                $jumlah_2 = mysql_query("SELECT * FROM rekam_medis WHERE status='Sudah Dikembalikan'")or die(mysql_error());
-                                echo mysql_num_rows($jumlah_ak);
-                            
-                                ?>
-                                ],
-                                backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)'
-                                ],
-                                borderColor: [
-                                'rgba(255,99,132,1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)'
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero:true
-                                    }
-                                }]
-                            }
-                        }
-                    });
-                </script>
+                           
 
 
 

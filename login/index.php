@@ -11,7 +11,7 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.png">
         <!-- App title -->
-        <title>Login - RSIA</title>
+        <title>Login - SIZAKAT</title>
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -42,7 +42,7 @@
                                 <div class="text-center account-logo-box img-responsive" >
                                     <h2 class="text-uppercase">
                                         <a href="index.php" class="text-success">
-                                            <span><img src="assets/images/logo2.jpg" alt="" width="100%" height="100%"></span>
+                                            <span><img src="assets/images/basnaz.jpg" alt="" width="100%" height="100%"></span>
                                         </a>
                                     </h2>
                                 </div>
@@ -80,7 +80,7 @@
 
                                         <div class="form-group account-btn text-center m-t-10">
                                             <div class="col-xs-12">
-                                                <button class="btn w-md btn-bordered btn-danger waves-effect waves-light" >Log In</button>
+                                                <button class="btn w-md btn-bordered btn-success waves-effect waves-light" >Log In</button>
                                             </div>
                                         </div>
 

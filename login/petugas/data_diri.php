@@ -1,7 +1,7 @@
 						 <div class="user-details">
                             <div class="overlay"></div>
                             <div class="text-center">
-                                <img src="assets/images/rsia.jpg" alt="" class="thumb-md img-circle">
+                                <img src="assets/images/baznas_kalsel.jpg" alt="" class="thumb-md img-circle">
                             </div>
                             <div class="user-info">
                                 <div>
@@ -12,7 +12,7 @@
 						<div class="dropdown" id="setting-dropdown">
                             <ul class="dropdown-menu">
                                 
-                                <li><a href="profil.php"><i class="ti-user m-r-5"></i> Profile</a></li>
+                            
                                 <li><a href="setting_akun_admin.php"><i class="mdi mdi-lock m-r-5"></i>Setting Akun</a></li>
                                 <li><a href="logout.php"><i class="mdi mdi-logout m-r-5"></i> Logout</a></li>
                             </ul>

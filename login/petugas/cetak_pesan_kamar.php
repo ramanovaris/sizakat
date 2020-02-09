@@ -1,11 +1,11 @@
 <?php 
 session_start();
 
+
 include "../config/koneksi.php";
 
-
-
 require('phpfpdf/fpdf.php');
+
 $q = "SELECT max(kode_pesan) as maxKode FROM pesan_kamar";
 
 // var_dump($q); die();
@@ -19,7 +19,6 @@ $noUrut++;
 
 $char = "KMR";
 $newID = $char. sprintf("%03s", $noUrut);
-
 function dateBahasaIndo($tgl_isi_kuis){
 
 $bulan=array(
@@ -72,8 +71,8 @@ $pdf->SetFont('Arial','',12);
 
 $query = mysql_query("SELECT pesan_kamar.kode_pesan,pasien.no_rm, pasien.nama_pasien, kamar.no_kamar, kamar.nama, pesan_kamar.tgl_keluar, pesan_kamar.tgl_pesan, pesan_kamar.total_hari, pesan_kamar.total_biaya, pesan_kamar.status FROM pesan_kamar
     JOIN pasien ON pesan_kamar.no_rm=pasien.no_rm
-    JOIN kamar ON pesan_kamar.no_kamar=kamar.no_kamar
-    WHERE kode_pesan='$_GET[kode_pesan]'")or die(mysql_error());
+    JOIN kamar ON pesan_kamar.no_kamar=kamar.no_kamar 
+    WHERE kode_pesan='$_GET[kode_pesan]' ")or die(mysql_error());
 
         while($row=mysql_fetch_array($query)){
 
@@ -88,6 +87,7 @@ $query = mysql_query("SELECT pesan_kamar.kode_pesan,pasien.no_rm, pasien.nama_pa
 $pdf->SetFont('Arial','BU',12);
 $pdf->Cell(100 ,5,'RESI PEMESANAN KAMAR',0,1);//end of line
 $pdf->Cell(100 ,5,'',0,1);//end of line
+
 
 $pdf->SetFont('Arial','',7);
 $pdf->Cell(45 ,5,'No.Resi :',0,0);
@@ -150,12 +150,11 @@ $pdf->Cell(90 ,5,$row['total_biaya'],0,1);
 $pdf->Cell(100 ,2,'',0,1);//end of line
 
 $pdf->SetFont('Arial','B',10);
-$pdf->Cell(120,5,'Petugas,                                  Pasien,',0,1,'C');
+$pdf->Cell(120,5,'Petugas,                                Pasien,',0,1,'C');
 $pdf->ln();
 $pdf->ln();
 $pdf->SetFont('Arial','B',10);
-$pdf->Cell(120,5,$_SESSION['nama_petugas'] . '                                         '  .  $row['nama_pasien'],0,1,'C');
-
+$pdf->Cell(120,5,$_SESSION['nama_petugas']    .    '                                         '  .  $row['nama_pasien'],0,1,'C');
 
 
 }

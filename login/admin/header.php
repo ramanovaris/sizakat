@@ -39,45 +39,9 @@
 
                         <!-- Right(Notification) -->
                         <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="#" class="right-menu-item dropdown-toggle" data-toggle="dropdown">
-                                    <i class="mdi mdi-bell"></i>
-                                    <span class="badge up bg-primary"></span>
-                                </a>
-
-                                <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right dropdown-lg user-list notify-list">
-                                    <li>
-                                        <h5>Notifikasi</h5>
-                                    </li>
-                                    <li>
-                                        <a href="code/update_notif.php" class="user-list-item">
-                                            <div class="icon bg-info">
-                                                <i class="mdi mdi- mdi mdi-seat-recline-extra"></i>
-                                            </div>
-                                            <div class="user-desc">
-                                                <span class="name">Pesan Kamar</span>
-                                                <span class="time"></span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                     <li>
-                                        <a href="code/update_status.php" class="user-list-item">
-                                            <div class="icon bg-success">
-                                                <i class="mdi mdi-seat-individual-suite"></i>
-                                            </div>
-                                            <div class="user-desc">
-                                                <span class="name">New Registrasi</span>
-                                                <span class="time"></span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                  
-                                </ul>
-                            </li>
-
                             <li class="dropdown user-box">
                                 <a href="" class="dropdown-toggle waves-effect waves-light user-link" data-toggle="dropdown" aria-expanded="true">
-                                    <img src="assets/images/logo1.jpg" alt="user-img" class="img-circle user-img">
+                                    <img src="assets/images/avatar.png" alt="user-img" class="img-circle user-img">
                                 </a>
 
                                 <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">

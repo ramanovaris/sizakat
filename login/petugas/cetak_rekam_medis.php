@@ -43,14 +43,6 @@ $pdf->AddPage();
 //Cell(width , height , text , border , end line , [align] )
 
 $pdf->image('logo2.png',10,6,30);
-$pdf->Cell(10,7,'',0,1);
-$pdf->SetFont('Arial','',5);
-$pdf->Cell(45 ,5,'Alamat
-Jalan A. Yani, Angsau, Pelaihari, Kabupaten Tanah Laut Kalimantan Selatan 70812',0,0);
-$pdf->Cell(2,2,'',0,1);
-$pdf->Cell(45 ,5,'Telpon (0512) 2021002',0,0);
-
-$pdf->Cell(5,5,'',0,1);
 //set font to arial, regular, 12pt
 $pdf->SetFont('Arial','',12);
 
@@ -67,10 +59,10 @@ $query = mysql_query("SELECT rekam_medis.jaminan,rekam_medis.no_rm,rekam_medis.k
 
 
 //make a dummy empty cell as a vertical spacer
-// $pdf->Cell(189 ,10,'',0,1);//end of line
+$pdf->Cell(189 ,10,'',0,1);//end of line
 
 //billing address
-$pdf->SetFont('Arial','B',12);
+$pdf->SetFont('Arial','BU',12);
 $pdf->Cell(100 ,5,'PEMINJAMAN REKAM MEDIS',0,1);//end of line
 $pdf->Cell(100 ,5,'',0,1);//end of line
 

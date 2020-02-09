@@ -8,7 +8,7 @@ include "../config/koneksi.php";
 $level=$_SESSION['level'];
 $kode_login=$_SESSION['kode_login'];
 $sesi_username          = isset($_SESSION['username']) ? $_SESSION['username'] : NULL;
-if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='Admin'  )
+if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='Admin'  ) 
 {
 ?>
 
@@ -23,7 +23,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Edit Petugas - SIZAKAT</title>
+        <title>Edit Akun - RSIA</title>
 
         <!-- date range picker -->
         <link href="../plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -128,14 +128,14 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Edit Petugas</h4>
+                                    <h4 class="page-title">Edit Akun Petugas</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="index.php">Dashboard</a>
                                         </li>
                                        
                                         <li class="active">
-                                            Edit Petugas
+                                            Edit Akun Petugas
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -149,46 +149,29 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                     <div class="row">
                                         <div class="col-sm-12 col-xs-12 col-md-8">
 
-                                            <h4 class="header-title m-t-0">Edit Petugas</h4>
+                                            <h4 class="header-title m-t-0">Edit Akun Petugas</h4>
                                            
                                             <div class="p-20">
-                                                <form  method="POST" action="code/simpan_edit_petugas.php">
+                                                <form  method="POST" action="code/simpan_edit_akun.php">
 
                                                     <?php
-                                                        $sql = mysql_query("SELECT * FROM petugas WHERE id_petugas='$_GET[nik_petugas]'"); 
+                                                        $sql = mysql_query("SELECT * FROM akun
+                                                        JOIN petugas ON akun.kode_akun=petugas.id_akun WHERE akun.kode_akun='$_GET[kode_akun]'"); 
                                                         $data = mysql_fetch_array($sql);
-                                                        $jk = $data['jenis_kelamin'];
-                                                      
+                                                        // $password = md5($data['password']);
                                                     ?>
+                                                    <input type="hidden" name="kode_akun" value="<?php echo $data['kode_akun']; ?>">
+
                                                     <div class="form-group">
-                                                        <input type="hidden" name="id_petugas" parsley-trigger="change" required
-                                                               placeholder="Nama Lengkap" class="form-control" id="id_petugas" value="<?php echo $data['id_petugas']; ?>">
+                                                        <label for="userName">username<span class="text-danger">*</span></label>
+                                                        <input type="text" name="username" parsley-trigger="change" required
+                                                               placeholder="Username" class="form-control" id="userName" autocomplete="nope" value="<?php echo $data['username']; ?>">
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="userName">Nama Lengkap<span class="text-danger">*</span></label>
-                                                        <input type="text" name="nama_petugas" parsley-trigger="change" required
-                                                               placeholder="Nama Lengkap" class="form-control" id="userName" value="<?php echo $data['nama']; ?>">
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                    <label for="userName">Jenis Kelamin<span class="text-danger">*</span></label><br>
-                                                        <div class="radio radio-info radio-inline">
-                                                            <input type="radio" id="inlineRadio1" value="Laki-laki" name="jenis_kelamin" <?php if($jk=="Laki-laki"){echo "checked";}?>>
-                                                            <label for="inlineRadio1">Laki-laki</label>
-                                                        </div>
-                                                        <div class="radio radio-inline">
-                                                            <input type="radio" id="inlineRadio2" value="Perempuan" name="jenis_kelamin" <?php if($jk=="Perempuan"){echo "checked";}?>>
-                                                            <label for="inlineRadio2">Perempuan</label>
-                                                        </div>
-                                                    </div>
-
-                                                    
-
-                                                    <div class="form-group">
-                                                        <label for="userName">Jabatan<span class="text-danger">*</span></label>
-                                                        <input type="text" name="jabatan" parsley-trigger="change" required
-                                                               placeholder="Alamat" class="form-control" id="userName" value="<?php echo $data['jabatan']; ?>"  >
+                                                        <label for="userName">Password Baru<span class="text-danger">*</span></label>
+                                                        <input type="text" name="password" parsley-trigger="change"
+                                                               placeholder="Password baru" class="form-control" id="userName" autocomplete="new-password">
                                                     </div>
 
                                                     <div class="form-group row">

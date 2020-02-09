@@ -1,7 +1,7 @@
 						 <div class="user-details">
                             <div class="overlay"></div>
                             <div class="text-center">
-                                <img src="assets/images/rsia.jpg" alt="" class="thumb-md img-circle">
+                                <img src="assets/images/baznas_kalsel.jpg" alt="" class="thumb-md img-circle">
                             </div>
                             <div class="user-info">
                                 <div>
