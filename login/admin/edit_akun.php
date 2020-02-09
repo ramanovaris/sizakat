@@ -156,28 +156,22 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
 
                                                     <?php
                                                         $sql = mysql_query("SELECT * FROM akun
-                                                        JOIN petugas ON akun.kode_akun=petugas.kode_akun WHERE akun.kode_akun='$_GET[kode_akun]'"); 
+                                                        JOIN petugas ON akun.kode_akun=petugas.id_akun WHERE akun.kode_akun='$_GET[kode_akun]'"); 
                                                         $data = mysql_fetch_array($sql);
-                                                        $jk = $data['jenis_kelamin'];
+                                                        // $password = md5($data['password']);
                                                     ?>
                                                     <input type="hidden" name="kode_akun" value="<?php echo $data['kode_akun']; ?>">
 
                                                     <div class="form-group">
-                                                        <label for="userName">Nama Lengkap<span class="text-danger">*</span></label>
-                                                        <input type="text" readonly="" name="nama_petugas" parsley-trigger="change" required
-                                                               placeholder="Nama Lengkap" class="form-control" id="userName" value="<?php echo $data['nama_petugas']; ?>">
-                                                    </div>
-
-                                                    <div class="form-group">
                                                         <label for="userName">username<span class="text-danger">*</span></label>
                                                         <input type="text" name="username" parsley-trigger="change" required
-                                                               placeholder="Username" class="form-control" id="userName" value="<?php echo $data['username']; ?>">
+                                                               placeholder="Username" class="form-control" id="userName" autocomplete="nope" value="<?php echo $data['username']; ?>">
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="userName">Password Baru<span class="text-danger">*</span></label>
-                                                        <input type="password" name="password" parsley-trigger="change"
-                                                               placeholder="Password baru" class="form-control" id="userName" ">
+                                                        <input type="text" name="password" parsley-trigger="change"
+                                                               placeholder="Password baru" class="form-control" id="userName" autocomplete="new-password">
                                                     </div>
 
                                                     <div class="form-group row">

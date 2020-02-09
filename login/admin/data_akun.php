@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include "../config/timeout.php";
-//include "config/koneksi.php";
+// include "config/koneksi.php";
 include "../config/koneksi.php";
 
 $level=$_SESSION['level'];
@@ -149,7 +149,6 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                         <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>NIK</th>
                                             <th>Nama Lengkap</th>
                                             <th>Username</th>
                                             <th>Level</th>
@@ -159,13 +158,12 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                         <tbody>
                                             <?php 
                                                 $no = 1;
-                                                $query_mysql = mysql_query("SELECT * FROM akun JOIN petugas ON akun.kode_akun=petugas.kode_akun ORDER BY akun.kode_akun")or die(mysql_error());
+                                                $query_mysql = mysql_query("SELECT * FROM akun JOIN petugas ON akun.kode_akun=petugas.id_akun ORDER BY akun.kode_akun")or die(mysql_error());
                                                 while($data = mysql_fetch_array($query_mysql)){
                                                     ?> 
                                         <tr>
                                             <td><?php echo $no++ ?></td>
-                                            <td><?php echo $data['nik_petugas']; ?></td>
-                                            <td><?php echo $data['nama_petugas']; ?></td>
+                                            <td><?php echo $data['nama']; ?></td>
                                             <td><?php echo $data['username']; ?></td>
                                             <td><?php echo $data['level']; ?></td>
                                             <td>
