@@ -81,6 +81,7 @@
                                         <div class="form-group account-btn text-center m-t-10">
                                             <div class="col-xs-12">
                                                 <button class="btn w-md btn-bordered btn-success waves-effect waves-light" >Log In</button>
+                                                <a href="../index.php" type="button" class="btn btn-danger btn-bordered waves-effect w-md waves-light">Beranda</a>
                                             </div>
                                         </div>
 
