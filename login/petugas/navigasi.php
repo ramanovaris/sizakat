@@ -13,7 +13,7 @@
                             </li>
 
                              <li class="has_sub">
-                                <a href="data_penyalur_zakat.php" class="waves-effect"><i class=" mdi mdi-history"></i><span class="badge badge-success pull-right"></span> <span>Data Penyaluran Zakat</span> </a>
+                                <a href="" class="waves-effect"><i class=" mdi mdi-history"></i><span class="badge badge-success pull-right"></span> <span>Data Penyaluran Zakat</span> </a>
 
                             </li>
 
