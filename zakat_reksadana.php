@@ -128,50 +128,12 @@ include "config/koneksi.php";
 					<div class="col-sm-12 col-md-12 col-lg-8">
 						
 						<h2 class="section-heading text-left mb-4">
-							Panduan Zakat
+							Zakat Reksadana
 						</h2>
-						<p class="subheading text-left" style="color: black;">Zakat adalah harta tertentu yang dikeluarkan apabila telah mencapai syarat yang diatur sesuai aturan agama, dikeluarkan kepada 8 asnaf penerima zakat. Menurut Bahasa kata “zakat” berarti tumbuh, berkembang, subur atau bertambah.</p>
-						<p class="subheading text-left" style="color: black;">Zakat berasal dari bentuk kata "zaka" yang berarti suci, baik, berkah, tumbuh, dan berkembang. Dinamakan zakat, karena di dalamnya terkandung harapan untuk beroleh berkah, membersihkan jiwa dan memupuknya dengan berbagai kebaikan (Fikih Sunnah, Sayyid Sabiq: 5)</p>
+						<p class="subheading text-left" style="color: black;">Zakat reksadana ditetapkan berdasarkan kesepakatan para ulama pada Muktamar Internasional Pertama tentang zakat di Kuwait (29 Rajab 1404 H) bahwa hasil dari keuntungan investasi wajib dikeluarkan zakatnya. Zakat reksadana dapat ditunaikan jika hasil keuntungan investasi sudah mencapai nisab. Nisab zakat reksadana sama nilainya dengan nisab zakat maal yaitu senilai 85 gram emas dengan tarif zakat 2,5% dan sudah mencapai satu tahun (haul).</p>
+						<p class="subheading text-left" style="color: black;">Cara menghitung zakat reksadana pun sama dengan cara menghitung zakat maal yaitu menggunakan rumus sebagai berikut :</p>
 
-						<p class="subheading text-left" style="color: black;">Makna tumbuh dalam arti zakat menunjukkan bahwa mengeluarkan zakat sebagai sebab adanya pertumbuhan dan perkembangan harta, pelaksanaan zakat itu mengakibatkan pahala menjadi banyak. Sedangkan makna suci menunjukkan bahwa zakat adalah mensucikan jiwa dari kejelekan, kebatilan dan pensuci dari dosa-dosa.</p>
-						<p class="subheading text-left" style="color: black;">Dalam Al-Quran disebutkan, “Ambillah zakat dari sebagian harta mereka, dengan zakat itu kamu membersihkan dan menyucikan mereka” (QS. at-Taubah [9]: 103).</p>
-						<p class="subheading text-left" style="color: black;">Menurut istilah dalam kitab al-Hâwî, al-Mawardi mendefinisikan zakat dengan nama pengambilan tertentu dari harta tertentu, menurut sifat-sifat tertentu dan untuk diberikan kepada golongan tertentu. Orang yang menunaikan zakat disebut Muzaki. Sedangkan orang yang menerima zakat disebut Mustahik.</p>
-						<hr>
-						<h2 class="section-heading text-left mb-4">
-							Asnaf (8 Golongan) Penerima Zakat
-						</h2>
-						<p class="subheading text-left" style="color: black;">Sebagai instrumen yang masuk dalam salah satu Rukun Islam, zakat tentu saja memiliki aturan mengikat dari segi ilmu fiqihnya, salah satu diantaranya adalah kepada siapa zakat diberikan.</p>
-						<p class="subheading text-left" style="color: black;">Dalam QS. At-Taubah ayat 60, Allah memberikan ketentuan ada delapan golongan orang yang menerima zakat yaitu sebagai berikut:</p>
-						<p class="subheading text-left" style="color: black;">1.	Fakir, mereka yang hampir tidak memiliki apa-apa sehingga tidak mampu memenuhi kebutuhan pokok hidup.</p>
-						<p class="subheading text-left" style="color: black;">2.	Miskin, mereka yang memiliki harta namun tidak cukup untuk memenuhi kebutuhan dasar kehidupan.</p>
-						<p class="subheading text-left" style="color: black;">3.	Amil, mereka yang mengumpulkan dan mendistribusikan zakat.</p>
-						<p class="subheading text-left" style="color: black;">4.	Mu'allaf, mereka yang baru masuk Islam dan membutuhkan bantuan untuk menguatkan dalam tauhid dan syariah.</p>
-						<p class="subheading text-left" style="color: black;">5.	Hamba sahaya, budak yang ingin memerdekakan dirinya.</p>
-						<p class="subheading text-left" style="color: black;">6.	Gharimin, mereka yang berhutang untuk kebutuhan hidup dalam mempertahankan jiwa dan izzahnya.</p>
-						<p class="subheading text-left" style="color: black;">7.	Fisabilillah, mereka yang berjuang di jalan Allah dalam bentuk kegiatan dakwah, jihad dan sebagainya.</p>
-						<p class="subheading text-left" style="color: black;">8.	Ibnu Sabil, mereka yang kehabisan biaya di perjalanan dalam ketaatan kepada Allah.</p>
-						<hr>
-						<h2 class="section-heading text-left mb-4">
-							Jenis Zakat
-						</h2>
-						<p class="subheading text-left" style="color: black;">Secara umum zakat terbagi menjadi dua jenis, yakni zakat fitrah dan zakat maal. Zakat Fitrah (zakat al-fitr) adalah zakat yang diwajibkan atas setiap jiwa baik lelaki dan perempuan muslim yang dilakukan pada bulan Ramadhan.</p>
-						<p class="subheading text-left" style="color: black;">Zakat maal adalah zakat harta yang dikenakan atas uang, emas, surat berharga, dan aset yang disewakan (Al Qur'an Surah At Taubah ayat 103, Peraturan Menteri Agama No 52/2014 dan pendapat Shaikh Yusuf Qardawi). Secara lebih rinci, zakat maal ini memiliki jenis zakat lainnya seperti;</p>
-						<p class="subheading text-left" style="color: black;">1.	Zakat penghasilan
-Zakat penghasilan atau yang dikenal juga sebagai zakat zakat profesi adalah bagian dari zakat maal yang wajib dikeluarkan atas harta yang berasal dari pendapatan / penghasilan rutin dari pekerjaan yang tidak melanggar syariah. <a href="zakat_penghasilan.php" style="color: blue;">Selengkapnya</a></p>
-						<p class="subheading text-left" style="color: black;">2.	Zakat emas dan perak
-Zakat emas, perak, dan logam mulia lainnya adalah zakat yang dikenakan atas emas, perak dan logam lainnya yang telah mencapai nisab dan haul. <a href="zakat_emas_perak.php" style="color: blue;">Selengkapnya</a></p>
-						<p class="subheading text-left" style="color: black;">3.	Zakat perusahaan
-Para ulama peserta Muktamar Internasional Pertama tentang zakat di Kuwait (29 Rajab 1404 H), menganalogikan zakat perusahaan kepada zakat perdagangan. Hal ini dikarenakan, jika dipandang dari aspek legal dan ekonomi, kegiatan sebuah perusahaan intinya berpijak pada kegiatan trading atau perdagangan. <a href="Zakat_perusahaan.php" style="color: blue;">Selengkapnya</a></p>
-						<p class="subheading text-left" style="color: black;">4.	Zakat perdagangan
-Zakat perdagangan adalah zakat yang dikeluarkan dari harta niaga, sedangkan harta niaga adalah harta atau aset yang diperjualbelikan dengan maksud untuk mendapatkan keuntungan. Dengan demikian maka dalam harta niaga harus ada 2 motivasi: Motivasi untuk berbisnis (diperjualbelikan) dan motivasi mendapatkan keuntungan. <a href="zakat_perdagangan.php" style="color: blue;">Selengkapnya</a></p>
-						<p class="subheading text-left" style="color: black;">5.	Zakat saham
-Zakat saham ditetapkan berdasarkan kesepakatan para ulama pada Muktamar Internasional Pertama tentang zakat di Kuwait (29 Rajab 1404 H) bahwa hasil dari keuntungan investasi saham wajib dikeluarkan zakatnya. <a href="zakat_saham.php" style="color: blue;">Selengkapnya</a></p>
-						<p class="subheading text-left" style="color: black;">6.	Zakat reksadana
-Zakat reksadana ditetapkan berdasarkan kesepakatan para ulama pada Muktamar Internasional Pertama tentang zakat di Kuwait (29 Rajab 1404 H) bahwa hasil dari keuntungan investasi wajib dikeluarkan zakatnya. Zakat reksadana dapat ditunaikan jika hasil keuntungan investasi sudah mencapai nisab. Nisab zakat reksadana sama nilainya dengan nisab zakat maal yaitu senilai 85 gram emas dengan tarif zakat 2,5% dan sudah mencapai satu tahun (haul). <a href="zakat_reksadana.php" style="color: blue;">Selengkapnya</a></p>
-						<p class="subheading text-left" style="color: black;">7.	Zakat rikaz (zakat dari hasil barang temuan)</p>
-						<p class="subheading text-left" style="color: black;">8.	Zakat pertanian</p>
-						<p class="subheading text-left" style="color: black;">9.	Zakat peternakan</p>
-						<p class="subheading text-left" style="color: black;">10.	Dan lain sebagainya.</p>
+						<p class="subheading text-left" style="color: black;">2,5% x Jumlah harta yang tersimpan selama 1 tahun</p>
 					</div>
 
 					<div class="col-sm-12 col-md-12 col-lg-4">
