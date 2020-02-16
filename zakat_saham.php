@@ -130,15 +130,15 @@ include "config/koneksi.php";
 						<h2 class="section-heading text-left mb-4">
 							Zakat Saham
 						</h2>
-						<p class="subheading text-left" style="color: black;">Zakat saham ditetapkan berdasarkan kesepakatan para ulama pada Muktamar Internasional Pertama tentang zakat di Kuwait (29 Rajab 1404 H) bahwa hasil dari keuntungan investasi saham wajib dikeluarkan zakatnya.</p>
-						<p class="subheading text-left" style="color: black;">Zakat saham dapat ditunaikan jika hasil keuntungan investasi sudah mencapai nisab. Nisab zakat saham sama nilainya dengan nisab zakat maal yaitu senilai 85 gram emas dengan tarif zakat 2,5% dan sudah mencapai satu tahun (haul).</p>
+						<p class="subheading" style="color: black;" align="justify">Zakat saham ditetapkan berdasarkan kesepakatan para ulama pada Muktamar Internasional Pertama tentang zakat di Kuwait (29 Rajab 1404 H) bahwa hasil dari keuntungan investasi saham wajib dikeluarkan zakatnya.</p>
+						<p class="subheading" style="color: black;" align="justify">Zakat saham dapat ditunaikan jika hasil keuntungan investasi sudah mencapai nisab. Nisab zakat saham sama nilainya dengan nisab zakat maal yaitu senilai 85 gram emas dengan tarif zakat 2,5% dan sudah mencapai satu tahun (haul).</p>
 
-						<p class="subheading text-left" style="color: black;">Cara menghitung zakat zaham pun sama dengan cara menghitung zakat maal yaitu menggunakan rumus sebagai berikut:</p>
-						<p class="subheading text-left" style="color: black;">2,5% x Jumlah harta yang tersimpan selama 1 tahun</p>
-						<p class="subheading text-left" style="color: black;">Simak ulasan contoh perhitungan zakat saham di bawah ini:</p>
-						<p class="subheading text-left" style="color: black;">Bapak A selama 1 tahun penuh memiliki total asset account senilai Rp100.000.000,-. Jika harga emas saat ini Rp622.000,-/gram, maka nishab zakat senilai Rp52.870.000,-. Sehingga Bapak A sudah wajib zakat. Zakat maal yang perlu Bapak A tunaikan sebesar 2,5% x Rp100.000.000,- = Rp2.500.000,-.</p>
-						<p class="subheading text-left" style="color: black;">Cara perhitungan & pemindah bukuan portfolio saham:</p>
-						<p class="subheading text-left" style="color: black;">Bapak A memiliki saham XXXX sebanyak 100 lot dimana harga pasar/lembar sebesar Rp645,- (1 lot sama dengan 100 lembar). Nilai zakat Bapak A dalam saham adalah Rp2.500.000 : (Rp645,- x 100 lembar) = 38,75 lot / pembulatan menjadi 39 lot. Untuk itu, Bapak A harus memindahkan 39 lot sahamnya sebagai zakat saham.</p>
+						<p class="subheading" style="color: black;" align="justify">Cara menghitung zakat zaham pun sama dengan cara menghitung zakat maal yaitu menggunakan rumus sebagai berikut:</p>
+						<p class="subheading" style="color: black;" align="justify">2,5% x Jumlah harta yang tersimpan selama 1 tahun</p>
+						<p class="subheading" style="color: black;" align="justify">Simak ulasan contoh perhitungan zakat saham di bawah ini:</p>
+						<p class="subheading" style="color: black;" align="justify">Bapak A selama 1 tahun penuh memiliki total asset account senilai Rp100.000.000,-. Jika harga emas saat ini Rp622.000,-/gram, maka nishab zakat senilai Rp52.870.000,-. Sehingga Bapak A sudah wajib zakat. Zakat maal yang perlu Bapak A tunaikan sebesar 2,5% x Rp100.000.000,- = Rp2.500.000,-.</p>
+						<p class="subheading" style="color: black;" align="justify">Cara perhitungan & pemindah bukuan portfolio saham:</p>
+						<p class="subheading" style="color: black;" align="justify">Bapak A memiliki saham XXXX sebanyak 100 lot dimana harga pasar/lembar sebesar Rp645,- (1 lot sama dengan 100 lembar). Nilai zakat Bapak A dalam saham adalah Rp2.500.000 : (Rp645,- x 100 lembar) = 38,75 lot / pembulatan menjadi 39 lot. Untuk itu, Bapak A harus memindahkan 39 lot sahamnya sebagai zakat saham.</p>
 					</div>
 
 					<div class="col-sm-12 col-md-12 col-lg-4">

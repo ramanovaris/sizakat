@@ -130,11 +130,11 @@ include "config/koneksi.php";
 						<h2 class="section-heading text-left mb-4">
 							Zakat Penghasilan
 						</h2>
-						<p class="subheading text-left" style="color: black;">Zakat penghasilan atau yang dikenal juga sebagai zakat zakat profesi adalah bagian dari zakat maal yang wajib dikeluarkan atas harta yang berasal dari pendapatan / penghasilan rutin dari pekerjaan yang tidak melanggar syariah (Al Qur'an Surah Al Baqarah ayat 267, Peraturan Menteri Agama No 52/2014 dan pendapat Shaikh Yusuf Qardawi). Standar nishab yang digunakan adalah sebesar Rp5.240.000,- per bulan</p>
-						<p class="subheading text-left" style="color: black;">Adapun cara menghitung zakat penghasilan sebagai berikut:</p>
+						<p class="subheading" style="color: black;" align="justify">Zakat penghasilan atau yang dikenal juga sebagai zakat zakat profesi adalah bagian dari zakat maal yang wajib dikeluarkan atas harta yang berasal dari pendapatan / penghasilan rutin dari pekerjaan yang tidak melanggar syariah (Al Qur'an Surah Al Baqarah ayat 267, Peraturan Menteri Agama No 52/2014 dan pendapat Shaikh Yusuf Qardawi). Standar nishab yang digunakan adalah sebesar Rp5.240.000,- per bulan</p>
+						<p class="subheading" style="color: black;" align="justify">Adapun cara menghitung zakat penghasilan sebagai berikut:</p>
 
-						<p class="subheading text-left" style="color: black;">Zakat yang dikeluarkan = Jumlah pendapatan bruto x 2.5%</p>
-						<p class="subheading text-left" style="color: black;">Contoh:
+						<p class="subheading" style="color: black;" align="justify">Zakat yang dikeluarkan = Jumlah pendapatan bruto x 2.5%</p>
+						<p class="subheading" style="color: black;" align="justify">Contoh:
 
 Penghasilan diterima setiap bulan sebesar Rp6.000.000, maka sudah wajib zakat. Jadi zakat yang dibayarkan adalah Rp6.000.000 x 2.5% = Rp150.000,-</p>
 						

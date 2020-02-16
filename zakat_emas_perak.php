@@ -130,10 +130,10 @@ include "config/koneksi.php";
 						<h2 class="section-heading text-left mb-4">
 							Zakat Emas dan Perak
 						</h2>
-						<p class="subheading text-left" style="color: black;">Zakat emas, perak, dan logam mulia lainnya adalah zakat yang dikenakan atas emas, perak dan logam lainnya yang telah mencapai nisab dan haul. Zakat emas dan perak ditunaikan jika seorang muzaki (orang yang menunaikan zakat) memiliki emas mencapai nisab senilai 85 gram atau perak dengan mencapai nisab 595 gram. Tarif zakat yang harus dibayarkan adalah sebesar 2,5% dari emas atau perak yang dimiliki. Berikut cara menghitung zakat emas/ perak:</p>
-						<p class="subheading text-left" style="color: black;">2,5% x Jumlah emas/ perak yang tersimpan selama 1 tahun</p>
+						<p class="subheading" style="color: black;" align="justify">Zakat emas, perak, dan logam mulia lainnya adalah zakat yang dikenakan atas emas, perak dan logam lainnya yang telah mencapai nisab dan haul. Zakat emas dan perak ditunaikan jika seorang muzaki (orang yang menunaikan zakat) memiliki emas mencapai nisab senilai 85 gram atau perak dengan mencapai nisab 595 gram. Tarif zakat yang harus dibayarkan adalah sebesar 2,5% dari emas atau perak yang dimiliki. Berikut cara menghitung zakat emas/ perak:</p>
+						<p class="subheading" style="color: black;" align="justify">2,5% x Jumlah emas/ perak yang tersimpan selama 1 tahun</p>
 
-						<p class="subheading text-left" style="color: black;">Contoh:
+						<p class="subheading" style="color: black;" align="justify">Contoh:
 Bapak A selama 1 tahun penuh memiliki emas yang tersimpan sebanyak 100 gram, sehingga Bapak A sudah wajib zakat. Jika harga emas saat ini Rp622.000,-/gram, maka emas tersebut senilai Rp62.200.000,-. Zakat emas yang perlu Bapak A tunaikan sebesar 2,5% x Rp62.200.000,- = Rp1.555.000,-.</p>
 						
 					</div>

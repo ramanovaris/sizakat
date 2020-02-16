@@ -130,10 +130,10 @@ include "config/koneksi.php";
 						<h2 class="section-heading text-left mb-4">
 							Zakat Reksadana
 						</h2>
-						<p class="subheading text-left" style="color: black;">Zakat reksadana ditetapkan berdasarkan kesepakatan para ulama pada Muktamar Internasional Pertama tentang zakat di Kuwait (29 Rajab 1404 H) bahwa hasil dari keuntungan investasi wajib dikeluarkan zakatnya. Zakat reksadana dapat ditunaikan jika hasil keuntungan investasi sudah mencapai nisab. Nisab zakat reksadana sama nilainya dengan nisab zakat maal yaitu senilai 85 gram emas dengan tarif zakat 2,5% dan sudah mencapai satu tahun (haul).</p>
-						<p class="subheading text-left" style="color: black;">Cara menghitung zakat reksadana pun sama dengan cara menghitung zakat maal yaitu menggunakan rumus sebagai berikut :</p>
+						<p class="subheading" style="color: black;" align="justify">Zakat reksadana ditetapkan berdasarkan kesepakatan para ulama pada Muktamar Internasional Pertama tentang zakat di Kuwait (29 Rajab 1404 H) bahwa hasil dari keuntungan investasi wajib dikeluarkan zakatnya. Zakat reksadana dapat ditunaikan jika hasil keuntungan investasi sudah mencapai nisab. Nisab zakat reksadana sama nilainya dengan nisab zakat maal yaitu senilai 85 gram emas dengan tarif zakat 2,5% dan sudah mencapai satu tahun (haul).</p>
+						<p class="subheading" style="color: black;" align="justify">Cara menghitung zakat reksadana pun sama dengan cara menghitung zakat maal yaitu menggunakan rumus sebagai berikut :</p>
 
-						<p class="subheading text-left" style="color: black;">2,5% x Jumlah harta yang tersimpan selama 1 tahun</p>
+						<p class="subheading" style="color: black;" align="justify">2,5% x Jumlah harta yang tersimpan selama 1 tahun</p>
 					</div>
 
 					<div class="col-sm-12 col-md-12 col-lg-4">

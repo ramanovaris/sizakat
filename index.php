@@ -127,29 +127,27 @@ include "config/koneksi.php";
 
 					<div class="col-sm-12 col-md-12 col-lg-8">
 						
-						<!-- <h2 class="section-heading text-left mb-5">
-							Pesan Kamar
+						<h2 class="section-heading text-left mb-5">
+							Hitung Zakat
 						</h2>
-						<p class="subheading text-left">Pesan Kamar cepat bagi pasien yang sudah terdaftar di member RSIA</p>
-						<form   action="cek_pasien.php" method="POST" class="form-contact">
+						<p class="subheading text-left">Pilih Zakat :</p>
+						<form   action="" method="POST" class="form-contact">
 							<div class="row">
 
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan No. RM" name="no_rm" required="" onkeyup="isi_otomatis()" autocomplete="off" >
+										<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan Nominal" name="no_rm" required="" onkeyup="isi_otomatis()" autocomplete="off" >
 										<div class="help-block with-errors"></div>
 										
 									</div>
 
 								</div>
-								<div class="col-sm-6 col-md-6">
+								<!-- <div class="col-sm-6 col-md-6">
 									<div class="form-group">
 										<input type="text" class="form-control" id="nama_pasien"  placeholder="Nama Lengkap" name="nama" required="" autocomplete="off" readonly="" >
 										<div class="help-block with-errors"></div>
 									</div>
-								</div>
-
-							
+								</div> -->							
 								<div class="col-sm-6 col-md-6" hidden="">
 									<div class="form-group">
 										<input type="text" class="form-control" id="p_subject" placeholder="Subject">
@@ -169,7 +167,7 @@ include "config/koneksi.php";
 									<button type="submit" class="btn btn-primary">KONFIRMASI</button>
 								</div>
 							
-						</form> -->	
+						</form>	
 						<script type="text/javascript">
 			            function isi_otomatis(){
 			                var no_rm = $("#no_rm").val();
