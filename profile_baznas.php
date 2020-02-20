@@ -90,7 +90,7 @@ include "config/koneksi.php";
 			                    <a class="nav-link" href="index.php">Home</a>
 			                </li>
 			                <li class="nav-item">
-			                    <a class="nav-link active" href="">Profil BAZNAS TALA</a>
+			                    <a class="nav-link active" href="profile_baznas.php">Profil BAZNAS TALA</a>
 			                </li>
 			          		<li class="nav-item">
 			                    <a class="nav-link" href="pengertian_zakat.php">Tentang Zakat</a>
