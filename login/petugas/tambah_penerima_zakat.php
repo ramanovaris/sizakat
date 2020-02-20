@@ -176,7 +176,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
 
 
                                                     <div class="form-group">
-                                                        <label for="userName">Uraian<span class="text-danger"></span></label>
+                                                        <label for="userName">Nama<span class="text-danger"></span></label>
                                                         <textarea row="1" name="uraian" class="form-control"></textarea>
                                                     </div>
 

@@ -174,7 +174,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                             <th width="50">No</th>
                                              <th>Tanggal</th>
                                              <th>Jenis Zakat</th>
-                                            <th>Uraian</th>
+                                            <th>Nama</th>
                                             <th>Jumlah</th>  
                                             <th>Aksi</th>
                                         </tr>

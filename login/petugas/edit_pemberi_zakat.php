@@ -179,7 +179,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
 
 
                                                     <div class="form-group">
-                                                        <label for="uraian">Uraian</label>
+                                                        <label for="uraian">Nama</label>
                                                         <textarea class="form-control" name="uraian"  rows="2"><?php echo htmlspecialchars($data['uraian']); ?></textarea>
                                                     </div>
 
