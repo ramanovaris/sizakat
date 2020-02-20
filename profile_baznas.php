@@ -40,7 +40,7 @@ include "config/koneksi.php";
 
 </head>
 
-<body data-spy="scroll" data-target="#navbar-example">
+<body data-spy="scroll" data-target="#navbar-example" text="black">
 
 	<!-- LOAD PAGE -->
 	<div class="animationload">
@@ -87,10 +87,10 @@ include "config/koneksi.php";
 			            <ul class="navbar-nav ml-auto">
 			                <li class="nav-item dropdown">
 			                <li class="nav-item">
-			                    <a class="nav-link active" href="index.php">Home</a>
+			                    <a class="nav-link" href="index.php">Home</a>
 			                </li>
 			                <li class="nav-item">
-			                    <a class="nav-link" href="profile_baznas.php">Profil BAZNAS TALA</a>
+			                    <a class="nav-link active" href="">Profil BAZNAS TALA</a>
 			                </li>
 			          		<li class="nav-item">
 			                    <a class="nav-link" href="pengertian_zakat.php">Tentang Zakat</a>
@@ -110,7 +110,7 @@ include "config/koneksi.php";
     <div class="section banner-page" data-background="images/baznas_tala.jpg">
 		<div class="content-wrap pos-relative">
 			<div class="d-flex justify-content-center bd-highlight mb-3">
-				<div class="title-page" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">Sistem Infomasi Badan Amil Zakat Nasional Kabupaten Tanah Laut</div>
+				<div class="title-page" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">Profil BAZNAS Tanah Laut</div>
 			</div>
 			<div class="d-flex justify-content-center bd-highlight mb-3">
 			    <nav aria-label="breadcrumb">
@@ -130,64 +130,46 @@ include "config/koneksi.php";
 
 					<div class="col-sm-12 col-md-12 col-lg-8">
 						
-						<h2 class="section-heading text-left mb-5">
-							Hitung Zakat
+						<h2 class="section-heading text-left mb-4">
+							LATAR BELAKANG
 						</h2>
-						<p class="subheading text-left">Pilih Zakat :</p>
-						<form   action="" method="POST" class="form-contact">
-							<div class="row">
+						<p class="subheading" style="color: black;" align="justify">Penunaian zakat merupakan kewajiban bagi umat Islam yang mampu sesuai dengan syariat Islam. Zakat merupakan pranata keagamaan yang bertujuan untuk meningkatkan keadilan, kesejahteraan masyarakat, dan penanggulangan kemiskinan.</p>
+						<p class="subheading" style="color: black;" align="justify">Syariat zakat diturunkan kepada Rasulullah saw pada tahun kedua hijriyah. Pada masa itu, Rasulullah saw turun tangan dan mengangkat beberapa sahabat sebagai amil zakat yang bertugas menarik zakat dari muzaki, mendatanya di Baitul Maal, dan menyalurkannya kepada mustahik.</p>
 
-								<div class="col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan Nominal" name="no_rm" required="" onkeyup="isi_otomatis()" autocomplete="off" >
-										<div class="help-block with-errors"></div>
-										
-									</div>
-
-								</div>
-								<!-- <div class="col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" id="nama_pasien"  placeholder="Nama Lengkap" name="nama" required="" autocomplete="off" readonly="" >
-										<div class="help-block with-errors"></div>
-									</div>
-								</div> -->							
-								<div class="col-sm-6 col-md-6" hidden="">
-									<div class="form-group">
-										<input type="text" class="form-control" id="p_subject" placeholder="Subject">
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-6" hidden="">
-									<div class="form-group">
-										<input type="text" class="form-control" id="p_phone" placeholder="Enter Phone Number">
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="text-left">
-									<div id="success"></div>
-									<button type="submit" class="btn btn-primary">KONFIRMASI</button>
-								</div>
-							
-						</form>	
-						<script type="text/javascript">
-			            function isi_otomatis(){
-			                var no_rm = $("#no_rm").val();
-			                $.ajax({
-			                    url: 'ambil_nama.php',
-			                    data:"no_rm="+no_rm ,
-			                }).success(function (data) {
-			                    var json = data,
-			                    obj = JSON.parse(json);
-			                    $('#nama_pasien').val(obj.nama_pasien);
-			                    
-			                });
-			            }
-       						 </script>
+						<p class="subheading" style="color: black;" align="justify">Badan Amil Zakat Nasioanal (Baznas) Tanah Laut dibentuk oleh Ditjend Bimas Islam Kementerian Agama RI No. DJ.II/568 tahun 2014, selanjutnya Pimpinan BAZNAS Kabupaten Tanah Laut periode 2016-2021 diangkat berdasarkan SK Bupati Tanah Laut No: 188.45/526-KUM/2016, tgl 3 Mei 2016 dan dilantik pada 30 Mei 2016 di Halaman Kantor Bupati Tanah Laut. BAZNAS Tanah Laut merupakan lembaga Pemerintah nonstruktural yang berbertanggung jawab kepada Ketua BAZNAS Prov. KalSel dan Bupati Tanah Laut. yang secara kelembagaan mempunyai kewenangan untuk melakukan pengumpulan, pendistribusian, dan pendayagunaan zakat secara nasional di Kab. Tanah laut.</p>
 						<hr>
-
-						
+						<h2 class="section-heading text-left mb-4">
+							LANDASAN KONSTITUSIONAL
+						</h2>
+						<p class="subheading" style="color: black;" align="justify">1. UURI. No. 23 Th 2011, 25 November 2011 Tentang Pengelolaan Zakat.</p>
+						<p class="subheading" style="color: black;" align="justify">2. PPRI. No 14 Th 2014, 14 Februari 2014 tentang Pelaksanaan UURI No 23 tahun 2011 tentang Pengelolaan Zakat.</p>
+						<p class="subheading" style="color: black;" align="justify">3.	Inpres No 3 Th 2014, 23 April 2014 tentang optimalisasi Pengumpulan zakat di Kementerian/ Lembaga/Sekretariat Jendral Lembaga Negara, Sekretariat Jenderal Komisi Negara, pemda, BUMN,BUMD melalui Badan Amil Zakat Nasional.</p>
+						<p class="subheading" style="color: black;" align="justify">4. SE Mendagri RI Nomor 450.12/3302/SJ tanggal 10 Juni 2014 tentang Optimalisasi Pengumpulan Zakat.</p>
+						<p class="subheading" style="color: black;" align="justify">5. Keputusan Ditjend Bimas Islam Nomor DJ.II/568 tahun 2014, 5 juni 2014, tentang Pembentukan Badan Amil Zakat Nasional Kab/Kota se Indonesia.</p>
+						<p class="subheading" style="color: black;" align="justify">6. Permenag RI No.52 th 2014 ttg. Syarat & Tatacara Penghitungan Zakat</p>
+						<p class="subheading" style="color: black;" align="justify">7. Perbaznas No 1 thn 2016, ttg. Pedoman Penyusunan Rencana Kerja dan Anggaran Tahunan (RKAT).</p>
+						<p class="subheading" style="color: black;" align="justify">8. Perbaznas No 2 tahun 2016, ttg. Pembentukan dan Tata kerja Unit Pengumpul Zakat (UPZ).</p>
+						<p class="subheading" style="color: black;" align="justify">9. SK Bupati Tanah Laut Nomor: 188.45/526-KUM/2016 ttg Pengangkatan Pimpinan (BAZNAS) Tanah Laut Periode 2016 – 2021</p>
+						<p class="subheading" style="color: black;" align="justify">10. Instruksi Bupati Tala No 1 Th 2016, ttg optimalisasi Pengumpulan ZIS SKPD, BMD melalui (BAZNAS) Tala.</p>
+						<hr>
+						<h2 class="section-heading text-left mb-4">
+							LANDASAN SYARI’AH
+						</h2>
+						<h4 class="text-left mb-4" style="color: black; size: 5px;">
+							Al-Qur’an
+						</h4>
+						<p class="subheading" style="color: black;" align="justify">1. “Ambillah zakat dari sebagian harta mereka, dengan zakat itu kamu membersihkan dan mensucikan mereka dan mendo’alah untuk mereka. Sesungguh- nya do’a kamu itu (menjadi) ketentraman jiwa bagi mereka, dan Allah Maha Mendengar lagi Maha Mengetahui.” *QS At-Taubah (9) ayat 103]</p>
+						<p class="subheading" style="color: black;" align="justify">2. Ada 29 ayat dalam Al-Qur’an Yang menyatakan kata zakat dirangkai dengan kata salat, antara lain: dalam QS Al baqarah ayat (43). Dan lainnya.</p>
+						<h4 class="text-left mb-4" style="color: black; size: 5px;">
+							Al-Hadits
+						</h4>
+						<p class="subheading" style="color: black;" align="justify">1. “Dari Yazid bin Amru al-Ma’afiri dari orang yang pernah mendengar ’Uqbah bin ‘Amir al Juhani, ia berkata, “Rasulullah telah mengutusku sebagai petugas zakat. Lalu saya meminta izin kepadanya bahwa kami nantinya akan memakan sebagian dari harta itu. Lalu beliau pun memberikan izin kepada kami.” (HR. Ahmad)</p>
+						<p class="subheading" style="color: black;" align="justify">2. Ada bebrapa hadits tentang zakat yang diriwayatkan Bukhari-Muslim : “Sesungguhnya Allah telah mewajibkan berbuat ihsan (profesional) atas segala sesuatu.” (HR. Muslim)</p>
+						<h4 class="text-left mb-4" style="color: black; size: 5px;">
+							Fikih Zakat
+						</h4>
+						<p class="subheading" style="color: black;" align="justify">1. “Kewajiban zakat merupakan sarana paling utama untuk mengatasi kesenjangan antara yang kaya dengan yang miskin dan mewujudkan jaminan sosial dalam Islam.” (Dr. Wahbah Az-Zuhaili dalam Fiqhul Islamy, Jilid II hal 732)</p>
+						<p class="subheading" style="color: black;" align="justify">2. Rasulullah bersabda: “Bersihkanlah hartamu dengan zakat dan obatilah sakit-sakit kalian dengan sadaqah dan tolaklah olehmu bencana-bencana itu dengan do’a “. (HR. Khatib dari Ibnu Mas’ud)</p>
 					</div>
 
 					<div class="col-sm-12 col-md-12 col-lg-4">
