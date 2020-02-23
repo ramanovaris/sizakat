@@ -90,17 +90,17 @@ include "config/koneksi.php";
 			                    <a class="nav-link" href="index.php">Home</a>
 			                </li>
 			                <li class="nav-item dropdown">
-			                	<a class="nav-link dropdown-toggle" href="profile_baznas.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			                	<a class="nav-link active dropdown-toggle" href="profile_baznas.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						          Profil BAZNAS TALA
 						        </a>
 						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						          <a class="dropdown-item" href="profile_baznas.php">Profil Kami</a>
 						          <a class="dropdown-item" href="visi_misi.php">Visi & Misi</a>
-						          <a class="dropdown-item" href="struktur_organisasi.php">Struktur Organisasi</a>
+						          <a class="dropdown-item active" href="struktur_organisasi.php">Struktur Organisasi</a>
 						        </div>
 						    </li>
 			          		<li class="nav-item">
-			                    <a class="nav-link active" href="pengertian_zakat.php">Tentang Zakat</a>
+			                    <a class="nav-link" href="pengertian_zakat.php">Tentang Zakat</a>
 			                </li>
 			                <li class="nav-item">
 			                    <a class="nav-link" href="login">Login</a>
@@ -117,7 +117,7 @@ include "config/koneksi.php";
     <div class="section banner-page" data-background="images/baznas_tala.jpg">
 		<div class="content-wrap pos-relative">
 			<div class="d-flex justify-content-center bd-highlight mb-3">
-				<div class="title-page" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">Sistem Infomasi Badan Amil Zakat Nasional Kabupaten Tanah Laut</div>
+				<div class="title-page" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">Struktur Organisasi BAZNAS Tanah Laut</div>
 			</div>
 			<div class="d-flex justify-content-center bd-highlight mb-3">
 			    <nav aria-label="breadcrumb">
@@ -135,43 +135,22 @@ include "config/koneksi.php";
 			<div class="container">
 				<div class="row">
 
-					<div class="col-sm-12 col-md-12 col-lg-8">
+					<div class="col-sm-12 col-md-12 col-lg-12">
 						
 						<h2 class="section-heading text-left mb-4">
-							Zakat Fitrah
+							Struktur Organisasi BAZNAS Tanah Laut
 						</h2>
-						<p class="subheading" style="color: black;" align="justify">Zakat fitrah (zakat al-fitr) adalah zakat yang diwajibkan atas setiap jiwa baik lelaki dan perempuan muslim yang dilakukan pada bulan Ramadhan memasuki saat futur (berbuka puasa) pada Idul Fitri sebagaimana hadist Ibnu Umar ra, "Rasulullah SAW mewajibkan zakat fitrah satu sha’ kurma atau satu sha’ gandum atas umat muslim; baik hamba sahaya maupun merdeka, laki-laki maupun perempuan, kecil maupun besar. Beliau saw memerintahkannya dilaksanakan sebelum orang-orang keluar untuk shalat.” (HR Bukhari Muslim)</p>
-						<p class="subheading" style="color: black;" align="justify">Para ulama sebagaimana Shaikh Yusuf Qardawi telah membolehkan zakat fitrah ditunaikan dalam bentuk uang yang setara dengan 1 sha' harga makanan yang jika di konversikan sebesar Rp40.000,-</p>
+						<img src="images/struktur_BAZNAS_tala.jpg" style="width: 100%">
+						<hr>
+						<h2 class="section-heading text-left mb-4">
+							Foto Pengurus BAZNAS Tanah Laut
+						</h2>
+						<img src="images/Pengurus-Baznas-Tanah-Laut-01.jpg" style="width: 100%">
+						<img src="images/Pengurus-Baznas-Tanah-Laut-02.jpg" style="width: 100%">
+						<hr>
 					</div>
 
-					<div class="col-sm-12 col-md-12 col-lg-4">
-						<h2 class="section-heading text-left mb-5">
-							Detail Kontak
-						</h2>
-						<!-- Item 1 -->
-						<div class="rs-icon-info-2">
-							<div class="info-icon">
-								<i class="fa fa-map-marker"></i>
-							</div>
-							<div class="body-text">
-								<h4>Alamat</h4>
-								<p>Jalan A. Yani, Angsau, Pelaihari, Kabupaten Tanah Laut Kalimantan Selatan 70812</p>
-							</div>
-						</div>
-						<!-- Item 2 -->
-						<div class="rs-icon-info-2">
-							<div class="info-icon">
-								<i class="fa fa-phone"></i>
-							</div>
-							<div class="body-text">
-								<h4>Phone</h4>
-								<p>(0512) 2021002 <br></p>
-							</div>
-						</div>
-						<!-- Item 3 -->
-						
-
-					</div>
+					
 					
 				</div>
 			</div>

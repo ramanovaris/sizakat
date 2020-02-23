@@ -90,17 +90,17 @@ include "config/koneksi.php";
 			                    <a class="nav-link" href="index.php">Home</a>
 			                </li>
 			                <li class="nav-item dropdown">
-			                	<a class="nav-link dropdown-toggle" href="profile_baznas.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			                	<a class="nav-link active dropdown-toggle" href="profile_baznas.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						          Profil BAZNAS TALA
 						        </a>
 						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						          <a class="dropdown-item" href="profile_baznas.php">Profil Kami</a>
-						          <a class="dropdown-item" href="visi_misi.php">Visi & Misi</a>
+						          <a class="dropdown-item active" href="visi_misi.php">Visi & Misi</a>
 						          <a class="dropdown-item" href="struktur_organisasi.php">Struktur Organisasi</a>
 						        </div>
 						    </li>
 			          		<li class="nav-item">
-			                    <a class="nav-link active" href="pengertian_zakat.php">Tentang Zakat</a>
+			                    <a class="nav-link" href="pengertian_zakat.php">Tentang Zakat</a>
 			                </li>
 			                <li class="nav-item">
 			                    <a class="nav-link" href="login">Login</a>
@@ -117,7 +117,7 @@ include "config/koneksi.php";
     <div class="section banner-page" data-background="images/baznas_tala.jpg">
 		<div class="content-wrap pos-relative">
 			<div class="d-flex justify-content-center bd-highlight mb-3">
-				<div class="title-page" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">Sistem Infomasi Badan Amil Zakat Nasional Kabupaten Tanah Laut</div>
+				<div class="title-page" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">Visi & Misi BAZNAS Tanah Laut</div>
 			</div>
 			<div class="d-flex justify-content-center bd-highlight mb-3">
 			    <nav aria-label="breadcrumb">
@@ -138,10 +138,19 @@ include "config/koneksi.php";
 					<div class="col-sm-12 col-md-12 col-lg-8">
 						
 						<h2 class="section-heading text-left mb-4">
-							Zakat Fitrah
+							VISI
 						</h2>
-						<p class="subheading" style="color: black;" align="justify">Zakat fitrah (zakat al-fitr) adalah zakat yang diwajibkan atas setiap jiwa baik lelaki dan perempuan muslim yang dilakukan pada bulan Ramadhan memasuki saat futur (berbuka puasa) pada Idul Fitri sebagaimana hadist Ibnu Umar ra, "Rasulullah SAW mewajibkan zakat fitrah satu sha’ kurma atau satu sha’ gandum atas umat muslim; baik hamba sahaya maupun merdeka, laki-laki maupun perempuan, kecil maupun besar. Beliau saw memerintahkannya dilaksanakan sebelum orang-orang keluar untuk shalat.” (HR Bukhari Muslim)</p>
-						<p class="subheading" style="color: black;" align="justify">Para ulama sebagaimana Shaikh Yusuf Qardawi telah membolehkan zakat fitrah ditunaikan dalam bentuk uang yang setara dengan 1 sha' harga makanan yang jika di konversikan sebesar Rp40.000,-</p>
+						<p class="subheading" style="color: black;" align="justify">Terwujudnya Optimalisasi Pengelolaan Zakat, Infaq dan sadaqah yang Profesional, Transparan, bertanggung jawab dan Amanah dengan berbasis kemitraan di Kabupaten Tanah Laut.</p>
+						<hr>
+						<h2 class="section-heading text-left mb-4">
+							MISI
+						</h2>
+						<p class="subheading" style="color: black;" align="justify">1. Meningkatkan fungsi dan peran BAZNAS Kabupaten Tanah Laut, sehingga menjadi lebih profesioanal, transparan, amanah dan mandiri;</p>
+						<p class="subheading" style="color: black;" align="justify">2. Membantu muzaki melaksanakan kewajibannya, dan mustahik memperoleh haknya, dan menjadi muzaki;</p>
+						<p class="subheading" style="color: black;" align="justify">3. Mengumpulkan, zakat, infaq dan sadaqah, CSR dan DSKL di Kabupaten Tanah Laut;</p>
+						<p class="subheading" style="color: black;" align="justify">4. Mengelola dan mengembangkan data muzaki dan mustahik Kabupaten Tanah Laut;</p>
+						<p class="subheading" style="color: black;" align="justify">5. Mengendalikan pengumpulan, pendistribusian & mendayagunaan zakat, infaq dan sadaqah TALA;</p>
+						<p class="subheading" style="color: black;" align="justify">6. Melengkapi sarana dan prasarana pendukung operasional BAZNAS TALA</p>
 					</div>
 
 					<div class="col-sm-12 col-md-12 col-lg-4">
