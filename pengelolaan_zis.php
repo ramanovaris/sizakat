@@ -40,7 +40,7 @@ include "config/koneksi.php";
 
 </head>
 
-<body data-spy="scroll" data-target="#navbar-example">
+<body data-spy="scroll" data-target="#navbar-example" text="black">
 
 	<!-- LOAD PAGE -->
 	<div class="animationload">
@@ -87,29 +87,25 @@ include "config/koneksi.php";
 			            <ul class="navbar-nav ml-auto">
 			                <li class="nav-item dropdown">
 			                <li class="nav-item">
-			                    <a class="nav-link active" href="index.php">Home</a>
+			                    <a class="nav-link" href="index.php">Home</a>
 			                </li>
 			                <li class="nav-item dropdown">
 			                	<a class="nav-link dropdown-toggle" href="profile_baznas.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						          Profil BAZNAS TALA
 						        </a>
-						        <!-- <a class="nav-link dropdown-toggle" href="profile_baznas.php" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						          Profil BAZNAS TALA
-						        </a> -->
 						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						          <a class="dropdown-item" href="profile_baznas.php">Profil Kami</a>
 						          <a class="dropdown-item" href="visi_misi.php">Visi & Misi</a>
-						          <!-- <div class="dropdown-divider"></div> -->
 						          <a class="dropdown-item" href="struktur_organisasi.php">Struktur Organisasi</a>
 						        </div>
-						      </li>
-						     <li class="nav-item dropdown">
-			                	<a class="nav-link dropdown-toggle" href="sop.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    </li>
+						    <li class="nav-item dropdown">
+			                	<a class="nav-link active dropdown-toggle" href="sop.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						          Aturan dan Ketentuan
 						        </a>
 						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						          <a class="dropdown-item" href="sop.php">SOP Penerimaan ZIS</a>
-						          <a class="dropdown-item" href="pengelolaan_zis.php">Pengelolaan ZIS</a>
+						          <a class="dropdown-item active" href="pengelolaan_zis.php">Pengelolaan ZIS</a>
 						          <a class="dropdown-item" href="syarat_pengajuan_bantuan.php">Syarat Pengajuan Bantuan/Santunan</a>
 						        </div>
 						      </li>
@@ -131,7 +127,7 @@ include "config/koneksi.php";
     <div class="section banner-page" data-background="images/baznas_tala.jpg">
 		<div class="content-wrap pos-relative">
 			<div class="d-flex justify-content-center bd-highlight mb-3">
-				<div class="title-page" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">Sistem Infomasi Badan Amil Zakat Nasional Kabupaten Tanah Laut</div>
+				<div class="title-page" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">Pengelolaan ZIS</div>
 			</div>
 			<div class="d-flex justify-content-center bd-highlight mb-3">
 			    <nav aria-label="breadcrumb">
@@ -151,64 +147,26 @@ include "config/koneksi.php";
 
 					<div class="col-sm-12 col-md-12 col-lg-8">
 						
-						<h2 class="section-heading text-left mb-5">
-							Hitung Zakat
+						<h2 class="section-heading text-left mb-4">
+							PENGUMPULAN
 						</h2>
-						<p class="subheading text-left">Pilih Zakat :</p>
-						<form   action="" method="POST" class="form-contact">
-							<div class="row">
+						<p class="subheading" style="color: black;" align="justify">Jenis ZIS (Zakat Infaq, dan Sedekah) yang dikumpulkan</p>
+						<p class="subheading" style="color: black; margin-bottom: 3%;" align="justify">1. Zakat : Mal Individual dan Mal Badan</p>
 
-								<div class="col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan Nominal" name="no_rm" required="" onkeyup="isi_otomatis()" autocomplete="off" >
-										<div class="help-block with-errors"></div>
-										
-									</div>
-
-								</div>
-								<!-- <div class="col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" id="nama_pasien"  placeholder="Nama Lengkap" name="nama" required="" autocomplete="off" readonly="" >
-										<div class="help-block with-errors"></div>
-									</div>
-								</div> -->							
-								<div class="col-sm-6 col-md-6" hidden="">
-									<div class="form-group">
-										<input type="text" class="form-control" id="p_subject" placeholder="Subject">
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-6" hidden="">
-									<div class="form-group">
-										<input type="text" class="form-control" id="p_phone" placeholder="Enter Phone Number">
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="text-left">
-									<div id="success"></div>
-									<button type="submit" class="btn btn-primary">KONFIRMASI</button>
-								</div>
-							
-						</form>	
-						<script type="text/javascript">
-			            function isi_otomatis(){
-			                var no_rm = $("#no_rm").val();
-			                $.ajax({
-			                    url: 'ambil_nama.php',
-			                    data:"no_rm="+no_rm ,
-			                }).success(function (data) {
-			                    var json = data,
-			                    obj = JSON.parse(json);
-			                    $('#nama_pasien').val(obj.nama_pasien);
-			                    
-			                });
-			            }
-       						 </script>
+						<p class="subheading" style="color: black; margin-left: 5%" align="justify">1. Zakat Emas, Perak, dan Logam Mulia lainnya <br> 2. Zakat Uang dan Surat Berharga lainnya <br> 3. Zakat Perniagaan <br> 4. Zakat Pertanian, Perkebunan, dan Kehutanan <br> 5. Zakat Peternakan dan Perikanan <br> 6. Zakat Pertambangan <br> 7. Zakat Perindustrian <br> 8. Zakat Pendapatan dan Jasa/Zakat Profesi <br> 9. Zakat Rikaz</p>
+						<p class="subheading" style="color: black;" align="justify">2. Infak dan sedekah <br> 3. Corporate social responsbility (CSR) <br> 4. Penerimaan dana sosial keagamaan lainnya (DSKL) Wakaf, harta nazar, harta amanah atau titipan, harta pusaka yang tidak memiliki ahli waris, qurban, kafarat, fidyah, dan harta sitaan pengadilan agama.</p>
+						<p class="subheading" style="color: black;" align="justify">PENGUMPULAN</p>
+						<p class="subheading" style="color: black;" align="justify">BAZNAS Kabupaten Tanah Laut melakukan Pengumpulan zakat maal, zakat fitrah, zakat profesi, infaq, sadaqah, CSR dan Dana Sosial Keagamaan dari Lembaga/ Badan/Kantor/Instansi Pemerintah, Badan Usaha milik Negara, Swasta dan perseorangan, melalui Unit Pengumpul Zakat (UPZ), dan atau secara langsung dari para muzaki/munfik/dermawan, melalui Rekening.</p>
+						<p class="subheading" style="color: black;" align="justify">Dalam rangka pengumpulan zakat, muzaki melakukan penghitungan sendiri atas kewajiban zakatnya. Bila diperlukan BAZNAS Tala siap memberi bantuan.</p>
+						<p class="subheading" style="color: black;" align="justify">BAZNAS Kabupaten Tanah Laut wajib memberikan bukti setoran zakat kepada setiap muzaki. Bukti setoran zakat digunakan sebagai pengurang penghasilan kena pajak.</p>
 						<hr>
-
-						
+						<h2 class="section-heading text-left mb-4">
+							PENDISTRIBUSIAN/PENYALURAN
+						</h2>
+						<p class="subheading" style="color: black;" align="justify">Penyaluran menurut asnaf/Konsumtif</p>
+						<p class="subheading" style="color: black; margin-left: 3%" align="justify">1. Fakir <br> 2. Miskin <br> 3. Amil <br> 4. Muallaf <br> 5. Riqab <br> 6. Gharimin <br>7. Fi sabilillah <br> 8. Ibnu sabil</p>
+						<p class="subheading" style="color: black;" align="justify">Penyaluran Menurut Program/Pemberdayaan/Produktif</p>
+						<p class="subheading" style="color: black; margin-left: 3%" align="justify">1. Tujuan zakat adalah agar orang yang lemah menjadi berdaya dan sejahtera, mustahik menjadi muzaki. <br> 2. Pendidikan, untuk mutahik yang memerlukan bantuan pendidikan: biasiswa, pendukung kelengkapan pendidikan dan sejenisnya; <br> 3. Kesehatan, untuk mustahik yang memerlukan bantuan kesehatan: biaya berobat, bantuan rawat inap dan sejenisnya; <br> 4. Kemanusiaan, bagi mustahik yang memerlukan bantuan medesak, dan terkena musibah: kebakaran, kebanjiran, angin puiting beliung, tanah longsor bedah/rehap rumah dan sejenisnya; <br> 5. Ekonomi, bagi mustahik agar mandiri secara ekonomi: penambahan modal, pelatihan dan pendampingan usaha, modal bergulir dan sejenisnya; <br> 6. Dakwah-advokasi, Untuk Untuk peningkatan kualitas dan kuantitasnya keagamaan Islam: kaum masjid, insentif guru mengaji/TPA, bantuan rehab masjid, langgar/mushalla dan sebagainya.</p>
 					</div>
 
 					<div class="col-sm-12 col-md-12 col-lg-4">

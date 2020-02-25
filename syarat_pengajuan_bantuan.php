@@ -40,7 +40,7 @@ include "config/koneksi.php";
 
 </head>
 
-<body data-spy="scroll" data-target="#navbar-example">
+<body data-spy="scroll" data-target="#navbar-example" text="black">
 
 	<!-- LOAD PAGE -->
 	<div class="animationload">
@@ -87,30 +87,26 @@ include "config/koneksi.php";
 			            <ul class="navbar-nav ml-auto">
 			                <li class="nav-item dropdown">
 			                <li class="nav-item">
-			                    <a class="nav-link active" href="index.php">Home</a>
+			                    <a class="nav-link" href="index.php">Home</a>
 			                </li>
 			                <li class="nav-item dropdown">
 			                	<a class="nav-link dropdown-toggle" href="profile_baznas.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						          Profil BAZNAS TALA
 						        </a>
-						        <!-- <a class="nav-link dropdown-toggle" href="profile_baznas.php" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						          Profil BAZNAS TALA
-						        </a> -->
 						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						          <a class="dropdown-item" href="profile_baznas.php">Profil Kami</a>
 						          <a class="dropdown-item" href="visi_misi.php">Visi & Misi</a>
-						          <!-- <div class="dropdown-divider"></div> -->
 						          <a class="dropdown-item" href="struktur_organisasi.php">Struktur Organisasi</a>
 						        </div>
-						      </li>
-						     <li class="nav-item dropdown">
-			                	<a class="nav-link dropdown-toggle" href="sop.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    </li>
+						    <li class="nav-item dropdown">
+			                	<a class="nav-link active dropdown-toggle" href="sop.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						          Aturan dan Ketentuan
 						        </a>
 						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						          <a class="dropdown-item" href="sop.php">SOP Penerimaan ZIS</a>
 						          <a class="dropdown-item" href="pengelolaan_zis.php">Pengelolaan ZIS</a>
-						          <a class="dropdown-item" href="syarat_pengajuan_bantuan.php">Syarat Pengajuan Bantuan/Santunan</a>
+						          <a class="dropdown-item active" href="syarat_pengajuan_bantuan.php">Syarat Pengajuan Bantuan/Santunan</a>
 						        </div>
 						      </li>
 			          		<li class="nav-item">
@@ -131,7 +127,7 @@ include "config/koneksi.php";
     <div class="section banner-page" data-background="images/baznas_tala.jpg">
 		<div class="content-wrap pos-relative">
 			<div class="d-flex justify-content-center bd-highlight mb-3">
-				<div class="title-page" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">Sistem Infomasi Badan Amil Zakat Nasional Kabupaten Tanah Laut</div>
+				<div class="title-page" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">Syarat Pengajuan Bantuan/Santunan</div>
 			</div>
 			<div class="d-flex justify-content-center bd-highlight mb-3">
 			    <nav aria-label="breadcrumb">
@@ -151,64 +147,48 @@ include "config/koneksi.php";
 
 					<div class="col-sm-12 col-md-12 col-lg-8">
 						
-						<h2 class="section-heading text-left mb-5">
-							Hitung Zakat
+						<h2 class="section-heading text-center mb-4">
+							Syarat Pengajuan Bantuan/Santunan berdasarkan Peraturan Ketua Badan Amil Zakat Nasional Kabupaten Tanah Laut
+Nomor: 01/P/BAZNAS-TALA/VI/2016
 						</h2>
-						<p class="subheading text-left">Pilih Zakat :</p>
-						<form   action="" method="POST" class="form-contact">
-							<div class="row">
+						<h2 class="section-heading text-left mb-4">
+							MEKANISME PENGAJUAN BANTUAN/SANTUNAN
+						</h2>
+						<p class="subheading" style="color: black; margin-left: 3%" align="justify">1. Surat permohonan diketahui Lurah/Kades <br> 2. Foto kopi KTP dan atau Kartu Keluarga (KK) <br> 3. Surat keterangan tidak mampu dari RT/Lurah/Kades</p>
+						<p class="subheading" style="color: black" align="justify">Untuk program Ekonomi ditambah :</p>
+						<p class="subheading" style="color: black; margin-left: 3%" align="justify">1. Rencana rincian biaya dan jumlah yang diperlukan tiap orang <br> 2. Surat Keterangan usaha ekonomi lemah dari Lurah/Kades <br> 3. Hal lain bila ada tambahan yang diperlukan.</p>
 
-								<div class="col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan Nominal" name="no_rm" required="" onkeyup="isi_otomatis()" autocomplete="off" >
-										<div class="help-block with-errors"></div>
-										
-									</div>
+						<h2 class="section-heading text-left mb-4">
+							PENGAJUAN BANTUAN BANGUN/REHAB MESJID/LANGGAR/TPA
+						</h2>
+						<p class="subheading" style="color: black" align="justify">1. Proposal Permohonan Bantuan Pembangunan/Rehab Mesjid/Langgar/Tempat Pendidikan Al Qur’an (TPA), yang dilengkapi dengan :</p>
+						<p class="subheading" style="color: black; margin-left: 3%" align="justify">- Surat Permohonan yang diketahui oleh Lurah/Kepala Desa/Camat setempat <br> - Rencana Anggaran Biaya (RAB) <br> - Susunan Panitia Pelaksana Pembangunan/Rehab</p>
+						<p class="subheading" style="color: black" align="justify">2. Lampiran</p>
+						<p class="subheading" style="color: black; margin-left: 3%" align="justify">- Fotocopi KTP Ketua dan Sekretaris Panitia Pelaksana. <br> - Foto obyek mesjid/langgar/TPA yang akan dibangun/rehab</p>
 
-								</div>
-								<!-- <div class="col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" id="nama_pasien"  placeholder="Nama Lengkap" name="nama" required="" autocomplete="off" readonly="" >
-										<div class="help-block with-errors"></div>
-									</div>
-								</div> -->							
-								<div class="col-sm-6 col-md-6" hidden="">
-									<div class="form-group">
-										<input type="text" class="form-control" id="p_subject" placeholder="Subject">
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-6" hidden="">
-									<div class="form-group">
-										<input type="text" class="form-control" id="p_phone" placeholder="Enter Phone Number">
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="text-left">
-									<div id="success"></div>
-									<button type="submit" class="btn btn-primary">KONFIRMASI</button>
-								</div>
-							
-						</form>	
-						<script type="text/javascript">
-			            function isi_otomatis(){
-			                var no_rm = $("#no_rm").val();
-			                $.ajax({
-			                    url: 'ambil_nama.php',
-			                    data:"no_rm="+no_rm ,
-			                }).success(function (data) {
-			                    var json = data,
-			                    obj = JSON.parse(json);
-			                    $('#nama_pasien').val(obj.nama_pasien);
-			                    
-			                });
-			            }
-       						 </script>
-						<hr>
+						<h2 class="section-heading text-left mb-4">
+							PERMOHONAN BANTUAN BEASISWA
+						</h2>
+						<p class="subheading" style="color: black" align="justify">1. Mengisi formulir calon penerima beasiswa Baznas <br> 2. Surat Permohonan (menyertakan tanda tangan orangtua/wali) <br> 3. Fotocopi KTP orangtua/wali dan kartu mahasiswa <br> 4. Fotocopi KK <br> 5. Surat Keterangan Tidak Mampu dari RT/Kepala Desa/Lurah (asli & terbaru) <br> 6. Surat Keterangan masih aktif kuliah minimal semester IV <br> 7. Lembar Hasil Studi (LHS) terakhir <br> 8. Bukti pembayaran SPP terakhir <br> 9. Foto berwarna 3 x 4 cm sebanyak 4 lembar</p>
 
-						
+						<h2 class="section-heading text-left mb-4">
+							PENGAJUAN BANTUAN USAHA PRODUKTIF
+						</h2>
+						<p class="subheading" style="color: black" align="justify">1. Surat Permohonan Bantuan Modal Usaha Produktif yang berisi :</p>
+						<p class="subheading" style="color: black; margin-left: 3%" align="justify">- Rincian biaya modal <br>- Asumsi/perkiraan keuntungan.</p>
+						<p class="subheading" style="color: black" align="justify">2. Fotocopi Kartu Tanda Penduduk/KTP <br> 3. Fotocopi Kartu Keluarga/KK <br> 4. Surat Keterangan Ketua RT/Lurah/Kepala Desa</p>
+
+						<h2 class="section-heading text-left mb-4">
+							PERMOHONAN BANTUAN BANGUN/REHAB RUMAH LAYAK HUNI
+						</h2>
+						<p class="subheading" style="color: black" align="justify">1. Surat Permohonan Bantuan Pembangunan/rehab rumah layak huni, yang berisi :</p>
+						<p class="subheading" style="color: black; margin-left: 3%" align="justify">- Rincian Anggaran Biaya <br> - Rencana Ukuran Bangunan <br> - Foto obyek rumah/bagian rumah yang akan direhab/diperbaiki</p>
+						<p class="subheading" style="color: black" align="justify">2. Fotocopi Kartu Tanda Penduduk/KTP <br> 3. Fotocopi Kartu Keluarga/KK <br> 4. Surat Keterangan Tidak Mampu dari RT/Lurah/Kepala Desa <br> 5. Surat Keterangan Lahan/Lokasi/Tanah milik sendiri <br> 6. Surat Keterangan Lahan/Lokasi/Tanah tidak bermasalah/tidak dalam sengketa <br> 7. Struktur Panitia Pembangunan (kalau ada)</p>
+
+						<h2 class="section-heading text-left mb-4">
+							PENGAJUAN BANTUAN BIAYA BEROBAT
+						</h2>
+						<p class="subheading" style="color: black" align="justify">1. Surat Permohonan bantuan biaya berobat <br> 2. Fotocopi KTP <br> 3. Fotocopi KK <br> 4. Surat Keterangan Tidak Mampu dari RT/Lurah/Kepala Desa (asli & terbaru) <br> 5. Surat Keterangan Sakit/Rujukan <br> 6. Slip pembayaran rumah sakit</p>
 					</div>
 
 					<div class="col-sm-12 col-md-12 col-lg-4">

@@ -40,7 +40,7 @@ include "config/koneksi.php";
 
 </head>
 
-<body data-spy="scroll" data-target="#navbar-example">
+<body data-spy="scroll" data-target="#navbar-example" text="black">
 
 	<!-- LOAD PAGE -->
 	<div class="animationload">
@@ -87,28 +87,24 @@ include "config/koneksi.php";
 			            <ul class="navbar-nav ml-auto">
 			                <li class="nav-item dropdown">
 			                <li class="nav-item">
-			                    <a class="nav-link active" href="index.php">Home</a>
+			                    <a class="nav-link" href="index.php">Home</a>
 			                </li>
 			                <li class="nav-item dropdown">
 			                	<a class="nav-link dropdown-toggle" href="profile_baznas.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						          Profil BAZNAS TALA
 						        </a>
-						        <!-- <a class="nav-link dropdown-toggle" href="profile_baznas.php" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						          Profil BAZNAS TALA
-						        </a> -->
 						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						          <a class="dropdown-item" href="profile_baznas.php">Profil Kami</a>
 						          <a class="dropdown-item" href="visi_misi.php">Visi & Misi</a>
-						          <!-- <div class="dropdown-divider"></div> -->
 						          <a class="dropdown-item" href="struktur_organisasi.php">Struktur Organisasi</a>
 						        </div>
-						      </li>
-						     <li class="nav-item dropdown">
-			                	<a class="nav-link dropdown-toggle" href="sop.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    </li>
+						    <li class="nav-item dropdown">
+			                	<a class="nav-link active dropdown-toggle" href="sop.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						          Aturan dan Ketentuan
 						        </a>
 						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						          <a class="dropdown-item" href="sop.php">SOP Penerimaan ZIS</a>
+						          <a class="dropdown-item active" href="sop.php">SOP Penerimaan ZIS</a>
 						          <a class="dropdown-item" href="pengelolaan_zis.php">Pengelolaan ZIS</a>
 						          <a class="dropdown-item" href="syarat_pengajuan_bantuan.php">Syarat Pengajuan Bantuan/Santunan</a>
 						        </div>
@@ -131,7 +127,7 @@ include "config/koneksi.php";
     <div class="section banner-page" data-background="images/baznas_tala.jpg">
 		<div class="content-wrap pos-relative">
 			<div class="d-flex justify-content-center bd-highlight mb-3">
-				<div class="title-page" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">Sistem Infomasi Badan Amil Zakat Nasional Kabupaten Tanah Laut</div>
+				<div class="title-page" style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000">SOP Penerimaan ZIS</div>
 			</div>
 			<div class="d-flex justify-content-center bd-highlight mb-3">
 			    <nav aria-label="breadcrumb">
@@ -151,64 +147,11 @@ include "config/koneksi.php";
 
 					<div class="col-sm-12 col-md-12 col-lg-8">
 						
-						<h2 class="section-heading text-left mb-5">
-							Hitung Zakat
+						<h2 class="section-heading text-center mb-4">
+							Standar Operasional Prosedur (SOP) Penerimaan ZIS berdasarkan Peraturan Ketua Badan Amil Zakat Nasional Kabupaten Tanah Laut
+Nomor : 01/P/BAZNAS-TALA/VI/2016
 						</h2>
-						<p class="subheading text-left">Pilih Zakat :</p>
-						<form   action="" method="POST" class="form-contact">
-							<div class="row">
-
-								<div class="col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan Nominal" name="no_rm" required="" onkeyup="isi_otomatis()" autocomplete="off" >
-										<div class="help-block with-errors"></div>
-										
-									</div>
-
-								</div>
-								<!-- <div class="col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" id="nama_pasien"  placeholder="Nama Lengkap" name="nama" required="" autocomplete="off" readonly="" >
-										<div class="help-block with-errors"></div>
-									</div>
-								</div> -->							
-								<div class="col-sm-6 col-md-6" hidden="">
-									<div class="form-group">
-										<input type="text" class="form-control" id="p_subject" placeholder="Subject">
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-6" hidden="">
-									<div class="form-group">
-										<input type="text" class="form-control" id="p_phone" placeholder="Enter Phone Number">
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="text-left">
-									<div id="success"></div>
-									<button type="submit" class="btn btn-primary">KONFIRMASI</button>
-								</div>
-							
-						</form>	
-						<script type="text/javascript">
-			            function isi_otomatis(){
-			                var no_rm = $("#no_rm").val();
-			                $.ajax({
-			                    url: 'ambil_nama.php',
-			                    data:"no_rm="+no_rm ,
-			                }).success(function (data) {
-			                    var json = data,
-			                    obj = JSON.parse(json);
-			                    $('#nama_pasien').val(obj.nama_pasien);
-			                    
-			                });
-			            }
-       						 </script>
-						<hr>
-
-						
+						<img src="images/sop-penerimaan-zis-01.jpg" style="width: 100%;"></img>
 					</div>
 
 					<div class="col-sm-12 col-md-12 col-lg-4">

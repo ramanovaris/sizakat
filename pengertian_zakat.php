@@ -99,6 +99,16 @@ include "config/koneksi.php";
 						          <a class="dropdown-item" href="struktur_organisasi.php">Struktur Organisasi</a>
 						        </div>
 						    </li>
+						    <li class="nav-item dropdown">
+			                	<a class="nav-link dropdown-toggle" href="sop.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						          Aturan dan Ketentuan
+						        </a>
+						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						          <a class="dropdown-item" href="sop.php">SOP Penerimaan ZIS</a>
+						          <a class="dropdown-item" href="pengelolaan_zis.php">Pengelolaan ZIS</a>
+						          <a class="dropdown-item" href="syarat_pengajuan_bantuan.php">Syarat Pengajuan Bantuan/Santunan</a>
+						        </div>
+						      </li>
 			          		<li class="nav-item">
 			                    <a class="nav-link active" href="pengertian_zakat.php">Tentang Zakat</a>
 			                </li>
