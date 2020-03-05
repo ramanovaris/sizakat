@@ -25,14 +25,12 @@ CREATE TABLE IF NOT EXISTS `akun` (
   PRIMARY KEY (`kode_akun`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_zakat.akun: ~4 rows (approximately)
+-- Dumping data for table db_zakat.akun: ~3 rows (approximately)
 DELETE FROM `akun`;
 /*!40000 ALTER TABLE `akun` DISABLE KEYS */;
 INSERT INTO `akun` (`kode_akun`, `username`, `password`, `level`) VALUES
 	(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin'),
-	(2, 'ningsih', 'c4ca4238a0b923820dcc509a6f75849b', 'Petugas'),
 	(4, 'petugas', 'afb91ef692fd08c445e8cb1bab2ccf9c', 'Petugas'),
-	(8, 'new', '22af645d1859cb5ca6da0c484f1f37ea', 'Petugas'),
 	(9, 'new', '22af645d1859cb5ca6da0c484f1f37ea', 'Petugas');
 /*!40000 ALTER TABLE `akun` ENABLE KEYS */;
 
@@ -69,16 +67,13 @@ CREATE TABLE IF NOT EXISTS `pemberi_zakat` (
   CONSTRAINT `FK_penerima_zakat_user` FOREIGN KEY (`kode_akun`) REFERENCES `akun` (`kode_akun`)
 ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_zakat.pemberi_zakat: ~7 rows (approximately)
+-- Dumping data for table db_zakat.pemberi_zakat: ~5 rows (approximately)
 DELETE FROM `pemberi_zakat`;
 /*!40000 ALTER TABLE `pemberi_zakat` DISABLE KEYS */;
 INSERT INTO `pemberi_zakat` (`id`, `uraian`, `jumlah`, `tanggal`, `jenis_zakat`, `kode_akun`) VALUES
-	(2, 'Kantor Kemenag Tala', '1000000', '2020-02-08 14:58:24', 1, 2),
 	(13, 'Coba', '50000000', '2020-02-08 19:57:12', 1, 1),
-	(24, 'sdsds', '232454445', '2020-02-09 14:19:57', 5, 8),
 	(27, 'org prof', '344', '2020-02-09 16:48:32', 2, 1),
-	(28, 'mal org', '766', '2020-02-09 16:48:51', 3, 1),
-	(29, 'badna', '9000', '2020-02-09 16:49:04', 4, 1),
+	(28, 'mal org', '7000', '2020-02-09 16:48:51', 3, 1),
 	(31, 'tambahe lagi', '1000', '2020-02-09 20:18:19', 4, 4);
 /*!40000 ALTER TABLE `pemberi_zakat` ENABLE KEYS */;
 
@@ -102,11 +97,10 @@ CREATE TABLE IF NOT EXISTS `penyaluran_zakat` (
   CONSTRAINT `FK_penyaluran_zakat_user` FOREIGN KEY (`kode_akun`) REFERENCES `akun` (`kode_akun`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_zakat.penyaluran_zakat: ~3 rows (approximately)
+-- Dumping data for table db_zakat.penyaluran_zakat: ~2 rows (approximately)
 DELETE FROM `penyaluran_zakat`;
 /*!40000 ALTER TABLE `penyaluran_zakat` DISABLE KEYS */;
 INSERT INTO `penyaluran_zakat` (`id`, `nbkk`, `nik`, `nama`, `alamat`, `kecamatan`, `no_hp`, `keterangan`, `golongan`, `jumlah_dana`, `jenis_program`, `kode_akun`, `tanggal`) VALUES
-	(1, '02/09/19/KK/1/000000001', '63000000000', 'Mat Anwar', 'Komp.PTP', 'Pelaihari', '08223456788', 'tes', 'Fakir', '1000000', 'Bantuan Modal', 2, '2020-02-08 16:42:10'),
 	(3, '12/12/12/12/23', '6500000334343434', 'Rama Nov', 'ambungan', 'pelaihari', '0812121212', 'Sakit Hati Jua', 'Kayaaaa', '2900000', 'Bantuan Sosial', 1, '2020-02-09 12:35:09');
 /*!40000 ALTER TABLE `penyaluran_zakat` ENABLE KEYS */;
 
@@ -122,11 +116,11 @@ CREATE TABLE IF NOT EXISTS `petugas` (
   CONSTRAINT `FK_petugas_akun` FOREIGN KEY (`id_akun`) REFERENCES `akun` (`kode_akun`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_zakat.petugas: ~1 rows (approximately)
+-- Dumping data for table db_zakat.petugas: ~2 rows (approximately)
 DELETE FROM `petugas`;
 /*!40000 ALTER TABLE `petugas` DISABLE KEYS */;
 INSERT INTO `petugas` (`id_petugas`, `nama`, `jenis_kelamin`, `jabatan`, `id_akun`) VALUES
-	(2, 'Nawawi', 'Laki-laki', 'panitia', 4),
+	(2, 'Ningsih', 'Perempuan', 'panitia', 4),
 	(7, 'new', 'Laki-laki', 'new', 9);
 /*!40000 ALTER TABLE `petugas` ENABLE KEYS */;
 

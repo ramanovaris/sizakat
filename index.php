@@ -1,5 +1,6 @@
 <?php
 include "config/koneksi.php";
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -154,58 +155,105 @@ include "config/koneksi.php";
 						<h2 class="section-heading text-left mb-5">
 							Hitung Zakat
 						</h2>
-						<p class="subheading text-left">Pilih Zakat :</p>
-						<form   action="" method="POST" class="form-contact">
+						<p class="subheading text-left">Pilih Jenis Zakat :</p>
+						<form   action="" method="get" class="form-contact">
 							<div class="row">
-
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan Nominal" name="no_rm" required="" onkeyup="isi_otomatis()" autocomplete="off" >
-										<div class="help-block with-errors"></div>
-										
+										<select name="jenis_zakat" id="jenis_zakat" class="form-control" onchange="form.submit()">
+                                                <option value="0" >-- Pilih Jenis Zakat --</option>
+                                                <option value="1" <?php if($_GET['jenis_zakat'] == '1'){echo "selected";}?>>Zakat Penghasilan</option>
+                                                <option value="2" <?php if($_GET['jenis_zakat'] == '2'){echo "selected";}?>>Zakat Pertanian</option>
+                                                
+                                        </select>
 									</div>
+									<?php
+									if($_GET['jenis_zakat'] == '1'){
+									?>	
+										<label>Penghasilan/Gaji Saya per Bulan</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="gaji" name="gaji" required="" onkeyup="isi_otomatis()" autocomplete="off">
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Pendapatan Lain-lain(/Bulan)</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="lain2" name="lain2" onkeyup="isi_otomatis()" autocomplete="off" >
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Hutang/Cicilan (/Bulan)</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="hutang_cicilan" onkeyup="isi_otomatis()" name="hutang_cicilan" autocomplete="off" >
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Pemasukan / Pendapatan per Bulan</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="gaji_bersih" name="gaji_bersih" autocomplete="off" >
+											<div class="help-block with-errors"></div>
+										</div>
 
-								</div>
-								<!-- <div class="col-sm-6 col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" id="nama_pasien"  placeholder="Nama Lengkap" name="nama" required="" autocomplete="off" readonly="" >
-										<div class="help-block with-errors"></div>
-									</div>
-								</div> -->							
-								<div class="col-sm-6 col-md-6" hidden="">
-									<div class="form-group">
-										<input type="text" class="form-control" id="p_subject" placeholder="Subject">
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-6" hidden="">
-									<div class="form-group">
-										<input type="text" class="form-control" id="p_phone" placeholder="Enter Phone Number">
-										<div class="help-block with-errors"></div>
-									</div>
+										<hr>
+										<label>Harga beras saat ini (/Kg)</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan 1" name="no_rm" required="" autocomplete="off" >
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Besarnya nishab</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan 1" name="no_rm" required="" autocomplete="off" >
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Wajib membayar zakat profesi?</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan 1" name="no_rm" required="" autocomplete="off" >
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Jumlah Yang Dibayarkan pertahun</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan 1" name="no_rm" required="" autocomplete="off" >
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Jumlah Yang Dibayarkan perbulan</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan 1" name="no_rm" required="" autocomplete="off" >
+											<div class="help-block with-errors"></div>
+										</div>
+									<?php } ?>
+
+									<?php
+									if ($_GET['jenis_zakat'] == '2'){
+									?>	
+										<div class="form-group">
+											<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan 1" name="no_rm" required="" autocomplete="off" >
+											<div class="help-block with-errors"></div>
+										</div>
+									<?php } ?>
 								</div>
 							</div>
-							
-							<div class="text-left">
-									<div id="success"></div>
-									<button type="submit" class="btn btn-primary">KONFIRMASI</button>
-								</div>
-							
 						</form>	
 						<script type="text/javascript">
 			            function isi_otomatis(){
-			                var no_rm = $("#no_rm").val();
-			                $.ajax({
-			                    url: 'ambil_nama.php',
-			                    data:"no_rm="+no_rm ,
-			                }).success(function (data) {
-			                    var json = data,
-			                    obj = JSON.parse(json);
-			                    $('#nama_pasien').val(obj.nama_pasien);
+							var gaji = $("#gaji").val();	
+							var lain2 = $("#lain2").val();
+							var hutang_cicilan = $("#hutang_cicilan").val();
+							var gaji_bersih = $("#gaji_bersih").val();
+
+							// hutang_cicilan = false;
+
+							var total = parseInt(gaji)+parseInt(lain2)+parseInt(hutang_cicilan);
+
+							$('#gaji_bersih').val(total);
+			            	// alert(gaji);
+			                // $.ajax({
+			                //     url: 'ambil_nama.php',
+			                //     data:"no_rm="+no_rm ,
+			                // }).success(function (data) {
+			                //     var json = data,
+			                //     obj = JSON.parse(json);
+			                //     $('#nama_pasien').val(obj.nama_pasien);
 			                    
-			                });
+			                // });
 			            }
-       						 </script>
+       					</script>
 						<hr>
 
 						
