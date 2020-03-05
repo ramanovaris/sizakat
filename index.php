@@ -167,56 +167,61 @@ error_reporting(0);
                                                 
                                         </select>
 									</div>
+									<hr>
 									<?php
 									if($_GET['jenis_zakat'] == '1'){
 									?>	
+										<h4>
+											Penghasilan / Pemasukkan
+										</h4>
 										<label>Penghasilan/Gaji Saya per Bulan</label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="gaji" name="gaji" required="" onkeyup="isi_otomatis()" autocomplete="off">
+											<input type="text" class="form-control" id="gaji" name="gaji" required="" value="0" onkeyup="isi_otomatis()" autocomplete="off">
 											<div class="help-block with-errors"></div>
 										</div>
 										<label>Pendapatan Lain-lain(/Bulan)</label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="lain2" name="lain2" onkeyup="isi_otomatis()" autocomplete="off" >
+											<input type="text" class="form-control" id="lain2" name="lain2" onkeyup="isi_otomatis()" value="0" autocomplete="off" >
 											<div class="help-block with-errors"></div>
 										</div>
 										<label>Hutang/Cicilan (/Bulan)</label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="hutang_cicilan" onkeyup="isi_otomatis()" name="hutang_cicilan" autocomplete="off" >
+											<input type="text" class="form-control" id="hutang_cicilan" onkeyup="isi_otomatis()" value="0" name="hutang_cicilan" autocomplete="off" >
 											<div class="help-block with-errors"></div>
 										</div>
-										<label>Pemasukan / Pendapatan per Bulan</label>
+										<label><b>Pemasukan / Pendapatan per Bulan</b></label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="gaji_bersih" name="gaji_bersih" autocomplete="off" >
+											<input type="text" class="form-control" id="gaji_bersih" name="gaji_bersih" value="0" autocomplete="off" disabled="">
 											<div class="help-block with-errors"></div>
 										</div>
 
-										<hr>
+										<h4>NISAB</h4>
 										<label>Harga beras saat ini (/Kg)</label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan 1" name="no_rm" required="" autocomplete="off" >
+											<input type="text" class="form-control" id="beras" name="beras" onkeyup="isi_otomatis()" value="0" autocomplete="off" >
 											<div class="help-block with-errors"></div>
 										</div>
 										<label>Besarnya nishab</label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan 1" name="no_rm" required="" autocomplete="off" >
+											<input type="text" class="form-control" id="nishab" name="nishab" value="0" autocomplete="off" disabled="">
 											<div class="help-block with-errors"></div>
 										</div>
 										<label>Wajib membayar zakat profesi?</label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan 1" name="no_rm" required="" autocomplete="off" >
+											<input type="text" class="form-control" id="wajib_tidak" name="wajib_tidak" value="0" autocomplete="off" disabled="">
 											<div class="help-block with-errors"></div>
 										</div>
-										<label>Jumlah Yang Dibayarkan pertahun</label>
+										<label><b>Jumlah Yang Dibayarkan pertahun</b></label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan 1" name="no_rm" required="" autocomplete="off" >
+											<input type="text" class="form-control" id="jum_dibayarkan_thn" name="jum_dibayarkan_thn" value="0" autocomplete="off" disabled="">
 											<div class="help-block with-errors"></div>
 										</div>
-										<label>Jumlah Yang Dibayarkan perbulan</label>
+										<label><b>Jumlah Yang Dibayarkan perbulan</b></label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan 1" name="no_rm" required="" autocomplete="off" >
+											<input type="text" class="form-control" id="jum_dibayarkan_bln" name="jum_dibayarkan_bln" value="0" autocomplete="off" disabled="">
 											<div class="help-block with-errors"></div>
 										</div>
+										<input type="reset" value="Hitung Ulang" style="background-color: #5CB85C; color: white;" />
 									<?php } ?>
 
 									<?php
@@ -237,26 +242,34 @@ error_reporting(0);
 							var hutang_cicilan = $("#hutang_cicilan").val();
 							var gaji_bersih = $("#gaji_bersih").val();
 
-							// hutang_cicilan = false;
+							var total_bersih;
 
-							var total = parseInt(gaji)+parseInt(lain2)+parseInt(hutang_cicilan);
+							total_bersih = (parseInt(gaji)+parseInt(lain2))-parseInt(hutang_cicilan);
 
-							$('#gaji_bersih').val(total);
-			            	// alert(gaji);
-			                // $.ajax({
-			                //     url: 'ambil_nama.php',
-			                //     data:"no_rm="+no_rm ,
-			                // }).success(function (data) {
-			                //     var json = data,
-			                //     obj = JSON.parse(json);
-			                //     $('#nama_pasien').val(obj.nama_pasien);
-			                    
-			                // });
+							$('#gaji_bersih').val(total_bersih);
+
+							var harga_beras, nishab, zakat_bln, zakat_thn;
+							var beras_kg = 524;
+
+							harga_beras = $("#beras").val();
+							nishab = harga_beras*beras_kg;
+
+							$('#nishab').val(nishab);
+
+							if (total_bersih < nishab) {
+								$('#wajib_tidak').val('Tidak');
+							}
+							else{
+								$('#wajib_tidak').val('Ya');
+							}
+			            	
+							zakat_bln = (2.5/100)*total_bersih;
+							zakat_thn = zakat_bln*12;
+
+							$('#jum_dibayarkan_bln').val(zakat_bln);
+							$('#jum_dibayarkan_thn').val(zakat_thn);
 			            }
        					</script>
-						<hr>
-
-						
 					</div>
 
 					<div class="col-sm-12 col-md-12 col-lg-4">
