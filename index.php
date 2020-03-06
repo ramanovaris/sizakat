@@ -227,10 +227,35 @@ error_reporting(0);
 									<?php
 									if ($_GET['jenis_zakat'] == '2'){
 									?>	
+										<!-- <h4>
+											Penghasilan / Pemasukkan
+										</h4> -->
+										<label>Hasil Panen (kg)</label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="no_rm" placeholder=" Masukkan 1" name="no_rm" required="" autocomplete="off" >
+											<input type="text" class="form-control" id="hasil_panen" name="hasil_panen" required="" value="0" onkeyup="hit_zakat_pertanian_hasil_penen()" autocomplete="off">
 											<div class="help-block with-errors"></div>
 										</div>
+										<label>Lama Panen (Bulan)</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="lama_panen" name="lama_panen" onkeyup="hit_zakat_pertanian_hasil_penen()" value="0" autocomplete="off" >
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Air Hujan (Bulan)</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="air_hujan" value="0" name="air_hujan" onkeyup="hit_zakat_pertanian_hasil_penen()" autocomplete="off" >
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Usaha Sendiri (Bulan)</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="usaha_sendiri" name="usaha_sendiri" onkeyup="hit_zakat_pertanian_hasil_penen()" value="0" autocomplete="off">
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Zakat yang harus dibayarkan (kg)</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="zakat_yang_dibayarkan" name="zakat_yang_dibayarkan" value="0" autocomplete="off" disabled="">
+											<div class="help-block with-errors"></div>
+										</div>
+										<input type="reset" value="Hitung Ulang" style="background-color: #5CB85C; color: white;" />
 									<?php } ?>
 								</div>
 							</div>
@@ -273,40 +298,33 @@ error_reporting(0);
 							}
 			            }
 
-			            function hitung_zakat_profesi(){
-							// var gaji = $("#gaji").val();	
-							// var lain2 = $("#lain2").val();
-							// var hutang_cicilan = $("#hutang_cicilan").val();
-							// var gaji_bersih = $("#gaji_bersih").val();
+			            function hit_zakat_pertanian_hasil_penen(){
+							var hasil_panen, lama_panen, air_hujan, usaha_sendiri;
 
-							// var total_bersih;
+							var total_panen, total_air_hujan, total_usaha_sendiri;
 
-							// total_bersih = (parseInt(gaji)+parseInt(lain2))-parseInt(hutang_cicilan);
+							var persen_air_hujan, persen_usaha_sendiri, zakat_yang_dibayarkan;
 
-							// $('#gaji_bersih').val(total_bersih);
+							hasil_panen = $("#hasil_panen").val();
+							lama_panen = $("#lama_panen").val();
+							air_hujan = $("#air_hujan").val();
+							usaha_sendiri = $("#usaha_sendiri").val();
 
-							// var harga_beras, nishab, zakat_bln, zakat_thn;
-							// var beras_kg = 524;
+							total_panen = hasil_panen / lama_panen;
 
-							// harga_beras = $("#beras").val();
-							// nishab = harga_beras*beras_kg;
+							total_air_hujan = total_panen * air_hujan;
+							total_usaha_sendiri = total_panen * usaha_sendiri;
 
-							// $('#nishab').val(nishab);
+							persen_air_hujan = total_air_hujan * (5/100);
+							persen_usaha_sendiri = total_usaha_sendiri * (10/100);
 
-							// if (total_bersih < nishab) {
-							// 	$('#wajib_tidak').val('Tidak');
-							// 	$('#jum_dibayarkan_bln').val('0');
-							// 	$('#jum_dibayarkan_thn').val('0');
-							// }
-							// else{
-							// 	$('#wajib_tidak').val('Ya');
+							zakat_yang_dibayarkan = persen_usaha_sendiri + persen_air_hujan;
 
-							// 	zakat_bln = (2.5/100)*total_bersih;
-							// 	zakat_thn = zakat_bln*12;
+							$('#zakat_yang_dibayarkan').val(zakat_yang_dibayarkan);
+							// alert(persen_air_hujan+' , '+persen_usaha_sendiri);
 
-							// 	$('#jum_dibayarkan_bln').val(zakat_bln);
-							// 	$('#jum_dibayarkan_thn').val(zakat_thn);
-							// }
+
+							// alert(hasil_panen+', '+lama_panen+', '+air_hujan+', '+usaha_sendiri+', '+zakat_yang_dibayarkan);
 			            }
 
        					</script>
