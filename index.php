@@ -176,17 +176,17 @@ error_reporting(0);
 										</h4>
 										<label>Penghasilan/Gaji Saya per Bulan</label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="gaji" name="gaji" required="" value="0" onkeyup="isi_otomatis()" autocomplete="off">
+											<input type="text" class="form-control" id="gaji" name="gaji" required="" value="0" onkeyup="hitung_penghasilan()" autocomplete="off">
 											<div class="help-block with-errors"></div>
 										</div>
 										<label>Pendapatan Lain-lain(/Bulan)</label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="lain2" name="lain2" onkeyup="isi_otomatis()" value="0" autocomplete="off" >
+											<input type="text" class="form-control" id="lain2" name="lain2" onkeyup="hitung_penghasilan()" value="0" autocomplete="off" >
 											<div class="help-block with-errors"></div>
 										</div>
 										<label>Hutang/Cicilan (/Bulan)</label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="hutang_cicilan" onkeyup="isi_otomatis()" value="0" name="hutang_cicilan" autocomplete="off" >
+											<input type="text" class="form-control" id="hutang_cicilan" onkeyup="hitung_penghasilan()" value="0" name="hutang_cicilan" autocomplete="off" >
 											<div class="help-block with-errors"></div>
 										</div>
 										<label><b>Pemasukan / Pendapatan per Bulan</b></label>
@@ -198,7 +198,7 @@ error_reporting(0);
 										<h4>NISAB</h4>
 										<label>Harga beras saat ini (/Kg)</label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="beras" name="beras" onkeyup="isi_otomatis()" value="0" autocomplete="off" >
+											<input type="text" class="form-control" id="beras" name="beras" onkeyup="hitung_penghasilan()" value="10900" autocomplete="off" >
 											<div class="help-block with-errors"></div>
 										</div>
 										<label>Besarnya nishab</label>
@@ -236,7 +236,8 @@ error_reporting(0);
 							</div>
 						</form>	
 						<script type="text/javascript">
-			            function isi_otomatis(){
+
+			            function hitung_penghasilan(){
 							var gaji = $("#gaji").val();	
 							var lain2 = $("#lain2").val();
 							var hutang_cicilan = $("#hutang_cicilan").val();
@@ -258,17 +259,56 @@ error_reporting(0);
 
 							if (total_bersih < nishab) {
 								$('#wajib_tidak').val('Tidak');
+								$('#jum_dibayarkan_bln').val('0');
+								$('#jum_dibayarkan_thn').val('0');
 							}
 							else{
 								$('#wajib_tidak').val('Ya');
-							}
-			            	
-							zakat_bln = (2.5/100)*total_bersih;
-							zakat_thn = zakat_bln*12;
 
-							$('#jum_dibayarkan_bln').val(zakat_bln);
-							$('#jum_dibayarkan_thn').val(zakat_thn);
+								zakat_bln = (2.5/100)*total_bersih;
+								zakat_thn = zakat_bln*12;
+
+								$('#jum_dibayarkan_bln').val(zakat_bln);
+								$('#jum_dibayarkan_thn').val(zakat_thn);
+							}
 			            }
+
+			            function hitung_zakat_profesi(){
+							// var gaji = $("#gaji").val();	
+							// var lain2 = $("#lain2").val();
+							// var hutang_cicilan = $("#hutang_cicilan").val();
+							// var gaji_bersih = $("#gaji_bersih").val();
+
+							// var total_bersih;
+
+							// total_bersih = (parseInt(gaji)+parseInt(lain2))-parseInt(hutang_cicilan);
+
+							// $('#gaji_bersih').val(total_bersih);
+
+							// var harga_beras, nishab, zakat_bln, zakat_thn;
+							// var beras_kg = 524;
+
+							// harga_beras = $("#beras").val();
+							// nishab = harga_beras*beras_kg;
+
+							// $('#nishab').val(nishab);
+
+							// if (total_bersih < nishab) {
+							// 	$('#wajib_tidak').val('Tidak');
+							// 	$('#jum_dibayarkan_bln').val('0');
+							// 	$('#jum_dibayarkan_thn').val('0');
+							// }
+							// else{
+							// 	$('#wajib_tidak').val('Ya');
+
+							// 	zakat_bln = (2.5/100)*total_bersih;
+							// 	zakat_thn = zakat_bln*12;
+
+							// 	$('#jum_dibayarkan_bln').val(zakat_bln);
+							// 	$('#jum_dibayarkan_thn').val(zakat_thn);
+							// }
+			            }
+
        					</script>
 					</div>
 
