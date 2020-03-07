@@ -77,18 +77,30 @@ include "config/koneksi.php";
 			<div class="container">
 			    <nav id="navbar-main" class="navbar navbar-expand-lg">
 			        <a class="navbar-brand" href="index.php">
-						<img src="images/baznas_header.png" alt="" style="width: 350px;
-    height: 60px;" />
+						<img src="images/baznas_tala_header.png" alt="" style="width: 60px;
+    height: 35px;" />
 					</a>
 			        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 			            <span class="navbar-toggler-icon"></span>
 			        </button>
 			        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-			            <ul class="navbar-nav ml-auto">
+			            <ul class="navbar-nav">
 			                <li class="nav-item dropdown">
 			                <li class="nav-item">
 			                    <a class="nav-link" href="index.php">Home</a>
 			                </li>
+			                <li class="nav-item dropdown">
+			                	<a class="nav-link dropdown-toggle" href="profile_baznas.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						          Program BAZNAS TALA
+						        </a>
+						        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						          <a class="dropdown-item" href="tala_cerdas.php">Program TALA Cerdas</a>
+						          <a class="dropdown-item" href="tala_makmur.php">Program TALA Makmur</a>
+						          <a class="dropdown-item" href="tala_peduli.php">Program TALA Peduli</a>
+						          <a class="dropdown-item" href="tala_sehat.php">Program TALA Sehat</a>
+						          <a class="dropdown-item" href="tala_taqwa.php">Program TALA Taqwa</a>
+						        </div>
+						     </li>
 			                <li class="nav-item dropdown">
 			                	<a class="nav-link dropdown-toggle" href="profile_baznas.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						          Profil BAZNAS TALA
