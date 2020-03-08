@@ -410,7 +410,7 @@ var charity_js_vars = {"zozo_template_uri":"https:\/\/baznastala.or.id\/content\
 
 
 	<!-- FOOTER SECTION -->
-	<div class="footer">
+	<div class="footer" style="width: 100%;">
 		<div class="content-wrap pb-0">
 			<div class="container">
 				

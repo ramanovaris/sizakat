@@ -382,7 +382,7 @@ var charity_js_vars = {"zozo_template_uri":"https:\/\/baznastala.or.id\/content\
 																</div>
 
 								<div class="zozo-pagination-wrapper">
-								<ul class="pagination scroll-pagination"><li><span class='page-numbers current'>1</span></li><li><a class='page-numbers' href='https://baznastala.or.id/portfolio-categories/program-tala-peduli/page/2/'>2</a></li><li><a class='page-numbers' href='https://baznastala.or.id/portfolio-categories/program-tala-peduli/page/3/'>3</a></li><li><a class="next page-numbers" href="https://baznastala.or.id/portfolio-categories/program-tala-peduli/page/2/"><i class="fa fa-angle-right"></i></a></li></ul>								</div>
+															</div>
 								<br><br>
 								</div>
 							</div>
@@ -421,6 +421,69 @@ var charity_js_vars = {"zozo_template_uri":"https:\/\/baznastala.or.id\/content\
 
 
 	<!-- FOOTER SECTION -->
+	<div class="footer" style="width: 100%;">
+		<div class="content-wrap pb-0">
+			<div class="container">
+				
+				<div class="row">
+					<div class="col-sm-6 col-md-6 col-lg-3">
+						<!-- <div class="footer-item">
+							<img src="images/logo2.png" alt="logo bottom" class="logo-bottom">
+							<div class="spacer-30"></div>
+							<p>RSU Borneo Citra Medika Tanah Laut - Memberikan Kenyamanan Pelayanan Kesehatan Ibu, Anak, Keluarga, dan Masyarakat Khususnya di Kabupaten Tanah Laut.</p>
+							
+						</div> -->
+					</div>	
+
+					
+
+								
+
+					<div class="col-sm-6 col-md-6 col-lg-3">
+						<div class="footer-item">
+							<div class="footer-title">
+								INFO KONTAK
+							</div>
+							
+							<ul class="list-info">
+								<li>
+									<div class="info-icon">
+										<span class="fa fa-map-marker"></span>
+									</div>
+									<div class="info-text">Jalan A. Yani, Angsau, Pelaihari, Kabupaten Tanah Laut Kalimantan Selatan 70812</div> </li>
+								<li>
+									<div class="info-icon">
+										<span class="fa fa-phone"></span>
+									</div>
+									<div class="info-text">(0512) 2021002</div>
+								</li>
+								
+								<li>
+									<div class="info-icon">
+										<span class="fa fa-clock-o"></span>
+									</div>
+									<div class="info-text">7 x 24 Jam</div>
+								</li>
+							</ul>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		
+		<div class="fcopy">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12 col-md-12">
+						<p class="ftex">Copyright 2019 &copy; <span class="color-primary">BAZNAS Tanah Laut</span><span class="color-primary"></span></p> 
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
 
 
 	

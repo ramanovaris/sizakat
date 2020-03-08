@@ -411,7 +411,7 @@ var charity_js_vars = {"zozo_template_uri":"https:\/\/baznastala.or.id\/content\
 
 
 	<!-- FOOTER SECTION -->
-	<div class="footer">
+	<div class="footer" style="width: 100%;">
 		<div class="content-wrap pb-0">
 			<div class="container">
 				
@@ -423,12 +423,7 @@ var charity_js_vars = {"zozo_template_uri":"https:\/\/baznastala.or.id\/content\
 							<p>RSU Borneo Citra Medika Tanah Laut - Memberikan Kenyamanan Pelayanan Kesehatan Ibu, Anak, Keluarga, dan Masyarakat Khususnya di Kabupaten Tanah Laut.</p>
 							
 						</div> -->
-					</div>	
-
-					
-
-								
-
+					</div>
 					<div class="col-sm-6 col-md-6 col-lg-3">
 						<div class="footer-item">
 							<div class="footer-title">
@@ -462,7 +457,6 @@ var charity_js_vars = {"zozo_template_uri":"https:\/\/baznastala.or.id\/content\
 				</div>
 			</div>
 		</div>
-		
 		<div class="fcopy">
 			<div class="container">
 				<div class="row">
