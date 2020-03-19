@@ -195,7 +195,7 @@ error_reporting(0);
 											<input type="text" class="form-control" id="lain2" name="lain2" onkeyup="hitung_penghasilan()" value="0" autocomplete="off" >
 											<div class="help-block with-errors"></div>
 										</div>
-										<label>Hutang/Cicilan (/Bulan)</label>
+										<label>Pengeluaran (/Bulan)</label>
 										<div class="form-group">
 											<input type="text" class="form-control" id="hutang_cicilan" onkeyup="hitung_penghasilan()" value="0" name="hutang_cicilan" autocomplete="off" >
 											<div class="help-block with-errors"></div>
@@ -209,7 +209,7 @@ error_reporting(0);
 										<h4>NISAB</h4>
 										<label>Harga beras saat ini (/Kg)</label>
 										<div class="form-group">
-											<input type="text" class="form-control" id="beras" name="beras" onkeyup="hitung_penghasilan()" value="10900" autocomplete="off" >
+											<input type="text" class="form-control" id="beras" name="beras" onkeyup="hitung_penghasilan()" value="10000" autocomplete="off" >
 											<div class="help-block with-errors"></div>
 										</div>
 										<label>Besarnya nishab</label>
@@ -293,12 +293,7 @@ error_reporting(0);
 
 							$('#nishab').val(nishab);
 
-							if (total_bersih < nishab) {
-								$('#wajib_tidak').val('Tidak');
-								$('#jum_dibayarkan_bln').val('0');
-								$('#jum_dibayarkan_thn').val('0');
-							}
-							else{
+							if(gaji >= 5200000){
 								$('#wajib_tidak').val('Ya');
 
 								zakat_bln = (2.5/100)*total_bersih;
@@ -306,6 +301,11 @@ error_reporting(0);
 
 								$('#jum_dibayarkan_bln').val(zakat_bln);
 								$('#jum_dibayarkan_thn').val(zakat_thn);
+							}
+							else {
+								$('#wajib_tidak').val('Tidak');
+								$('#jum_dibayarkan_bln').val('0');
+								$('#jum_dibayarkan_thn').val('0');
 							}
 			            }
 
