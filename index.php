@@ -241,6 +241,11 @@ error_reporting(0);
 										<!-- <h4>
 											Penghasilan / Pemasukkan
 										</h4> -->
+										<label>Jenis Tanaman</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="jenis_tanaman" name="jenis_tanaman" required=""autocomplete="off">
+											<div class="help-block with-errors"></div>
+										</div>
 										<label>Hasil Panen (kg)</label>
 										<div class="form-group">
 											<input type="text" class="form-control" id="hasil_panen" name="hasil_panen" required="" value="0" onkeyup="hit_zakat_pertanian_hasil_penen()" autocomplete="off">
@@ -259,6 +264,11 @@ error_reporting(0);
 										<label>Usaha Sendiri (Bulan)</label>
 										<div class="form-group">
 											<input type="text" class="form-control" id="usaha_sendiri" name="usaha_sendiri" onkeyup="hit_zakat_pertanian_hasil_penen()" value="0" autocomplete="off">
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Wajib Bayar Zakat ?</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="wajib_gak" name="wajib_gak" value="0" autocomplete="off" disabled="">
 											<div class="help-block with-errors"></div>
 										</div>
 										<label>Zakat yang harus dibayarkan (kg)</label>
@@ -331,7 +341,19 @@ error_reporting(0);
 
 							zakat_yang_dibayarkan = persen_usaha_sendiri + persen_air_hujan;
 
-							$('#zakat_yang_dibayarkan').val(zakat_yang_dibayarkan);
+							// $('#zakat_yang_dibayarkan').val(zakat_yang_dibayarkan);
+							
+							if(hasil_panen < 653){
+								// alert('Tidak');
+								$('#wajib_gak').val('Tidak');
+								$('#zakat_yang_dibayarkan').val('0');
+							}
+							else {
+								// alert('Ya');
+								$('#wajib_gak').val('Ya');
+								$('#zakat_yang_dibayarkan').val(zakat_yang_dibayarkan);
+							}
+
 							// alert(persen_air_hujan+' , '+persen_usaha_sendiri);
 
 
