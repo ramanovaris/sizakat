@@ -175,7 +175,7 @@ error_reporting(0);
                                                 <option value="0" >-- Pilih Jenis Zakat --</option>
                                                 <option value="1" <?php if($_GET['jenis_zakat'] == '1'){echo "selected";}?>>Zakat Penghasilan</option>
                                                 <option value="2" <?php if($_GET['jenis_zakat'] == '2'){echo "selected";}?>>Zakat Pertanian</option>
-                                                
+                                                <option value="3" <?php if($_GET['jenis_zakat'] == '3'){echo "selected";}?>>Zakat Peternakan</option>
                                         </select>
 									</div>
 									<hr>
@@ -238,9 +238,6 @@ error_reporting(0);
 									<?php
 									if ($_GET['jenis_zakat'] == '2'){
 									?>	
-										<!-- <h4>
-											Penghasilan / Pemasukkan
-										</h4> -->
 										<label>Jenis Tanaman</label>
 										<div class="form-group">
 											<input type="text" class="form-control" id="jenis_tanaman" name="jenis_tanaman" required=""autocomplete="off">
@@ -272,6 +269,37 @@ error_reporting(0);
 											<div class="help-block with-errors"></div>
 										</div>
 										<label>Zakat yang harus dibayarkan (kg)</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="zakat_yang_dibayarkan" name="zakat_yang_dibayarkan" value="0" autocomplete="off" disabled="">
+											<div class="help-block with-errors"></div>
+										</div>
+										<input type="reset" value="Hitung Ulang" style="background-color: #5CB85C; color: white;" />
+									<?php } ?>
+
+									<?php
+									if ($_GET['jenis_zakat'] == '3'){
+									?>	
+										<label>Jenis Hewan</label>
+										<div class="form-group">
+											<select name="jenis_hewan" id="jenis_hewan" class="form-control" onchange="hit_zakat_peternakan()">
+                                                <option value="">-- Pilih Hewan --</option>
+                                                <option value="Unta">Unta</option>
+												<option value="Sapi">Sapi</option>
+												<option value="Kuda">Kuda</option>
+												<option value="Kambing">Kambing</option>
+                                        	</select>
+										</div>
+										<label>Jumlah Hewan</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="jumlah_hewan" name="jumlah_hewan" required="" value="0" onkeyup="hit_zakat_peternakan()" autocomplete="off">
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Wajib Zakat ? </label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="wajib_gak" name="wajib_gak" onkeyup="hit_zakat_peternakan()" autocomplete="off" disabled="">
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Zakat yang harus dibayarkan</label>
 										<div class="form-group">
 											<input type="text" class="form-control" id="zakat_yang_dibayarkan" name="zakat_yang_dibayarkan" value="0" autocomplete="off" disabled="">
 											<div class="help-block with-errors"></div>
@@ -340,16 +368,12 @@ error_reporting(0);
 							persen_usaha_sendiri = total_usaha_sendiri * (10/100);
 
 							zakat_yang_dibayarkan = persen_usaha_sendiri + persen_air_hujan;
-
-							// $('#zakat_yang_dibayarkan').val(zakat_yang_dibayarkan);
 							
 							if(hasil_panen < 653){
-								// alert('Tidak');
 								$('#wajib_gak').val('Tidak');
 								$('#zakat_yang_dibayarkan').val('0');
 							}
 							else {
-								// alert('Ya');
 								$('#wajib_gak').val('Ya');
 								$('#zakat_yang_dibayarkan').val(zakat_yang_dibayarkan);
 							}
@@ -358,6 +382,59 @@ error_reporting(0);
 
 
 							// alert(hasil_panen+', '+lama_panen+', '+air_hujan+', '+usaha_sendiri+', '+zakat_yang_dibayarkan);
+			            }
+
+			            function hit_zakat_peternakan(){
+			            	var zakat_yang_dibayarkan, jumlah_hewan, jenis_hewan;
+
+			            	jenis_hewan = $("#jenis_hewan").val();
+			            	jumlah_hewan = $("#jumlah_hewan").val();
+
+			            	if (jenis_hewan == 'Unta') {
+			            		if(jumlah_hewan < 25){
+			            			$('#wajib_gak').val('Tidak');
+			            			$('#zakat_yang_dibayarkan').val('Tidak Ada');
+			            		}
+			            		else if(jumlah_hewan >= 25 && jumlah_hewan <= 35){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('1 ekor anak unta betina (umur > 1 tahun)');
+			            		}
+			            		else if(jumlah_hewan > 35 && jumlah_hewan <= 45){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('2 ekor anak unta betina (umur > 2 tahun)');
+			            		}
+			            		else if(jumlah_hewan > 45 && jumlah_hewan <= 60){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('3 ekor anak unta betina (umur > 3 tahun)');
+			            		}
+			            		else if(jumlah_hewan > 60 && jumlah_hewan <= 75){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('4 ekor anak unta betina (umur > 4 tahun)');
+			            		}
+			            		else if(jumlah_hewan > 75 && jumlah_hewan <= 90){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('2 ekor anak unta betina (umur > 2 tahun)');
+			            		}
+			            		else if(jumlah_hewan > 90 && jumlah_hewan <= 120){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('2 ekor anak unta betina (umur > 3 tahun)');
+			            		}
+			            		else if(jumlah_hewan > 120){
+			            			$('#wajib_gak').val('Tidak');
+			            			$('#zakat_yang_dibayarkan').val('Tidak Ada');
+			            		}
+			            	}
+			            	else if(jenis_hewan == 'Sapi'){
+			            		alert('Sapi');
+			            	}
+			            	else if(jenis_hewan == 'Kuda'){
+			            		alert('Kuda');
+			            	}
+			            	else if(jenis_hewan == 'Kambing'){
+			            		alert('Kambing');
+			            	}
+
+			            	// alert(jenis_hewan);
 			            }
 
        					</script>
