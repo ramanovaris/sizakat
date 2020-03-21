@@ -284,7 +284,7 @@ error_reporting(0);
 											<select name="jenis_hewan" id="jenis_hewan" class="form-control" onchange="hit_zakat_peternakan()">
                                                 <option value="">-- Pilih Hewan --</option>
                                                 <option value="Unta">Unta</option>
-												<option value="Sapi">Sapi</option>
+												<option value="Sapi">Sapi / Lembu</option>
 												<option value="Kuda">Kuda</option>
 												<option value="Kambing">Kambing</option>
                                         	</select>
@@ -425,7 +425,42 @@ error_reporting(0);
 			            		}
 			            	}
 			            	else if(jenis_hewan == 'Sapi'){
-			            		alert('Sapi');
+			            		if(jumlah_hewan < 30){
+			            			$('#wajib_gak').val('Tidak');
+			            			$('#zakat_yang_dibayarkan').val('Tidak Ada');
+			            		}
+			            		else if(jumlah_hewan >= 30 && jumlah_hewan <= 59){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('1 ekor anak sapi betina');
+			            		}
+			            		else if(jumlah_hewan > 59 && jumlah_hewan <= 69){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('2 ekor anak sapi jantan');
+			            		}
+			            		else if(jumlah_hewan > 69 && jumlah_hewan <= 79){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('1 ekor anak sapi betina dan 1 ekor anak sapi jantan');
+			            		}
+			            		else if(jumlah_hewan > 79 && jumlah_hewan <= 89){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('2 ekor anak sapi betina');
+			            		}
+			            		else if(jumlah_hewan > 89 && jumlah_hewan <= 99){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('3 ekor anak sapi jantan');
+			            		}
+			            		else if(jumlah_hewan > 99 && jumlah_hewan <= 119){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('2 ekor anak sapi betina dan 1 ekor anak sapi jantan');
+			            		}
+			            		else if(jumlah_hewan == 120){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('3 ekor anak sapi betina atau 3 ekor anak sapi jantan');
+			            		}
+			            		else if(jumlah_hewan > 120){
+			            			$('#wajib_gak').val('Tidak');
+			            			$('#zakat_yang_dibayarkan').val('Tidak Ada');
+			            		}
 			            	}
 			            	else if(jenis_hewan == 'Kuda'){
 			            		alert('Kuda');
