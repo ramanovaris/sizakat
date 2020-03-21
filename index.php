@@ -463,13 +463,66 @@ error_reporting(0);
 			            		}
 			            	}
 			            	else if(jenis_hewan == 'Kuda'){
-			            		alert('Kuda');
+			            		if(jumlah_hewan < 30){
+			            			$('#wajib_gak').val('Tidak');
+			            			$('#zakat_yang_dibayarkan').val('Tidak Ada');
+			            		}
+			            		else if(jumlah_hewan >= 30 && jumlah_hewan <= 59){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('1 ekor anak kuda betina');
+			            		}
+			            		else if(jumlah_hewan > 59 && jumlah_hewan <= 69){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('2 ekor anak kuda jantan');
+			            		}
+			            		else if(jumlah_hewan > 69 && jumlah_hewan <= 79){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('1 ekor anak kuda betina dan 1 ekor anak kuda jantan');
+			            		}
+			            		else if(jumlah_hewan > 79 && jumlah_hewan <= 89){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('2 ekor anak kuda betina');
+			            		}
+			            		else if(jumlah_hewan > 89 && jumlah_hewan <= 99){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('3 ekor anak kuda jantan');
+			            		}
+			            		else if(jumlah_hewan > 99 && jumlah_hewan <= 109){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('1 ekor anak kuda betina dan 2 ekor anak kuda jantan');
+			            		}
+			            		else if(jumlah_hewan > 109){
+			            			$('#wajib_gak').val('Tidak');
+			            			$('#zakat_yang_dibayarkan').val('Tidak Ada');
+			            		}
 			            	}
 			            	else if(jenis_hewan == 'Kambing'){
-			            		alert('Kambing');
+			            		// alert('Kambing');
+			            		if(jumlah_hewan < 40){
+			            			$('#wajib_gak').val('Tidak');
+			            			$('#zakat_yang_dibayarkan').val('Tidak Ada');
+			            		}
+			            		else if(jumlah_hewan >= 40 && jumlah_hewan <= 120){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('1 ekor kambing (2th) atau domba (1th)');
+			            		}
+			            		else if(jumlah_hewan > 120 && jumlah_hewan <= 200){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('2 ekor kambing/domba');
+			            		}
+			            		else if(jumlah_hewan > 200 && jumlah_hewan <= 300){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('3 ekor kambing/domba');
+			            		}
+			            		else if(jumlah_hewan > 300 && jumlah_hewan <= 400){
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val('4 ekor kambing/domba');
+			            		}
+			            		else if(jumlah_hewan > 400){
+			            			$('#wajib_gak').val('Tidak');
+			            			$('#zakat_yang_dibayarkan').val('Tidak Ada');
+			            		}
 			            	}
-
-			            	// alert(jenis_hewan);
 			            }
 
        					</script>
