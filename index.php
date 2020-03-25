@@ -176,6 +176,7 @@ error_reporting(0);
                                                 <option value="1" <?php if($_GET['jenis_zakat'] == '1'){echo "selected";}?>>Zakat Penghasilan</option>
                                                 <option value="2" <?php if($_GET['jenis_zakat'] == '2'){echo "selected";}?>>Zakat Pertanian</option>
                                                 <option value="3" <?php if($_GET['jenis_zakat'] == '3'){echo "selected";}?>>Zakat Peternakan</option>
+                                                <option value="4" <?php if($_GET['jenis_zakat'] == '4'){echo "selected";}?>>Zakat Emas, Perak, dan Logam Mulia lainnya</option>
                                         </select>
 									</div>
 									<hr>
@@ -300,6 +301,36 @@ error_reporting(0);
 											<div class="help-block with-errors"></div>
 										</div>
 										<label>Zakat yang harus dibayarkan</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="zakat_yang_dibayarkan" name="zakat_yang_dibayarkan" value="0" autocomplete="off" disabled="">
+											<div class="help-block with-errors"></div>
+										</div>
+										<input type="reset" value="Hitung Ulang" style="background-color: #5CB85C; color: white;" />
+									<?php } ?>
+
+									<?php
+									if ($_GET['jenis_zakat'] == '4'){
+									?>	
+										<label>Jenis Logam Mulia</label>
+										<div class="form-group">
+											<select name="jenis_logam" id="jenis_logam" class="form-control" onchange="hit_zakat_logam_mulia()">
+                                                <option value="">-- Pilih --</option>
+                                                <option value="Emas">Emas</option>
+												<option value="Perak">Perak</option>
+												<option value="Logam_lainnya">Logam Mulia lainnya</option>
+                                        	</select>
+										</div>
+										<label>Jumlah (gram)</label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="jumlah_logam" name="jumlah_logam" required="" value="0" onkeyup="hit_zakat_logam_mulia()" autocomplete="off">
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Wajib Zakat ? </label>
+										<div class="form-group">
+											<input type="text" class="form-control" id="wajib_gak" name="wajib_gak" onkeyup="hit_zakat_logam_mulia()" autocomplete="off" disabled="">
+											<div class="help-block with-errors"></div>
+										</div>
+										<label>Zakat yang harus dibayarkan (gram)</label>
 										<div class="form-group">
 											<input type="text" class="form-control" id="zakat_yang_dibayarkan" name="zakat_yang_dibayarkan" value="0" autocomplete="off" disabled="">
 											<div class="help-block with-errors"></div>
@@ -521,6 +552,50 @@ error_reporting(0);
 			            		else if(jumlah_hewan > 400){
 			            			$('#wajib_gak').val('Tidak');
 			            			$('#zakat_yang_dibayarkan').val('Tidak Ada');
+			            		}
+			            	}
+			            }
+
+			            function hit_zakat_logam_mulia(){
+			            	var zakat_yang_dibayarkan, jumlah_logam, jenis_logam;
+
+			            	jenis_logam = $("#jenis_logam").val();
+			            	jumlah_logam = $("#jumlah_logam").val();
+
+			            	if (jenis_logam == 'Emas') {
+			            		if(jumlah_logam < 85){
+			            			$('#wajib_gak').val('Tidak');
+			            			$('#zakat_yang_dibayarkan').val('Tidak Ada');
+			            		}
+			            		else {
+			            			zakat_yang_dibayarkan = jumlah_logam * (2.5/100);
+
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val(zakat_yang_dibayarkan);
+			            		}
+			            	}
+			            	else if(jenis_logam == 'Perak'){
+			            		if(jumlah_logam < 595){
+			            			$('#wajib_gak').val('Tidak');
+			            			$('#zakat_yang_dibayarkan').val('Tidak Ada');
+			            		}
+			            		else {
+			            			zakat_yang_dibayarkan = jumlah_logam * (2.5/100);
+
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val(zakat_yang_dibayarkan);
+			            		}
+			            	}
+			            	else if(jenis_logam == 'Logam_lainnya'){
+			            		if(jumlah_logam < 85){
+			            			$('#wajib_gak').val('Tidak');
+			            			$('#zakat_yang_dibayarkan').val('Tidak Ada');
+			            		}
+			            		else {
+			            			zakat_yang_dibayarkan = jumlah_logam * (2.5/100);
+
+			            			$('#wajib_gak').val('Ya');
+			            			$('#zakat_yang_dibayarkan').val(zakat_yang_dibayarkan);
 			            		}
 			            	}
 			            }
