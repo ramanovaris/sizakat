@@ -30,6 +30,12 @@ $bln=$pecah[1];
 $thn=$pecah[0];
 return $tgl.' '.$bulan[$bln].' '.$thn;
 }
+
+$teks = $_POST['date_cetak'];
+$date_cetak = explode("/", $teks);
+$bulan = $date_cetak[0];
+$tahun = $date_cetak[1];
+
 // intance object dan memberikan pengaturan halaman PDF
 $pdf = new FPDF('L','mm','A4');
 // membuat halaman baru
@@ -47,7 +53,7 @@ $pdf->Cell(270,7,'TOTAL DISTRIBUSI PER ASHNAP',0,1,'C');
 $pdf->Cell(10,7,'',0,1);
 
 // QUERY TOTAL DISTRIBUSI
-$query = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='04' AND year(tanggal)='2020'
+$query = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query)){
 
@@ -55,7 +61,7 @@ while($row=mysql_fetch_array($query)){
 }
 
 // QUERY Fakir
-$query1 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='04' AND year(tanggal)='2020' AND golongan = 'Fakir'
+$query1 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'Fakir'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query1)){
     $orang_fakir = mysql_num_rows($query1);
@@ -63,7 +69,7 @@ while($row=mysql_fetch_array($query1)){
 }
 
 // QUERY Miskin
-$query2 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='04' AND year(tanggal)='2020' AND golongan = 'miskin'
+$query2 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'miskin'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query2)){
     $orang_miskin = mysql_num_rows($query2);
@@ -71,7 +77,7 @@ while($row=mysql_fetch_array($query2)){
 }
 
 // QUERY muallaf
-$query3 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='04' AND year(tanggal)='2020' AND golongan = 'muallaf'
+$query3 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'muallaf'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query3)){
     $orang_muallaf = mysql_num_rows($query3);
@@ -79,7 +85,7 @@ while($row=mysql_fetch_array($query3)){
 }
 
 // QUERY Fii Sabilillah
-$query4 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='04' AND year(tanggal)='2020' AND golongan = 'fii sabillah'
+$query4 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'fii sabillah'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query4)){
     $orang_fii_sabillah = mysql_num_rows($query4);
@@ -87,7 +93,7 @@ while($row=mysql_fetch_array($query4)){
 }
 
 // QUERY Ibnu Sabil
-$query5 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='04' AND year(tanggal)='2020' AND golongan = 'ibnu sabil'
+$query5 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'ibnu sabil'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query5)){
     $orang_ibnu_sabil = mysql_num_rows($query5);
@@ -95,7 +101,7 @@ while($row=mysql_fetch_array($query5)){
 }
 
 // QUERY GHARIMIN
-$query6 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='04' AND year(tanggal)='2020' AND golongan = 'gharimin'
+$query6 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'gharimin'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query6)){
     $orang_gharimin = mysql_num_rows($query6);
@@ -103,7 +109,7 @@ while($row=mysql_fetch_array($query6)){
 }
 
 // QUERY RIQAB
-$query7 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='04' AND year(tanggal)='2020' AND golongan = 'riqab'
+$query7 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'riqab'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query7)){
     $orang_riqab = mysql_num_rows($query7);
@@ -300,41 +306,6 @@ $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(0,5,'',0,1);
-// $pdf->Cell(30,10,'FAKIR',1,0,'C');
-// $pdf->Cell(30,10,'MISKIN',1,0,'C');
-// $pdf->Cell(30,10,'MUALLAF',1,0,'C');
-// $pdf->Cell(30,10,'FII SABILILLAH',1,0,'C');
-// $pdf->Cell(30,10,'IBNU SABIL',1,0,'C');
-// $pdf->Cell(30,10,'GHARIMIN',1,0,'C');
-// $pdf->Cell(30,10,'RIQAB',1,0,'C');
-// $pdf->Cell(0,5,'',0,1);
-// $pdf->Cell(0,5,'',0,1);
-// $pdf->Cell(70,10,'JUMLAH',1,0,'C');
-// $pdf->Cell(30,10,$jumlah_fakir,1,0,'C');
-// $pdf->Cell(30,10,$jumlah_miskin,1,0,'C');
-// $pdf->Cell(30,10,$jumlah_muallaf,1,0,'C');
-// $pdf->Cell(30,10,$jumlah_fii_sabillah,1,0,'C');
-// $pdf->Cell(30,10,$jumlah_ibnu_sabil,1,0,'C');
-// $pdf->Cell(30,10,$jumlah_gharimin,1,0,'C');
-// $pdf->Cell(30,10,$jumlah_riqab,1,0,'C');
-// $pdf->Cell(0,5,'',0,1);
-// $pdf->Cell(0,5,'',0,1);
-// $pdf->Cell(70,10,'TOTAL DISTRIBUSI',1,0,'C');
-// $pdf->Cell(210,10, $total_distribusi,1,0,'C');
-// $pdf->Cell(0,5,'',0,1);
-// $pdf->Cell(0,5,'',0,1);
-// $pdf->Cell(70,10,'Jumlah Mustahik',1,0,'C');
-// $pdf->Cell(30,10,$orang_fakir,1,0,'C');
-// $pdf->Cell(30,10,$orang_miskin,1,0,'C');
-// $pdf->Cell(30,10,$orang_muallaf,1,0,'C');
-// $pdf->Cell(30,10,$orang_fii_sabillah,1,0,'C');
-// $pdf->Cell(30,10,$orang_ibnu_sabil,1,0,'C');
-// $pdf->Cell(30,10,$orang_gharimin,1,0,'C');
-// $pdf->Cell(30,10,$orang_riqab,1,0,'C');
-// $pdf->Cell(0,5,'',0,1);
-// $pdf->Cell(0,5,'',0,1);
-// $pdf->Cell(70,10,'Total Mustahik',1,0,'C');
-// $pdf->Cell(210,10,$total_mustahik,1,0,'C');
 
 $pdf->Output();
 ?>

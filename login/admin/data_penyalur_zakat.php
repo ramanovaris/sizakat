@@ -47,12 +47,16 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
 
+        <!-- DatePicker CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" />
+
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+
 
         <script src="assets/js/modernizr.min.js"></script>
 
@@ -143,8 +147,17 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                 <div class="card-box table-responsive">
 
                                     <h4 class="m-t-0 header-title"><b>Data Penyaluran Zakat</b></h4>
-                                    <a href="tambah_penyalur_zakat.php" type="button" class="btn btn-info btn-bordered waves-effect w-md waves-light">Tambah</a>
                                     
+                                    <div class="col-md-8">
+                                        <a href="tambah_penyalur_zakat.php" type="button" class="btn btn-info btn-bordered waves-effect w-md waves-light">Tambah</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <form  method="POST" action="cetak_penyalur_zakat.php">
+                                            <input name="date_cetak" class="date-own" style="width: 60%" type="text" autocomplete="off">
+                                            <button type="submit" class="btn btn-info btn-bordered waves-effect w-md waves-light">Cetak</button>
+                                        </form>
+                                    </div>
+
                                     <table id="datatable-responsive"
                                            class="table table-striped  table-colored table-info dt-responsive nowrap">
                                         <thead>
@@ -198,7 +211,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <td colspan="7"><h5><b>Total<b></h5></td>
+                                                <td colspan="6"><h5><b>Total<b></h5></td>
                                                 <td><h5><b><?php echo 'Rp. '. number_format($total, 0, ',', '.'); ?></b></h5></td>
                                             </tr>
                                         </tfoot>
@@ -322,6 +335,9 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <script src="../plugins/datatables/dataTables.colVis.js"></script>
         <script src="../plugins/datatables/dataTables.fixedColumns.min.js"></script>
 
+        <!-- DatePicker JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+
         <!-- init -->
         <script src="assets/pages/jquery.datatables.init.js"></script>
 
@@ -361,6 +377,12 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
             });
             TableManageButtons.init();
 
+            $('.date-own').datepicker({
+                format: "mm/yyyy",
+                startView: "months",
+                minViewMode: "months",
+                maxViewMode: "years"
+            });
         </script>
 
     </body>
