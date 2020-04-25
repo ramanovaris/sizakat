@@ -34,6 +34,18 @@ INSERT INTO `akun` (`kode_akun`, `username`, `password`, `level`) VALUES
 	(9, 'new', '22af645d1859cb5ca6da0c484f1f37ea', 'Petugas');
 /*!40000 ALTER TABLE `akun` ENABLE KEYS */;
 
+-- Dumping structure for table db_zakat.jenis_progam
+CREATE TABLE IF NOT EXISTS `jenis_progam` (
+  `id_program` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_program` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_program`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table db_zakat.jenis_progam: ~0 rows (approximately)
+DELETE FROM `jenis_progam`;
+/*!40000 ALTER TABLE `jenis_progam` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jenis_progam` ENABLE KEYS */;
+
 -- Dumping structure for table db_zakat.jenis_zakat
 CREATE TABLE IF NOT EXISTS `jenis_zakat` (
   `id_jenis_zakat` int(11) NOT NULL AUTO_INCREMENT,
@@ -95,13 +107,16 @@ CREATE TABLE IF NOT EXISTS `penyaluran_zakat` (
   PRIMARY KEY (`id`),
   KEY `FK_penyaluran_zakat_user` (`kode_akun`),
   CONSTRAINT `FK_penyaluran_zakat_user` FOREIGN KEY (`kode_akun`) REFERENCES `akun` (`kode_akun`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_zakat.penyaluran_zakat: ~2 rows (approximately)
+-- Dumping data for table db_zakat.penyaluran_zakat: ~3 rows (approximately)
 DELETE FROM `penyaluran_zakat`;
 /*!40000 ALTER TABLE `penyaluran_zakat` DISABLE KEYS */;
 INSERT INTO `penyaluran_zakat` (`id`, `nbkk`, `nik`, `nama`, `alamat`, `kecamatan`, `no_hp`, `keterangan`, `golongan`, `jumlah_dana`, `jenis_program`, `kode_akun`, `tanggal`) VALUES
-	(3, '12/12/12/12/23', '6500000334343434', 'Rama Nov', 'ambungan', 'pelaihari', '0812121212', 'Sakit Hati Jua', 'Kayaaaa', '2900000', 'Bantuan Sosial', 1, '2020-02-09 12:35:09');
+	(3, '12/12/12/12/23', '6500000334343434', 'Rama Nov', 'ambungan', 'pelaihari', '0812121212', 'cek', 'Muallaf', '2900000', 'Bantuan Sosial', 1, '2020-02-09 12:35:09'),
+	(4, '12/12/12/13', '6301032604780005\r\n    ', 'SIDIQ SUSANTO', 'panggung', 'pelaihari', '08343434344', 'zakat', 'miskin', '1000000', 'Bantuan Dana Untuk korban banjir', 1, '2020-04-22 19:27:56'),
+	(5, '12/12/12/14', '6301032505700006\r\n    ', 'M. BERKATI', 'Desa Pemuda', 'pelaihari', '08445454545', 'zakat', 'miskin', '1500000', 'Bantuan Dana Untuk korban banjir', 1, '2020-04-22 19:29:03'),
+	(6, '12/12/12/15', '6301030601630004\r\n    ', 'ARBANI', 'ambungan', 'pelaihari', '067676455', 'zakat', 'Fakir', '14000000', 'Bantuan Dana Berobat', 1, '2020-04-22 19:31:42');
 /*!40000 ALTER TABLE `penyaluran_zakat` ENABLE KEYS */;
 
 -- Dumping structure for table db_zakat.petugas
@@ -123,6 +138,21 @@ INSERT INTO `petugas` (`id_petugas`, `nama`, `jenis_kelamin`, `jabatan`, `id_aku
 	(2, 'Ningsih', 'Perempuan', 'panitia', 4),
 	(7, 'new', 'Laki-laki', 'new', 9);
 /*!40000 ALTER TABLE `petugas` ENABLE KEYS */;
+
+-- Dumping structure for table db_zakat.sub_program
+CREATE TABLE IF NOT EXISTS `sub_program` (
+  `id_sub_program` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_sub_program` varchar(50) DEFAULT NULL,
+  `id_program` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_sub_program`),
+  KEY `FK_sub_program_jenis_progam` (`id_program`),
+  CONSTRAINT `FK_sub_program_jenis_progam` FOREIGN KEY (`id_program`) REFERENCES `jenis_progam` (`id_program`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table db_zakat.sub_program: ~0 rows (approximately)
+DELETE FROM `sub_program`;
+/*!40000 ALTER TABLE `sub_program` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sub_program` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
