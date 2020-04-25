@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `pemberi_zakat` (
   CONSTRAINT `FK_penerima_zakat_user` FOREIGN KEY (`kode_akun`) REFERENCES `akun` (`kode_akun`)
 ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_zakat.pemberi_zakat: ~5 rows (approximately)
+-- Dumping data for table db_zakat.pemberi_zakat: ~4 rows (approximately)
 DELETE FROM `pemberi_zakat`;
 /*!40000 ALTER TABLE `pemberi_zakat` DISABLE KEYS */;
 INSERT INTO `pemberi_zakat` (`id`, `uraian`, `jumlah`, `tanggal`, `jenis_zakat`, `kode_akun`) VALUES
@@ -107,22 +107,27 @@ CREATE TABLE IF NOT EXISTS `penyaluran_zakat` (
   `keterangan` varchar(255) NOT NULL,
   `golongan` varchar(255) NOT NULL,
   `jumlah_dana` varchar(255) NOT NULL,
-  `jenis_program` varchar(255) NOT NULL,
+  `jenis_program` int(11) NOT NULL,
+  `sub_program` int(11) NOT NULL,
   `kode_akun` int(11) NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `FK_penyaluran_zakat_user` (`kode_akun`),
+  KEY `FK_penyaluran_zakat_jenis_progam` (`jenis_program`),
+  KEY `FK_penyaluran_zakat_sub_program` (`sub_program`),
+  CONSTRAINT `FK_penyaluran_zakat_jenis_progam` FOREIGN KEY (`jenis_program`) REFERENCES `jenis_progam` (`id_program`),
+  CONSTRAINT `FK_penyaluran_zakat_sub_program` FOREIGN KEY (`sub_program`) REFERENCES `sub_program` (`id_sub_program`),
   CONSTRAINT `FK_penyaluran_zakat_user` FOREIGN KEY (`kode_akun`) REFERENCES `akun` (`kode_akun`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_zakat.penyaluran_zakat: ~3 rows (approximately)
+-- Dumping data for table db_zakat.penyaluran_zakat: ~4 rows (approximately)
 DELETE FROM `penyaluran_zakat`;
 /*!40000 ALTER TABLE `penyaluran_zakat` DISABLE KEYS */;
-INSERT INTO `penyaluran_zakat` (`id`, `nbkk`, `nik`, `nama`, `alamat`, `kecamatan`, `no_hp`, `keterangan`, `golongan`, `jumlah_dana`, `jenis_program`, `kode_akun`, `tanggal`) VALUES
-	(3, '12/12/12/12/23', '6500000334343434', 'Rama Nov', 'ambungan', 'pelaihari', '0812121212', 'cek', 'Muallaf', '2900000', 'Bantuan Sosial', 1, '2020-02-09 12:35:09'),
-	(4, '12/12/12/13', '6301032604780005\r\n    ', 'SIDIQ SUSANTO', 'panggung', 'pelaihari', '08343434344', 'zakat', 'miskin', '1000000', 'Bantuan Dana Untuk korban banjir', 1, '2020-04-22 19:27:56'),
-	(5, '12/12/12/14', '6301032505700006\r\n    ', 'M. BERKATI', 'Desa Pemuda', 'pelaihari', '08445454545', 'zakat', 'miskin', '1500000', 'Bantuan Dana Untuk korban banjir', 1, '2020-04-22 19:29:03'),
-	(6, '12/12/12/15', '6301030601630004\r\n    ', 'ARBANI', 'ambungan', 'pelaihari', '067676455', 'zakat', 'Fakir', '14000000', 'Bantuan Dana Berobat', 1, '2020-04-22 19:31:42');
+INSERT INTO `penyaluran_zakat` (`id`, `nbkk`, `nik`, `nama`, `alamat`, `kecamatan`, `no_hp`, `keterangan`, `golongan`, `jumlah_dana`, `jenis_program`, `sub_program`, `kode_akun`, `tanggal`) VALUES
+	(3, '12/12/12/12/23', '6500000334343434', 'Rama Nov', 'ambungan', 'pelaihari', '0812121212', 'cek', 'Muallaf', '2900000', 1, 1, 1, '2020-02-09 12:35:09'),
+	(4, '12/12/12/13', '6301032604780005\r\n    ', 'SIDIQ SUSANTO', 'panggung', 'pelaihari', '08343434344', 'zakat', 'miskin', '1000000', 1, 1, 1, '2020-04-22 19:27:56'),
+	(5, '12/12/12/14', '6301032505700006\r\n    ', 'M. BERKATI', 'Desa Pemuda', 'pelaihari', '08445454545', 'zakat', 'miskin', '1500000', 1, 1, 1, '2020-04-22 19:29:03'),
+	(6, '12/12/12/15', '6301030601630004\r\n    ', 'ARBANI', 'ambungan', 'pelaihari', '067676455', 'zakat', 'Fakir', '14000000', 1, 1, 1, '2020-04-22 19:31:42');
 /*!40000 ALTER TABLE `penyaluran_zakat` ENABLE KEYS */;
 
 -- Dumping structure for table db_zakat.petugas
@@ -155,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `sub_program` (
   CONSTRAINT `FK_sub_program_jenis_progam` FOREIGN KEY (`id_program`) REFERENCES `jenis_progam` (`id_program`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_zakat.sub_program: ~0 rows (approximately)
+-- Dumping data for table db_zakat.sub_program: ~15 rows (approximately)
 DELETE FROM `sub_program`;
 /*!40000 ALTER TABLE `sub_program` DISABLE KEYS */;
 INSERT INTO `sub_program` (`id_sub_program`, `nama_sub_program`, `id_program`) VALUES
