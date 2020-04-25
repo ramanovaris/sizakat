@@ -39,11 +39,17 @@ CREATE TABLE IF NOT EXISTS `jenis_progam` (
   `id_program` int(11) NOT NULL AUTO_INCREMENT,
   `nama_program` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_program`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_zakat.jenis_progam: ~0 rows (approximately)
+-- Dumping data for table db_zakat.jenis_progam: ~5 rows (approximately)
 DELETE FROM `jenis_progam`;
 /*!40000 ALTER TABLE `jenis_progam` DISABLE KEYS */;
+INSERT INTO `jenis_progam` (`id_program`, `nama_program`) VALUES
+	(1, 'PROGRAM TALA MAKMUR'),
+	(2, 'PROGRAM TALA CERDAS (PENDIDIKAN)'),
+	(3, 'PROGRAM TALA SEHAT'),
+	(4, 'PROGRAM TALA PEDULI'),
+	(5, 'PROGRAM TALA TAQWA');
 /*!40000 ALTER TABLE `jenis_progam` ENABLE KEYS */;
 
 -- Dumping structure for table db_zakat.jenis_zakat
@@ -142,16 +148,32 @@ INSERT INTO `petugas` (`id_petugas`, `nama`, `jenis_kelamin`, `jabatan`, `id_aku
 -- Dumping structure for table db_zakat.sub_program
 CREATE TABLE IF NOT EXISTS `sub_program` (
   `id_sub_program` int(11) NOT NULL AUTO_INCREMENT,
-  `nama_sub_program` varchar(50) DEFAULT NULL,
+  `nama_sub_program` varchar(255) DEFAULT NULL,
   `id_program` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_sub_program`),
   KEY `FK_sub_program_jenis_progam` (`id_program`),
   CONSTRAINT `FK_sub_program_jenis_progam` FOREIGN KEY (`id_program`) REFERENCES `jenis_progam` (`id_program`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table db_zakat.sub_program: ~0 rows (approximately)
 DELETE FROM `sub_program`;
 /*!40000 ALTER TABLE `sub_program` DISABLE KEYS */;
+INSERT INTO `sub_program` (`id_sub_program`, `nama_sub_program`, `id_program`) VALUES
+	(1, 'Bantuan Modal Usaha Ekonomi Lemah (Piutang Bergulir)', 1),
+	(2, 'Program Bantuan Dana (Biaya Hidup)', 1),
+	(3, 'Bantuan Dana Non Beasiswa', 2),
+	(4, 'Bantuan Dana Beasiswa', 2),
+	(5, 'Bantuan Permodalan Keterampilan Sekolah', 2),
+	(6, 'Bantuan Untuk Guru Sekolah dan tenaga honorer', 2),
+	(7, 'Bantuan Dana Berobat', 3),
+	(8, 'Bantuan Dana (Biaya Hidup)', 4),
+	(9, 'Bantuan Bedah Rumah', 4),
+	(10, 'Bantuan Dana Untuk Korban Kebakaran', 4),
+	(11, 'Bantuan Dana Untuk Korban Kebanjiran', 4),
+	(12, 'Santunan Dana Untuk Kaum Masjid', 5),
+	(13, 'Bantuan Pengadaan Buku (Al-Qur\'an, Yasin, Dll)', 5),
+	(14, 'Bantuan Dana Untuk Guru Madrasah', 5),
+	(15, 'Program Bantuan Pengadaan Perlengkapan', 5);
 /*!40000 ALTER TABLE `sub_program` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
