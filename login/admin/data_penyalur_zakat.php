@@ -170,6 +170,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                             <th>Jenis Program</th>
                                             <th>Golongan</th>
                                             <th>Jumlah Dana</th>
+                                            <th>Sub Program</th>
                                             <th>Alamat</th>
                                             <th>No.HP</th>
                                             <th>Keterangan</th>
@@ -180,7 +181,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                         <tbody>
                                             <?php 
                                                 $no = 1;
-                                                $query_mysql = mysql_query("SELECT * FROM penyaluran_zakat ORDER BY tanggal")or die(mysql_error());
+                                                $query_mysql = mysql_query("SELECT * FROM penyaluran_zakat JOIN jenis_program ON jenis_program.id_program = penyaluran_zakat.jenis_program JOIN sub_program ON sub_program.id_sub_program = penyaluran_zakat.sub_program ORDER BY tanggal")or die(mysql_error());
                                                 while($data = mysql_fetch_array($query_mysql)){
                                                     ?> 
                                         <tr>
@@ -189,9 +190,10 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                             <td><?php echo $data['nbkk']; ?></td>
                                             <td><?php echo $data['nik']; ?></td>
                                             <td><?php echo $data['nama']; ?></td>
-                                            <td><?php echo $data['jenis_program']; ?></td>
+                                            <td><?php echo $data['nama_program']; ?></td>
                                             <td><?php echo $data['golongan']; ?></td>
                                             <td><?php echo 'Rp. '.number_format($data['jumlah_dana'], 0, ".", "."); ?></td>
+                                            <td><?php echo $data['nama_sub_program']; ?></td>
                                             <td><?php echo $data['alamat']; ?></td>
                                             <td><?php echo $data['no_hp']; ?></td>
                                             <td><?php echo $data['keterangan']; ?></td>

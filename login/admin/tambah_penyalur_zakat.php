@@ -194,7 +194,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                                             <option value="">- Pilih Jenis Program -</option>
                                                             <!-- looping data jenis_program -->
                                                             <?php
-                                                            $jenis_progam="select * from jenis_progam";
+                                                            $jenis_progam="select * from jenis_program";
                                                             $q=mysql_query($jenis_progam);
                                                             while($row=mysql_fetch_array($q)){
                                                            
