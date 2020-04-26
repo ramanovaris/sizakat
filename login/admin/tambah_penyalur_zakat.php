@@ -182,8 +182,18 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                                     <input type="text" name="keterangan" parsley-trigger="change" required  class="form-control" id="userName">
                                                     </div>
                                                     <div class="form-group">
-                                                    <label for="userName">Golongan</label>
-                                                    <input type="text" name="golongan" parsley-trigger="change" required  class="form-control" id="userName">
+                                                        <label for="golongan">Golongan</label>
+                                                        <br>
+                                                         <select name="golongan" id="golongan" style="width: 100%" class="form-control" required="">
+                                                            <option value="">- Pilih Golongan -</option>
+                                                            <option value="Fakir">Fakir</option>
+                                                            <option value="Miskin">Miskin</option>
+                                                            <option value="Muallaf">Muallaf</option>
+                                                            <option value="Fii Sabillah">Fii Sabillah</option>
+                                                            <option value="Ibnu Sabil">Ibnu Sabil</option>
+                                                            <option value="Gharimin">Gharimin</option>
+                                                            <option value="Riqab">Riqab</option>
+                                                         </select>
                                                     </div>
 
 

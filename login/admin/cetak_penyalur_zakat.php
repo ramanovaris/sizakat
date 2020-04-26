@@ -69,7 +69,7 @@ while($row=mysql_fetch_array($query1)){
 }
 
 // QUERY Miskin
-$query2 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'miskin'
+$query2 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'Miskin'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query2)){
     $orang_miskin = mysql_num_rows($query2);
@@ -77,7 +77,7 @@ while($row=mysql_fetch_array($query2)){
 }
 
 // QUERY muallaf
-$query3 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'muallaf'
+$query3 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'Muallaf'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query3)){
     $orang_muallaf = mysql_num_rows($query3);
@@ -85,7 +85,7 @@ while($row=mysql_fetch_array($query3)){
 }
 
 // QUERY Fii Sabilillah
-$query4 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'fii sabillah'
+$query4 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'Fii Sabillah'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query4)){
     $orang_fii_sabillah = mysql_num_rows($query4);
@@ -93,7 +93,7 @@ while($row=mysql_fetch_array($query4)){
 }
 
 // QUERY Ibnu Sabil
-$query5 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'ibnu sabil'
+$query5 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'Ibnu Sabil'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query5)){
     $orang_ibnu_sabil = mysql_num_rows($query5);
@@ -101,7 +101,7 @@ while($row=mysql_fetch_array($query5)){
 }
 
 // QUERY GHARIMIN
-$query6 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'gharimin'
+$query6 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'Gharimin'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query6)){
     $orang_gharimin = mysql_num_rows($query6);
@@ -109,7 +109,7 @@ while($row=mysql_fetch_array($query6)){
 }
 
 // QUERY RIQAB
-$query7 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'riqab'
+$query7 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'Riqab'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query7)){
     $orang_riqab = mysql_num_rows($query7);
