@@ -14,12 +14,16 @@ $gol = $_POST['golongan'];
 $jumlah_dana  = $_POST['jumlah'];
 $jenis_program  = $_POST['jenis_program'];
 $kode_akun = $_POST['kode_akun'];
+$sub_program = $_POST['sub_program'];
+
+// echo $sub_program;
+// die();
 
 
 $tanggal = date("y-m-d");
 
 $simpan = mysql_query("INSERT INTO penyaluran_zakat VALUES('','$nbkk','$nik
-    ','$nama','$alamat','$kec','$nohp','$ket','$gol','$jumlah_dana','$jenis_program','$kode_akun',NULL)")or die(mysql_error());
+    ','$nama','$alamat','$kec','$nohp','$ket','$gol','$jumlah_dana','$jenis_program', '$sub_program','$kode_akun',NULL)")or die(mysql_error());
 
 
 if($simpan){

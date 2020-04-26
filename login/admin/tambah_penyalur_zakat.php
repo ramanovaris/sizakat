@@ -185,11 +185,35 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                                     <label for="userName">Golongan</label>
                                                     <input type="text" name="golongan" parsley-trigger="change" required  class="form-control" id="userName">
                                                     </div>
+
+
                                                     <div class="form-group">
-                                                    <label for="userName">Jenis Program</label>
-                                                    <input type="text" name="jenis_program" parsley-trigger="change" required  class="form-control" id="userName">
+                                                        <label for="jenis_program">Jenis Program</label>
+                                                        <br>
+                                                        <select name="jenis_program" id="jenis_program" style="width: 100%" class="form-control" required="">
+                                                            <option value="">- Pilih Jenis Program -</option>
+                                                            <!-- looping data jenis_program -->
+                                                            <?php
+                                                            $jenis_progam="select * from jenis_progam";
+                                                            $q=mysql_query($jenis_progam);
+                                                            while($row=mysql_fetch_array($q)){
+                                                           
+                                                            ?>
+                                                                <option value="<?php echo $row["id_program"] ?>"><?php echo $row["nama_program"] ?></option>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </select>
                                                     </div>
 
+                                                    &nbsp;&nbsp;&nbsp;<img src="loader.gif" width="10px" height="10px" id="imgLoad" style="display:none">
+
+                                                    <div class="form-group"> 
+                                                        <label for="sub_program">Sub Program</label>
+                                                        <select id="sub_program" class="form-control" name="sub_program" required="">
+                                                           
+                                                        </select>
+                                                    </div>
                                                   
 
                                                     <div class="form-group">
@@ -197,7 +221,6 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                                         <input type="number" name="jumlah" parsley-trigger="change" required
                                                         placeholder="Rp." autocomplete="off" class="form-control" id="jumlah">
                                                     </div>
-
                                                     <div class="form-group row">
                                                         <div class="col-sm-8 col-sm-offset-4">
                                                             <button type="submit" class="btn btn-primary waves-effect waves-light">
@@ -210,16 +233,10 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                                         </div>
                                                     </div>
                                                 </form>
-
-                                                
                                             </div>
-
                                         </div>
-
-                                       
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         </div>
@@ -339,6 +356,9 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
 
+        <!-- Chained JS -->
+        <script src="assets/js/jquery.chained.js"></script>
+
         <script>
             $(document).ready(function () {
                 $('#datatable').dataTable();
@@ -371,6 +391,36 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
             });
             TableManageButtons.init();
 
+            $("#jenis_program").change(function(){
+                // variabel dari nilai combo box provinsi
+                var id_program = $("#jenis_program").val();
+               
+                // tampilkan image load
+                $("#imgLoad").show("");
+               
+                // mengirim dan mengambil data
+                $.ajax({
+                    type: "POST",
+                    dataType: "html",
+                    url: "cari_sub_program.php",
+                    data: "id_program="+id_program,
+                    success: function(msg){
+                       
+                        // jika tidak ada data
+                        if(msg == ''){
+                            alert('Tidak ada data Kota');
+                        }
+                       
+                        // jika dapat mengambil data,, tampilkan di combo box kota
+                        else{
+                            $("#sub_program").html(msg);                                                     
+                        }
+                       
+                        // hilangkan image load
+                        $("#imgLoad").hide();
+                    }
+                });    
+            });
         </script>
 
     </body>
