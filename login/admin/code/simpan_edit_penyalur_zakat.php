@@ -17,6 +17,10 @@ $jenis_program  = $_POST['jenis_program'];
 $kode_akun = $_POST['kode_akun'];
 
 
+echo $jenis_program;
+die();
+
+
 $update = mysql_query("UPDATE penyaluran_zakat SET nbkk='$nbkk', nik='$nik',nama='$nama',kecamatan='$kec', no_hp='$nohp',keterangan='$ket',golongan='$gol',jumlah_dana='$jumlah_dana', jenis_program='$jenis_program',kode_akun='$kode_akun' WHERE id='$id'")or die(mysql_error());
 
 if($update){
