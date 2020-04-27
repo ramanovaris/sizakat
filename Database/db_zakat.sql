@@ -34,23 +34,43 @@ INSERT INTO `akun` (`kode_akun`, `username`, `password`, `level`) VALUES
 	(9, 'new', '22af645d1859cb5ca6da0c484f1f37ea', 'Petugas');
 /*!40000 ALTER TABLE `akun` ENABLE KEYS */;
 
--- Dumping structure for table db_zakat.jenis_progam
-CREATE TABLE IF NOT EXISTS `jenis_progam` (
+-- Dumping structure for table db_zakat.golongan
+CREATE TABLE IF NOT EXISTS `golongan` (
+  `id_golongan` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_golongan` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_golongan`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table db_zakat.golongan: ~7 rows (approximately)
+DELETE FROM `golongan`;
+/*!40000 ALTER TABLE `golongan` DISABLE KEYS */;
+INSERT INTO `golongan` (`id_golongan`, `nama_golongan`) VALUES
+	(1, 'Fakir'),
+	(2, 'Miskin'),
+	(3, 'Muallaf'),
+	(4, 'Fii Sabillah'),
+	(5, 'Ibnu Sabil'),
+	(6, 'Gharimin'),
+	(7, 'Riqab');
+/*!40000 ALTER TABLE `golongan` ENABLE KEYS */;
+
+-- Dumping structure for table db_zakat.jenis_program
+CREATE TABLE IF NOT EXISTS `jenis_program` (
   `id_program` int(11) NOT NULL AUTO_INCREMENT,
   `nama_program` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_program`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_zakat.jenis_progam: ~5 rows (approximately)
-DELETE FROM `jenis_progam`;
-/*!40000 ALTER TABLE `jenis_progam` DISABLE KEYS */;
-INSERT INTO `jenis_progam` (`id_program`, `nama_program`) VALUES
+-- Dumping data for table db_zakat.jenis_program: ~4 rows (approximately)
+DELETE FROM `jenis_program`;
+/*!40000 ALTER TABLE `jenis_program` DISABLE KEYS */;
+INSERT INTO `jenis_program` (`id_program`, `nama_program`) VALUES
 	(1, 'PROGRAM TALA MAKMUR'),
 	(2, 'PROGRAM TALA CERDAS (PENDIDIKAN)'),
 	(3, 'PROGRAM TALA SEHAT'),
 	(4, 'PROGRAM TALA PEDULI'),
 	(5, 'PROGRAM TALA TAQWA');
-/*!40000 ALTER TABLE `jenis_progam` ENABLE KEYS */;
+/*!40000 ALTER TABLE `jenis_program` ENABLE KEYS */;
 
 -- Dumping structure for table db_zakat.jenis_zakat
 CREATE TABLE IF NOT EXISTS `jenis_zakat` (
@@ -85,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `pemberi_zakat` (
   CONSTRAINT `FK_penerima_zakat_user` FOREIGN KEY (`kode_akun`) REFERENCES `akun` (`kode_akun`)
 ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_zakat.pemberi_zakat: ~4 rows (approximately)
+-- Dumping data for table db_zakat.pemberi_zakat: ~5 rows (approximately)
 DELETE FROM `pemberi_zakat`;
 /*!40000 ALTER TABLE `pemberi_zakat` DISABLE KEYS */;
 INSERT INTO `pemberi_zakat` (`id`, `uraian`, `jumlah`, `tanggal`, `jenis_zakat`, `kode_akun`) VALUES
@@ -105,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `penyaluran_zakat` (
   `kecamatan` varchar(255) NOT NULL,
   `no_hp` varchar(255) NOT NULL,
   `keterangan` varchar(255) NOT NULL,
-  `golongan` varchar(255) NOT NULL,
+  `golongan` int(11) NOT NULL,
   `jumlah_dana` varchar(255) NOT NULL,
   `jenis_program` int(11) NOT NULL,
   `sub_program` int(11) NOT NULL,
@@ -115,19 +135,24 @@ CREATE TABLE IF NOT EXISTS `penyaluran_zakat` (
   KEY `FK_penyaluran_zakat_user` (`kode_akun`),
   KEY `FK_penyaluran_zakat_jenis_progam` (`jenis_program`),
   KEY `FK_penyaluran_zakat_sub_program` (`sub_program`),
-  CONSTRAINT `FK_penyaluran_zakat_jenis_progam` FOREIGN KEY (`jenis_program`) REFERENCES `jenis_progam` (`id_program`),
+  KEY `FK_penyaluran_zakat_golongan` (`golongan`),
+  CONSTRAINT `FK_penyaluran_zakat_golongan` FOREIGN KEY (`golongan`) REFERENCES `golongan` (`id_golongan`),
+  CONSTRAINT `FK_penyaluran_zakat_jenis_progam` FOREIGN KEY (`jenis_program`) REFERENCES `jenis_program` (`id_program`),
   CONSTRAINT `FK_penyaluran_zakat_sub_program` FOREIGN KEY (`sub_program`) REFERENCES `sub_program` (`id_sub_program`),
   CONSTRAINT `FK_penyaluran_zakat_user` FOREIGN KEY (`kode_akun`) REFERENCES `akun` (`kode_akun`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_zakat.penyaluran_zakat: ~4 rows (approximately)
+-- Dumping data for table db_zakat.penyaluran_zakat: ~6 rows (approximately)
 DELETE FROM `penyaluran_zakat`;
 /*!40000 ALTER TABLE `penyaluran_zakat` DISABLE KEYS */;
 INSERT INTO `penyaluran_zakat` (`id`, `nbkk`, `nik`, `nama`, `alamat`, `kecamatan`, `no_hp`, `keterangan`, `golongan`, `jumlah_dana`, `jenis_program`, `sub_program`, `kode_akun`, `tanggal`) VALUES
-	(3, '12/12/12/12/23', '6500000334343434', 'Rama Nov', 'ambungan', 'pelaihari', '0812121212', 'cek', 'Muallaf', '2900000', 1, 1, 1, '2020-02-09 12:35:09'),
-	(4, '12/12/12/13', '6301032604780005\r\n    ', 'SIDIQ SUSANTO', 'panggung', 'pelaihari', '08343434344', 'zakat', 'miskin', '1000000', 1, 1, 1, '2020-04-22 19:27:56'),
-	(5, '12/12/12/14', '6301032505700006\r\n    ', 'M. BERKATI', 'Desa Pemuda', 'pelaihari', '08445454545', 'zakat', 'miskin', '1500000', 1, 1, 1, '2020-04-22 19:29:03'),
-	(6, '12/12/12/15', '6301030601630004\r\n    ', 'ARBANI', 'ambungan', 'pelaihari', '067676455', 'zakat', 'Fakir', '14000000', 1, 1, 1, '2020-04-22 19:31:42');
+	(3, '12/12/12/12/23', '6500000334343434', 'Rama Nov', 'ambungan', 'pelaihari', '0812121212', 'cek', 3, '2900000', 1, 1, 1, '2020-02-09 12:35:09'),
+	(4, '12/12/12/13', '6301032604780005\r\n    ', 'SIDIQ SUSANTO', 'panggung', 'pelaihari', '08343434344', 'zakat', 2, '1000000', 1, 1, 1, '2020-04-22 19:27:56'),
+	(5, '12/12/12/14', '6301032505700006\r\n    ', 'M. BERKATI', 'Desa Pemuda', 'pelaihari', '08445454545', 'zakat', 2, '1500000', 1, 1, 1, '2020-04-22 19:29:03'),
+	(6, '12/12/12/15', '6301030601630004\r\n    ', 'ARBANI', 'ambungan', 'pelaihari', '067676455', 'zakat', 1, '14000000', 1, 1, 1, '2020-04-22 19:31:42'),
+	(9, '222222', '222222\r\n    ', '222222', '222222', '222222', '222222', '222222', 4, '222222', 5, 14, 1, '2020-04-26 21:54:09'),
+	(11, '6556565', '455454\r\n    ', 'tes fakir', 'tes fakir', 'tes fakir', '67677', 'tes fakir', 1, '5778', 5, 14, 1, '2020-04-27 16:31:00'),
+	(12, '4343434', '45454545\r\n    ', 'tes golongan', 'tes golongan', 'tes golongan', '7677567', 'tes golongan', 1, '6777', 2, 4, 1, '2020-04-27 16:59:44');
 /*!40000 ALTER TABLE `penyaluran_zakat` ENABLE KEYS */;
 
 -- Dumping structure for table db_zakat.petugas
@@ -157,10 +182,10 @@ CREATE TABLE IF NOT EXISTS `sub_program` (
   `id_program` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_sub_program`),
   KEY `FK_sub_program_jenis_progam` (`id_program`),
-  CONSTRAINT `FK_sub_program_jenis_progam` FOREIGN KEY (`id_program`) REFERENCES `jenis_progam` (`id_program`)
+  CONSTRAINT `FK_sub_program_jenis_progam` FOREIGN KEY (`id_program`) REFERENCES `jenis_program` (`id_program`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
--- Dumping data for table db_zakat.sub_program: ~15 rows (approximately)
+-- Dumping data for table db_zakat.sub_program: ~14 rows (approximately)
 DELETE FROM `sub_program`;
 /*!40000 ALTER TABLE `sub_program` DISABLE KEYS */;
 INSERT INTO `sub_program` (`id_sub_program`, `nama_sub_program`, `id_program`) VALUES
