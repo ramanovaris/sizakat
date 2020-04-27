@@ -185,14 +185,18 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                                         <label for="golongan">Golongan</label>
                                                         <br>
                                                          <select name="golongan" id="golongan" style="width: 100%" class="form-control" required="">
-                                                            <option value="">- Pilih Golongan -</option>
-                                                            <option value="Fakir">Fakir</option>
-                                                            <option value="Miskin">Miskin</option>
-                                                            <option value="Muallaf">Muallaf</option>
-                                                            <option value="Fii Sabillah">Fii Sabillah</option>
-                                                            <option value="Ibnu Sabil">Ibnu Sabil</option>
-                                                            <option value="Gharimin">Gharimin</option>
-                                                            <option value="Riqab">Riqab</option>
+                                                            <option value="">- Pilih Jenis Golongan -</option>
+                                                            <!-- looping data Golongan -->
+                                                            <?php
+                                                            $golongan="select * from golongan";
+                                                            $q=mysql_query($golongan);
+                                                            while($row=mysql_fetch_array($q)){
+                                                           
+                                                            ?>
+                                                                <option value="<?php echo $row["id_golongan"] ?>"><?php echo $row["nama_golongan"] ?></option>
+                                                            <?php
+                                                            }
+                                                            ?>
                                                          </select>
                                                     </div>
 

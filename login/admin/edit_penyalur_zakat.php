@@ -153,61 +153,77 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
 
 
                                                     <?php
-                                                        $sql = mysql_query("SELECT * FROM penyaluran_zakat WHERE id = '$_GET[id]'"); 
+                                                        $sql = mysql_query("SELECT * FROM penyaluran_zakat JOIN jenis_program ON jenis_program.id_program = penyaluran_zakat.jenis_program JOIN sub_program ON sub_program.id_sub_program = penyaluran_zakat.sub_program WHERE id = '$_GET[id]'"); 
                                                         $data = mysql_fetch_array($sql);
-                                                      
+                                                        // echo "Ini NIK: ".$data['nik'];
                                                     ?>
 
                                                   <input type="hidden" name="kode_akun" parsley-trigger="change" required placeholder="Nama Lengkap" class="form-control" id="kode_akun" value="<?php echo $kode_akun; ?>">
 
             
-                                                    <div class="form-group">
-                                                  <input type="hidden" name="id" parsley-trigger="change" required
+                                                <div class="form-group">
+                                                    <input type="hidden" name="id" parsley-trigger="change" required
                                                                placeholder="Nama Lengkap" class="form-control" id="id" value="<?php echo $_GET[id]; ?>">
                                                     <label for="userName">NBKK<span class="text-danger">*</span></label>
                                                     <input type="text" name="nbkk" parsley-trigger="change" required  class="form-control" id="userName" value="<?php echo $data['nbkk'];?>" >
-                                                    </div>
-                                                     <div class="form-group">
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label for="userName">NIK</label>
-                                                        <input type="number" maxlength="20" name="nik" parsley-trigger="change" required
-                                                       class="form-control" id="nik" value="<?php echo $data['nik']; ?>">
-                                                    </div>
-                                                    <div class="form-group">
+                                                    <input type="number" name="nik" parsley-trigger="change" required  class="form-control" id="userName" value="<?php echo $data['nik']; ?>">
+                                                </div>
+
+
+                                                <div class="form-group">
                                                     <label for="userName">Nama</label>
                                                     <input type="text" name="nama" parsley-trigger="change" required  class="form-control" id="userName" value="<?php echo $data['nama']; ?>">
-                                                    </div>
-                                                    <div class="form-group">
+                                                </div>
+                                                <div class="form-group">
                                                     <label for="userName">Alamat</label>
                                                     <input type="text" name="alamat" parsley-trigger="change" required class="form-control" id="userName" value="<?php echo $data['alamat']; ?>">
-                                                    </div>
-                                                    <div class="form-group">
+                                                </div>
+                                                <div class="form-group">
                                                     <label for="userName">Kecamatan</label>
                                                     <input type="text" name="kecamatan" parsley-trigger="change" required class="form-control" id="userName" value="<?php echo $data['kecamatan']; ?>">
-                                                    </div>
-                                                    <div class="form-group">
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label for="userName">No.HP</label>
                                                     <input type="number" name="nohp" parsley-trigger="change" required  class="form-control" id="userName" value="<?php echo $data['no_hp']; ?>">
-                                                    </div>
-                                                    <div class="form-group">
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label for="userName">Keterangan</label>
                                                     <input type="text" name="keterangan" parsley-trigger="change" required  class="form-control" id="userName" value="<?php echo $data['keterangan']; ?>">
-                                                    </div>
-                                                    <div class="form-group">
-                                                    <label for="userName">Golongan</label>
-                                                    <input type="text" name="golongan" parsley-trigger="change" required  class="form-control" id="userName" value="<?php echo $data['golongan']; ?>">
-                                                    </div>
-                                                    <div class="form-group">
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label for="golongan">Golongan</label>
+                                                    <select name="golongan" id="golongan" style="width: 100%" class="form-control" required="">
+                                                          <?php
+                                                           $query_golongan = "SELECT * FROM golongan";
+                                                           $sql_golongan=mysql_query($query_golongan);
+                                                           while ($data_golongan=mysql_fetch_array($sql_golongan)) {
+                                                            if ($data['golongan']==$data_golongan['id_golongan']) {
+                                                             $select="selected";
+                                                            }else{
+                                                             $select="";
+                                                            }
+                                                            echo "<option $select>".$data_golongan['nama_golongan']."</option>";
+                                                           }
+                                                          ?>      
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
                                                     <label for="userName">Jenis Program</label>
                                                     <input type="text" name="jenis_program" parsley-trigger="change" required  class="form-control" id="userName" value="<?php echo $data['jenis_program']; ?>">
-                                                    </div>
-
-                                                  
-
-                                                    <div class="form-group">
-                                                        <label for="userName">Jumlah Dana</label>
-                                                        <input type="number" name="jumlah" parsley-trigger="change" required
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="userName">Jumlah Dana</label>
+                                                    <input type="number" name="jumlah" parsley-trigger="change" required
                                                         placeholder="Rp." autocomplete="off" class="form-control" id="jumlah" value="<?php echo $data['jumlah_dana']; ?>">
-                                                    </div>
+                                                </div>
 
                                                     <div class="form-group row">
                                                         <div class="col-sm-8 col-sm-offset-4">
