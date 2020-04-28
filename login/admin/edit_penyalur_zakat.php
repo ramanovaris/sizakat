@@ -157,7 +157,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                                         $data = mysql_fetch_array($sql);
                                                         // echo "Ini NIK: ".$data['nik'];
                                                         // echo "Ini Jenis Program: ".$data['jenis_program'];
-                                                        echo "Ini Jenis Program: ".$data['sub_program'];
+                                                        // echo "Ini Jenis Program: ".$data['sub_program'];
                                                     ?>
 
                                                   <input type="hidden" name="kode_akun" parsley-trigger="change" required placeholder="Nama Lengkap" class="form-control" id="kode_akun" value="<?php echo $kode_akun; ?>">
@@ -212,7 +212,8 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                                             }else{
                                                              $select="";
                                                             }
-                                                            echo "<option $select>".$data_golongan['nama_golongan']."</option>";
+
+                                                            echo "<option value=".$data_golongan['id_golongan']." $select>".$data_golongan['nama_golongan']."</option>";
                                                            }
                                                           ?>      
                                                     </select>
