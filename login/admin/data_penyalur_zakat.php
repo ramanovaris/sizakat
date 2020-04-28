@@ -153,7 +153,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                     </div>
                                     <div class="col-md-4">
                                         <form  method="POST" action="cetak_penyalur_zakat.php">
-                                            <input name="date_cetak" class="date-own" style="width: 60%" type="text" autocomplete="off">
+                                            <input name="date_cetak" class="date-own" style="width: 60%" type="text" autocomplete="off" required>
                                             <button type="submit" class="btn btn-info btn-bordered waves-effect w-md waves-light">Cetak</button>
                                         </form>
                                     </div>

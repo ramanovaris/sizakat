@@ -41,6 +41,8 @@ $pdf = new FPDF('L','mm','A4');
 // membuat halaman baru
 $pdf->AddPage();
 
+////////////////////////////////////////// Halaman 1
+
 
 // setting jenis font yang akan digunakan
 $pdf->SetFont('Arial','B',16);
@@ -61,7 +63,7 @@ while($row=mysql_fetch_array($query)){
 }
 
 // QUERY Fakir
-$query1 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'Fakir'
+$query1 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = '1'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query1)){
     $orang_fakir = mysql_num_rows($query1);
@@ -69,7 +71,7 @@ while($row=mysql_fetch_array($query1)){
 }
 
 // QUERY Miskin
-$query2 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'Miskin'
+$query2 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = '2'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query2)){
     $orang_miskin = mysql_num_rows($query2);
@@ -77,7 +79,7 @@ while($row=mysql_fetch_array($query2)){
 }
 
 // QUERY muallaf
-$query3 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'Muallaf'
+$query3 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = '3'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query3)){
     $orang_muallaf = mysql_num_rows($query3);
@@ -85,7 +87,7 @@ while($row=mysql_fetch_array($query3)){
 }
 
 // QUERY Fii Sabilillah
-$query4 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'Fii Sabillah'
+$query4 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = '4'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query4)){
     $orang_fii_sabillah = mysql_num_rows($query4);
@@ -93,7 +95,7 @@ while($row=mysql_fetch_array($query4)){
 }
 
 // QUERY Ibnu Sabil
-$query5 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'Ibnu Sabil'
+$query5 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = '5'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query5)){
     $orang_ibnu_sabil = mysql_num_rows($query5);
@@ -101,7 +103,7 @@ while($row=mysql_fetch_array($query5)){
 }
 
 // QUERY GHARIMIN
-$query6 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'Gharimin'
+$query6 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = '6'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query6)){
     $orang_gharimin = mysql_num_rows($query6);
@@ -109,7 +111,7 @@ while($row=mysql_fetch_array($query6)){
 }
 
 // QUERY RIQAB
-$query7 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = 'Riqab'
+$query7 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bulan' AND year(tanggal)='$tahun' AND golongan = '7'
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query7)){
     $orang_riqab = mysql_num_rows($query7);
@@ -163,6 +165,9 @@ $pdf->Cell(210,10,$total_mustahik,1,0,'C');
 
 $pdf->AddPage();
 
+////////////////////////////////////////// Halaman 2
+
+
 // setting jenis font yang akan digunakan
 $pdf->SetFont('Arial','B',16);
 // mencetak string 
@@ -176,18 +181,18 @@ $pdf->SetFont('Arial','B',10);
 $pdf->Cell(105,10,'JENIS PROGRAM',1,0,'C');
 $pdf->Cell(30,10,'Jumlah Mustahik',1,0,'C');
 $pdf->Cell(30,10,'Total Mustahik',1,0,'C');
-$pdf->Cell(30,110,'',1,0,'C');
+$pdf->Cell(30,110,'',1,0,'C');  // Total Mustahik Pada Seluruh Program
 $pdf->Cell(30,10,'Jumlah',1,0,'C');
 $pdf->Cell(30,10,'Total',1,0,'C');
-$pdf->Cell(30,110,'',1,0,'C');
+$pdf->Cell(30,110,'',1,0,'C'); // Total Seluruh Dana Zakat Pada Seluruh Program
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'1. PROGRAM TALA MAKMUR',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,15,'',1,0,'C');
+$pdf->Cell(30,15,'',1,0,'C'); // Total Mustahik 1. PROGRAM TALA MAKMUR
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,15,'',1,0,'C');
+$pdf->Cell(30,15,'',1,0,'C'); // Total Dana Zakat 1. PROGRAM TALA MAKMUR
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Bantuan Modal Usaha Ekonomi Lemah (Piutang Bergulir)',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
@@ -205,10 +210,10 @@ $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'2. PROGRAM TALA CERDAS (PENDIDIKAN)',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,'',1,0,'C');
+$pdf->Cell(30,25,'',1,0,'C'); // Total Mustahik 2. PROGRAM TALA CERDAS (PENDIDIKAN)
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,'',1,0,'C');
+$pdf->Cell(30,25,'',1,0,'C'); // Total Dana Zakat 2. PROGRAM TALA CERDAS (PENDIDIKAN)
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Bantuan Dana Non Beasiswa',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
@@ -236,20 +241,20 @@ $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'3. PROGRAM TALA SEHAT',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,10,'',1,0,'C');
+$pdf->Cell(30,10,'',1,0,'C'); // Total Mustahik 3. PROGRAM TALA SEHAT
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,10,'',1,0,'C');
-$pdf->Cell(30,10,'',1,0,'C');
+$pdf->Cell(30,10,'',1,0,'C'); 
+$pdf->Cell(30,10,'',1,0,'C'); // Total Dana Zakat 3. PROGRAM TALA SEHAT
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Bantuan Dana Berobat',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'4. PROGRAM TALA PEDULI',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,'',1,0,'C');
+$pdf->Cell(30,25,'',1,0,'C'); // Total Mustahik 4. PROGRAM TALA PEDULI
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,'',1,0,'C');
+$pdf->Cell(30,25,'',1,0,'C'); // Total Dana Zakat 4. PROGRAM TALA PEDULI
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Bantuan Dana (Biaya Hidup)',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
@@ -277,10 +282,10 @@ $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'5. PROGRAM TALA TAQWA',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,'',1,0,'C');
+$pdf->Cell(30,25,'',1,0,'C');  // Total Mustahik 5. PROGRAM TALA TAQWA
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,'',1,0,'C');
+$pdf->Cell(30,25,'',1,0,'C'); // Total Dana Zakat 5. PROGRAM TALA TAQWA
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Santunan Dana Untuk Kaum Masjid',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
