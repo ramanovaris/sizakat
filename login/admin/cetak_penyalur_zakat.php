@@ -183,6 +183,8 @@ while($row=mysql_fetch_array($query9)){
     $makmur_2 = mysql_num_rows($query9);
 }
 
+    $total_mustahik_makmur = $makmur_1 + $makmur_2;
+
 ////////////////////////////// Query 2. PROGRAM TALA CERDAS (PENDIDIKAN)
 
 // 1. Bantuan Dana Non Beasiswa
@@ -212,6 +214,8 @@ $query13 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bu
 while($row=mysql_fetch_array($query13)){
     $cerdas_6 = mysql_num_rows($query13);
 }
+
+    $total_mustahik_cerdas = $cerdas_3+$cerdas_4+$cerdas_5+$cerdas_6;
 
 ////////////////////////////// Query 3. PROGRAM TALA SEHAT
 
@@ -252,6 +256,8 @@ while($row=mysql_fetch_array($query18)){
     $peduli_11 = mysql_num_rows($query18);
 }
 
+ $total_mustahik_peduli = $peduli_8+$peduli_9+$peduli_10+$peduli_11;
+
 ////////////////////////////// Query 5. PROGRAM TALA TAQWA
 
 // 1. Santunan Dana Untuk Kaum Masjid
@@ -282,6 +288,10 @@ while($row=mysql_fetch_array($query22)){
     $taqwa_15 = mysql_num_rows($query22);
 }
 
+ $total_mustahik_taqwa = $taqwa_12+$taqwa_13+$taqwa_14+$taqwa_15;
+
+/////////////////////////////////////////////////
+
 // setting jenis font yang akan digunakan
 $pdf->SetFont('Arial','B',16);
 // mencetak string 
@@ -303,7 +313,7 @@ $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'1. PROGRAM TALA MAKMUR',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,15,'',1,0,'C'); // Total Mustahik 1. PROGRAM TALA MAKMUR
+$pdf->Cell(30,15,$total_mustahik_makmur,1,0,'C'); // Total Mustahik 1. PROGRAM TALA MAKMUR
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(30,15,'',1,0,'C'); // Total Dana Zakat 1. PROGRAM TALA MAKMUR
@@ -324,7 +334,7 @@ $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'2. PROGRAM TALA CERDAS (PENDIDIKAN)',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,'',1,0,'C'); // Total Mustahik 2. PROGRAM TALA CERDAS (PENDIDIKAN)
+$pdf->Cell(30,25,$total_mustahik_cerdas,1,0,'C'); // Total Mustahik 2. PROGRAM TALA CERDAS (PENDIDIKAN)
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(30,25,'',1,0,'C'); // Total Dana Zakat 2. PROGRAM TALA CERDAS (PENDIDIKAN)
@@ -355,7 +365,7 @@ $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'3. PROGRAM TALA SEHAT',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,10,'',1,0,'C'); // Total Mustahik 3. PROGRAM TALA SEHAT
+$pdf->Cell(30,10,$sehat_7,1,0,'C'); // Total Mustahik 3. PROGRAM TALA SEHAT
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,10,'',1,0,'C'); 
 $pdf->Cell(30,10,'',1,0,'C'); // Total Dana Zakat 3. PROGRAM TALA SEHAT
@@ -365,7 +375,7 @@ $pdf->Cell(30,5,$sehat_7,1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'4. PROGRAM TALA PEDULI',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,'',1,0,'C'); // Total Mustahik 4. PROGRAM TALA PEDULI
+$pdf->Cell(30,25,$total_mustahik_peduli,1,0,'C'); // Total Mustahik 4. PROGRAM TALA PEDULI
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(30,25,'',1,0,'C'); // Total Dana Zakat 4. PROGRAM TALA PEDULI
@@ -396,7 +406,7 @@ $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'5. PROGRAM TALA TAQWA',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,'',1,0,'C');  // Total Mustahik 5. PROGRAM TALA TAQWA
+$pdf->Cell(30,25,$total_mustahik_taqwa,1,0,'C');  // Total Mustahik 5. PROGRAM TALA TAQWA
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(30,25,'',1,0,'C'); // Total Dana Zakat 5. PROGRAM TALA TAQWA
