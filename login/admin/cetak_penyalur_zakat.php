@@ -174,6 +174,7 @@ $query8 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bul
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query8)){
     $makmur_1 = mysql_num_rows($query8);
+    $dana_makmur_1 += $row['jumlah_dana'];
 }
 
 // 2. Program Bantuan Dana (Biaya Hidup)
@@ -181,9 +182,10 @@ $query9 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bul
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query9)){
     $makmur_2 = mysql_num_rows($query9);
+    $dana_makmur_2 += $row['jumlah_dana'];
 }
-
     $total_mustahik_makmur = $makmur_1 + $makmur_2;
+    $jumlah_dana_makmur = $dana_makmur_1+$dana_makmur_2;
 
 ////////////////////////////// Query 2. PROGRAM TALA CERDAS (PENDIDIKAN)
 
@@ -192,6 +194,7 @@ $query10 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bu
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query10)){
     $cerdas_3 = mysql_num_rows($query10);
+    $dana_cerdas_3 += $row['jumlah_dana'];
 }
 
 // 2. Bantuan Dana Beasiswa
@@ -199,6 +202,7 @@ $query11 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bu
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query11)){
     $cerdas_4 = mysql_num_rows($query11);
+    $dana_cerdas_4 += $row['jumlah_dana'];
 }
 
 // 3. Bantuan Permodalan Keterampilan Sekolah
@@ -206,6 +210,7 @@ $query12 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bu
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query12)){
     $cerdas_5 = mysql_num_rows($query12);
+    $dana_cerdas_5 += $row['jumlah_dana'];
 }
 
 // 4. Bantuan Untuk Guru Sekolah dan tenaga honorer
@@ -213,9 +218,11 @@ $query13 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bu
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query13)){
     $cerdas_6 = mysql_num_rows($query13);
+    $dana_cerdas_6 += $row['jumlah_dana'];
 }
 
     $total_mustahik_cerdas = $cerdas_3+$cerdas_4+$cerdas_5+$cerdas_6;
+    $jumlah_dana_cerdas = $dana_cerdas_3+$dana_cerdas_4+$dana_cerdas_5+$dana_cerdas_6;
 
 ////////////////////////////// Query 3. PROGRAM TALA SEHAT
 
@@ -224,7 +231,10 @@ $query14 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bu
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query14)){
     $sehat_7 = mysql_num_rows($query14);
+    $dana_sehat_7 += $row['jumlah_dana'];
 }
+    
+    $jumlah_dana_sehat = $dana_sehat_7;
 
 ////////////////////////////// Query 4. PROGRAM TALA PEDULI
 
@@ -233,6 +243,7 @@ $query15 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bu
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query15)){
     $peduli_8 = mysql_num_rows($query15);
+    $dana_peduli_8 += $row['jumlah_dana'];
 }
 
 // 2. Bantuan Bedah Rumah
@@ -240,6 +251,7 @@ $query16 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bu
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query16)){
     $peduli_9 = mysql_num_rows($query16);
+    $dana_peduli_9 += $row['jumlah_dana'];
 }
 
 // 3. Bantuan Dana Untuk Korban Kebakaran
@@ -247,6 +259,7 @@ $query17 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bu
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query17)){
     $peduli_10 = mysql_num_rows($query17);
+    $dana_peduli_10 += $row['jumlah_dana'];
 }
 
 // 4. Bantuan Dana Untuk Korban Kebanjiran
@@ -254,9 +267,11 @@ $query18 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bu
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query18)){
     $peduli_11 = mysql_num_rows($query18);
+    $dana_peduli_11 += $row['jumlah_dana'];
 }
 
- $total_mustahik_peduli = $peduli_8+$peduli_9+$peduli_10+$peduli_11;
+    $total_mustahik_peduli = $peduli_8+$peduli_9+$peduli_10+$peduli_11;
+    $jumlah_dana_peduli = $dana_peduli_8+$dana_peduli_9+$dana_peduli_10+$dana_peduli_11;
 
 ////////////////////////////// Query 5. PROGRAM TALA TAQWA
 
@@ -265,6 +280,7 @@ $query19 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bu
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query19)){
     $taqwa_12 = mysql_num_rows($query19);
+    $dana_taqwa_12 += $row['jumlah_dana'];
 }
 
 // 2. Bantuan Pengadaan Buku (Al-Quran, Yasin, Dll)
@@ -272,6 +288,7 @@ $query20 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bu
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query20)){
     $taqwa_13 = mysql_num_rows($query20);
+    $dana_taqwa_13 += $row['jumlah_dana'];
 }
 
 // 3. Bantuan Dana Untuk Guru Madrasah
@@ -279,6 +296,7 @@ $query21 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bu
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query21)){
     $taqwa_14 = mysql_num_rows($query21);
+    $dana_taqwa_14 += $row['jumlah_dana'];
 }
 
 // 4. Program bantuan pengadaan perlengkapan
@@ -286,9 +304,11 @@ $query22 = mysql_query("SELECT * FROM penyaluran_zakat WHERE month(tanggal)='$bu
 ") or die(mysql_error());
 while($row=mysql_fetch_array($query22)){
     $taqwa_15 = mysql_num_rows($query22);
+    $dana_taqwa_15 += $row['jumlah_dana'];
 }
 
- $total_mustahik_taqwa = $taqwa_12+$taqwa_13+$taqwa_14+$taqwa_15;
+    $total_mustahik_taqwa = $taqwa_12+$taqwa_13+$taqwa_14+$taqwa_15;
+    $jumlah_dana_taqwa = $dana_taqwa_12+$dana_taqwa_13+$dana_taqwa_14+$dana_taqwa_15;
 
 /////////////////////////////////////////////////
 
@@ -316,20 +336,20 @@ $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(30,15,$total_mustahik_makmur,1,0,'C'); // Total Mustahik 1. PROGRAM TALA MAKMUR
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,15,'',1,0,'C'); // Total Dana Zakat 1. PROGRAM TALA MAKMUR
+$pdf->Cell(30,15,$jumlah_dana_makmur,1,0,'C'); // Total Dana Zakat 1. PROGRAM TALA MAKMUR
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Bantuan Modal Usaha Ekonomi Lemah (Piutang Bergulir)',1,0);
 $pdf->Cell(30,5, $makmur_1,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,'',1,0,'C');
+$pdf->Cell(30,5,$dana_makmur_1,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  2. Program Bantuan Dana (Biaya Hidup)',1,0);
 $pdf->Cell(30,5, $makmur_2,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,'',1,0,'C');
+$pdf->Cell(30,5,$dana_makmur_2,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'2. PROGRAM TALA CERDAS (PENDIDIKAN)',1,0);
@@ -337,103 +357,105 @@ $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(30,25,$total_mustahik_cerdas,1,0,'C'); // Total Mustahik 2. PROGRAM TALA CERDAS (PENDIDIKAN)
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,'',1,0,'C'); // Total Dana Zakat 2. PROGRAM TALA CERDAS (PENDIDIKAN)
+$pdf->Cell(30,25,$jumlah_dana_cerdas,1,0,'C'); // Total Dana Zakat 2. PROGRAM TALA CERDAS (PENDIDIKAN)
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Bantuan Dana Non Beasiswa',1,0);
 $pdf->Cell(30,5,$cerdas_3,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,'',1,0,'C');
+$pdf->Cell(30,5,$dana_cerdas_3,1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  2. Bantuan Dana Beasiswa',1,0);
 $pdf->Cell(30,5,$cerdas_4,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,'',1,0,'C');
+$pdf->Cell(30,5,$dana_cerdas_4,1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  3. Bantuan Permodalan Keterampilan Sekolah',1,0);
 $pdf->Cell(30,5,$cerdas_5,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,'',1,0,'C');
+$pdf->Cell(30,5,$dana_cerdas_5,1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  4. Bantuan Untuk Guru Sekolah dan tenaga honorer',1,0);
 $pdf->Cell(30,5,$cerdas_6 ,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,'',1,0,'C');
+$pdf->Cell(30,5,$dana_cerdas_6,1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'3. PROGRAM TALA SEHAT',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(30,10,$sehat_7,1,0,'C'); // Total Mustahik 3. PROGRAM TALA SEHAT
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,10,'',1,0,'C'); 
-$pdf->Cell(30,10,'',1,0,'C'); // Total Dana Zakat 3. PROGRAM TALA SEHAT
+$pdf->Cell(30,10,$dana_sehat_7,1,0,'C'); 
+$pdf->Cell(30,10,$jumlah_dana_sehat,1,0,'C'); // Total Dana Zakat 3. PROGRAM TALA SEHAT
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Bantuan Dana Berobat',1,0);
 $pdf->Cell(30,5,$sehat_7,1,0,'C');
+$pdf->Cell(30,5,'',0,0,'C');
+$pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'4. PROGRAM TALA PEDULI',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(30,25,$total_mustahik_peduli,1,0,'C'); // Total Mustahik 4. PROGRAM TALA PEDULI
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,'',1,0,'C'); // Total Dana Zakat 4. PROGRAM TALA PEDULI
+$pdf->Cell(30,25,$jumlah_dana_peduli,1,0,'C'); // Total Dana Zakat 4. PROGRAM TALA PEDULI
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Bantuan Dana (Biaya Hidup)',1,0);
 $pdf->Cell(30,5,$peduli_8,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,'',1,0,'C');
+$pdf->Cell(30,5,$dana_peduli_8,1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  2. Bantuan Bedah Rumah',1,0);
 $pdf->Cell(30,5,$peduli_9,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,'',1,0,'C');
+$pdf->Cell(30,5,$dana_peduli_9,1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  3. Bantuan Dana Untuk Korban Kebakaran',1,0);
 $pdf->Cell(30,5,$peduli_10,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,'',1,0,'C');
+$pdf->Cell(30,5,$dana_peduli_10,1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  4. Bantuan Dana Untuk Korban Kebanjiran',1,0);
 $pdf->Cell(30,5,$peduli_11,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,'',1,0,'C');
+$pdf->Cell(30,5,$dana_peduli_11,1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'5. PROGRAM TALA TAQWA',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(30,25,$total_mustahik_taqwa,1,0,'C');  // Total Mustahik 5. PROGRAM TALA TAQWA
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,'',1,0,'C'); // Total Dana Zakat 5. PROGRAM TALA TAQWA
+$pdf->Cell(30,25,$jumlah_dana_taqwa,1,0,'C'); // Total Dana Zakat 5. PROGRAM TALA TAQWA
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Santunan Dana Untuk Kaum Masjid',1,0);
 $pdf->Cell(30,5,$taqwa_12,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,'',1,0,'C');
+$pdf->Cell(30,5,$dana_taqwa_12,1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  2. Bantuan Pengadaan Buku (Al-Quran, Yasin, Dll)',1,0);
 $pdf->Cell(30,5,$taqwa_13,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,'',1,0,'C');
+$pdf->Cell(30,5,$dana_taqwa_13,1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  3. Bantuan Dana Untuk Guru Madrasah',1,0);
 $pdf->Cell(30,5,$taqwa_14,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,'',1,0,'C');
+$pdf->Cell(30,5,$dana_taqwa_14,1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  4. Program bantuan pengadaan perlengkapan',1,0);
 $pdf->Cell(30,5,$taqwa_15,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,'',1,0,'C');
+$pdf->Cell(30,5,$dana_taqwa_15,1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 
 $pdf->Output();
