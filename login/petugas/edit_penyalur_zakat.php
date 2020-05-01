@@ -9,7 +9,7 @@ $level=$_SESSION['level'];
 $kode_login=$_SESSION['kode_login'];
 $kode_akun=$_SESSION['kode_akun'];
 $sesi_username          = isset($_SESSION['username']) ? $_SESSION['username'] : NULL;
-if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='Admin'  ) 
+if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='Petugas'  ) 
 {
 ?>
 
