@@ -48,6 +48,10 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
 
+
+         <!-- DatePicker CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" />
+
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -146,7 +150,11 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
 
                                     <h4 class="m-t-0 header-title"><b>Data Pemberi Zakat</b>
                                     <!-- <h4 class="m-t-0 header-title"><b><?php echo $_GET['status_pinjam']; ?></b> -->
-                                    <form action="" method="get" enctype="multipart/form-data" > 
+                                   
+                                    </h4>
+
+                                    <div class="col-sm-8">
+                                         <form action="" method="get" enctype="multipart/form-data" > 
                                         <div class="col-md-3">
                                             <select name="jenis_zakat" id="jenis_zakat" class="form-control" onchange="form.submit()">
                                                 <option value="0">Semua Data</option>
@@ -165,9 +173,16 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                                             </select>
                                         </div>
                                      </form>
-                                    </h4>
                                     <a href="tambah_penerima_zakat.php" type="button" class="btn btn-info btn-bordered waves-effect w-md waves-light">Tambah</a>
-
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <form  method="POST" action="cetak_penerima_zakat.php">
+                                            <input name="date_cetak" class="date-own" style="width: 60%" type="text" autocomplete="off" required>
+                                            <button type="submit" class="btn btn-info btn-bordered waves-effect w-md waves-light">Cetak</button>
+                                        </form>
+                                    </div>
+                                    
+                                  
                                     <table id="datatable-responsive"
                                            class="table table-striped  table-colored table-info dt-responsive nowrap">
                                         <thead>
@@ -338,6 +353,8 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
         <script src="../plugins/datatables/dataTables.colVis.js"></script>
         <script src="../plugins/datatables/dataTables.fixedColumns.min.js"></script>
 
+          <!-- DatePicker JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
         <!-- init -->
         <script src="assets/pages/jquery.datatables.init.js"></script>
 
@@ -376,6 +393,13 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='A
                 });
             });
             TableManageButtons.init();
+
+             $('.date-own').datepicker({
+                format: "mm/yyyy",
+                startView: "months",
+                minViewMode: "months",
+                maxViewMode: "years"
+            });
 
         </script>
 
