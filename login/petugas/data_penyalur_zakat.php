@@ -47,12 +47,16 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
 
+        <!-- DatePicker CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" />
+
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+
 
         <script src="assets/js/modernizr.min.js"></script>
 
@@ -143,8 +147,17 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                 <div class="card-box table-responsive">
 
                                     <h4 class="m-t-0 header-title"><b>Data Penyaluran Zakat</b></h4>
-                                    <a href="tambah_penyalur_zakat.php" type="button" class="btn btn-info btn-bordered waves-effect w-md waves-light">Tambah</a>
                                     
+                                    <div class="col-md-8">
+                                        <a href="tambah_penyalur_zakat.php" type="button" class="btn btn-info btn-bordered waves-effect w-md waves-light">Tambah</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <form  method="POST" action="cetak_penyalur_zakat.php">
+                                            <input name="date_cetak" class="date-own" style="width: 60%" type="text" autocomplete="off" required>
+                                            <button type="submit" class="btn btn-info btn-bordered waves-effect w-md waves-light">Cetak</button>
+                                        </form>
+                                    </div>
+
                                     <table id="datatable-responsive"
                                            class="table table-striped  table-colored table-info dt-responsive nowrap">
                                         <thead>
@@ -152,11 +165,12 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                             <th>No</th>
                                             <th>Tanggal</th>
                                             <th>NBKK</th>
-                                            <th>NIK</th>
                                             <th>Nama</th>
                                             <th>Jenis Program</th>
                                             <th>Golongan</th>
                                             <th>Jumlah Dana</th>
+                                            <th>NIK</th>
+                                            <th>Sub Program</th>
                                             <th>Alamat</th>
                                             <th>No.HP</th>
                                             <th>Keterangan</th>
@@ -167,23 +181,23 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                         <tbody>
                                             <?php 
                                                 $no = 1;
-                                                $query_mysql = mysql_query("SELECT * FROM penyaluran_zakat ORDER BY tanggal")or die(mysql_error());
+                                                $query_mysql = mysql_query("SELECT * FROM penyaluran_zakat JOIN jenis_program ON jenis_program.id_program = penyaluran_zakat.jenis_program JOIN sub_program ON sub_program.id_sub_program = penyaluran_zakat.sub_program JOIN golongan ON golongan.id_golongan = penyaluran_zakat.golongan ORDER BY tanggal")or die(mysql_error());
                                                 while($data = mysql_fetch_array($query_mysql)){
                                                     ?> 
                                         <tr>
                                             <td><?php echo $no++ ?></td>
                                             <td><?php echo date('d F Y',strtotime($data['tanggal'])); ?></td>
                                             <td><?php echo $data['nbkk']; ?></td>
-                                            <td><?php echo $data['nik']; ?></td>
                                             <td><?php echo $data['nama']; ?></td>
-                                            <td><?php echo $data['jenis_program']; ?></td>
-                                            <td><?php echo $data['golongan']; ?></td>
+                                            <td><?php echo $data['nama_program']; ?></td>
+                                            <td><?php echo $data['nama_golongan']; ?></td>
                                             <td><?php echo 'Rp. '.number_format($data['jumlah_dana'], 0, ".", "."); ?></td>
+                                            <td><?php echo $data['nik']; ?></td>
+                                            <td><?php echo $data['nama_sub_program']; ?></td>
                                             <td><?php echo $data['alamat']; ?></td>
                                             <td><?php echo $data['no_hp']; ?></td>
                                             <td><?php echo $data['keterangan']; ?></td>
                                             <td><?php echo $data['kecamatan']; ?></td>
-
                                              <td>
                                                 <a href="edit_penyalur_zakat.php?id=<?php echo $data['id']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
 
@@ -192,14 +206,14 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                             </td>
                                             
                                         </tr>
-                                             <?php  
+                                            <?php  
                                                 $total += $data['jumlah_dana'];
                                                 } 
                                             ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <td colspan="7"><h5><b>Total<b></h5></td>
+                                                <td colspan="6"><h5><b>Total<b></h5></td>
                                                 <td><h5><b><?php echo 'Rp. '. number_format($total, 0, ',', '.'); ?></b></h5></td>
                                             </tr>
                                         </tfoot>
@@ -323,6 +337,9 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
         <script src="../plugins/datatables/dataTables.colVis.js"></script>
         <script src="../plugins/datatables/dataTables.fixedColumns.min.js"></script>
 
+        <!-- DatePicker JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+
         <!-- init -->
         <script src="assets/pages/jquery.datatables.init.js"></script>
 
@@ -362,6 +379,12 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
             });
             TableManageButtons.init();
 
+            $('.date-own').datepicker({
+                format: "mm/yyyy",
+                startView: "months",
+                minViewMode: "months",
+                maxViewMode: "years"
+            });
         </script>
 
     </body>

@@ -25,7 +25,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Data Pemberi Zakat - SIZAKAT</title>
+        <title>Data Pembari Zakat - SIZAKAT</title>
 
         <!-- date range picker -->
         <link href="../plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -47,6 +47,10 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
+
+
+         <!-- DatePicker CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" />
 
         <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -145,7 +149,12 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                 <div class="card-box table-responsive">
 
                                     <h4 class="m-t-0 header-title"><b>Data Pemberi Zakat</b>
-                                    <form action="" method="get" enctype="multipart/form-data" > 
+                                    <!-- <h4 class="m-t-0 header-title"><b><?php echo $_GET['status_pinjam']; ?></b> -->
+                                   
+                                    </h4>
+
+                                    <div class="col-sm-8">
+                                         <form action="" method="get" enctype="multipart/form-data" > 
                                         <div class="col-md-3">
                                             <select name="jenis_zakat" id="jenis_zakat" class="form-control" onchange="form.submit()">
                                                 <option value="0">Semua Data</option>
@@ -164,9 +173,16 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                             </select>
                                         </div>
                                      </form>
-                                     </h4>
                                     <a href="tambah_penerima_zakat.php" type="button" class="btn btn-info btn-bordered waves-effect w-md waves-light">Tambah</a>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <form  method="POST" action="cetak_penerima_zakat.php">
+                                            <input name="date_cetak" class="date-own" style="width: 60%" type="text" autocomplete="off" required>
+                                            <button type="submit" class="btn btn-info btn-bordered waves-effect w-md waves-light">Cetak</button>
+                                        </form>
+                                    </div>
                                     
+                                  
                                     <table id="datatable-responsive"
                                            class="table table-striped  table-colored table-info dt-responsive nowrap">
                                         <thead>
@@ -190,14 +206,13 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                                 $query_mysql = mysql_query("SELECT * FROM pemberi_zakat JOIN  jenis_zakat ON pemberi_zakat.jenis_zakat=jenis_zakat.id_jenis_zakat ORDER BY tanggal")or die(mysql_error());
                                             }
                                                 while($data = mysql_fetch_array($query_mysql)){
-                                            ?>  
+                                            ?> 
                                         <tr>
                                             <td><?php echo $no++; ?></td>
                                             <td><?php echo date('d F Y',strtotime($data['tanggal'])); ?></td>
                                             <td><?php echo $data['nama_zakat']; ?></td>
                                             <td><?php echo $data['uraian']; ?></td>
                                             <td><?php echo 'Rp. '.number_format($data['jumlah'], 0, ".", "."); ?></td>
-                                         
                                             <td>
                                                 <a href="edit_pemberi_zakat.php?id=<?php echo $data['id']; ?>"class="btn btn-icon waves-effect waves-light btn-info m-b-5"> <i class="fa fa-pencil"></i> </a>
 
@@ -218,6 +233,7 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    <!-- <p>Jumlah</p> -->
                                 </div>
                             </div>
                         </div>
@@ -337,6 +353,8 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
         <script src="../plugins/datatables/dataTables.colVis.js"></script>
         <script src="../plugins/datatables/dataTables.fixedColumns.min.js"></script>
 
+          <!-- DatePicker JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
         <!-- init -->
         <script src="assets/pages/jquery.datatables.init.js"></script>
 
@@ -375,6 +393,13 @@ if ($sesi_username != NULL AND !empty($sesi_username) AND $_SESSION['level']=='P
                 });
             });
             TableManageButtons.init();
+
+             $('.date-own').datepicker({
+                format: "mm/yyyy",
+                startView: "months",
+                minViewMode: "months",
+                maxViewMode: "years"
+            });
 
         </script>
 
