@@ -137,17 +137,17 @@ $pdf->Cell(30,10,'RIQAB',1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(70,10,'JUMLAH',1,0,'C');
-$pdf->Cell(30,10,$jumlah_fakir,1,0,'C');
-$pdf->Cell(30,10,$jumlah_miskin,1,0,'C');
-$pdf->Cell(30,10,$jumlah_muallaf,1,0,'C');
-$pdf->Cell(30,10,$jumlah_fii_sabillah,1,0,'C');
-$pdf->Cell(30,10,$jumlah_ibnu_sabil,1,0,'C');
-$pdf->Cell(30,10,$jumlah_gharimin,1,0,'C');
-$pdf->Cell(30,10,$jumlah_riqab,1,0,'C');
+$pdf->Cell(30,10,'Rp. '.number_format($jumlah_fakir, 0, ".", "."),1,0,'C');
+$pdf->Cell(30,10,'Rp. '.number_format($jumlah_miskin, 0, ".", "."),1,0,'C');
+$pdf->Cell(30,10,'Rp. '.number_format($jumlah_muallaf, 0, ".", "."),1,0,'C');
+$pdf->Cell(30,10,'Rp. '.number_format($jumlah_fii_sabillah, 0, ".", "."),1,0,'C');
+$pdf->Cell(30,10,'Rp. '.number_format($jumlah_ibnu_sabil, 0, ".", "."),1,0,'C');
+$pdf->Cell(30,10,'Rp. '.number_format($jumlah_gharimin, 0, ".", "."),1,0,'C');
+$pdf->Cell(30,10,'Rp. '.number_format($jumlah_riqab, 0, ".", "."),1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(70,10,'TOTAL DISTRIBUSI',1,0,'C');
-$pdf->Cell(210,10, $total_distribusi,1,0,'C');
+$pdf->Cell(210,10,'Rp. '.number_format($total_distribusi, 0, ".", "."),1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(70,10,'Jumlah Mustahik',1,0,'C');
@@ -328,7 +328,7 @@ $pdf->Cell(30,10,'Total Mustahik',1,0,'C');
 $pdf->Cell(30,110,$total_mustahik,1,0,'C');  // Total Mustahik Pada Seluruh Program
 $pdf->Cell(30,10,'Jumlah',1,0,'C');
 $pdf->Cell(30,10,'Total',1,0,'C');
-$pdf->Cell(30,110,$total_distribusi,1,0,'C'); // Total Seluruh Dana Zakat Pada Seluruh Program
+$pdf->Cell(30,110,'Rp. '.number_format($total_distribusi, 0, ".", "."),1,0,'C'); // Total Seluruh Dana Zakat Pada Seluruh Program
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'1. PROGRAM TALA MAKMUR',1,0);
@@ -336,20 +336,20 @@ $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(30,15,$total_mustahik_makmur,1,0,'C'); // Total Mustahik 1. PROGRAM TALA MAKMUR
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,15,$jumlah_dana_makmur,1,0,'C'); // Total Dana Zakat 1. PROGRAM TALA MAKMUR
+$pdf->Cell(30,15,'Rp. '.number_format($jumlah_dana_makmur, 0, ".", "."),1,0,'C'); // Total Dana Zakat 1. PROGRAM TALA MAKMUR
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Bantuan Modal Usaha Ekonomi Lemah (Piutang Bergulir)',1,0);
 $pdf->Cell(30,5, $makmur_1,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,$dana_makmur_1,1,0,'C');
+$pdf->Cell(30,5,'Rp. '.number_format($dana_makmur_1, 0, ".", "."),1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  2. Program Bantuan Dana (Biaya Hidup)',1,0);
 $pdf->Cell(30,5, $makmur_2,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,$dana_makmur_2,1,0,'C');
+$pdf->Cell(30,5,'Rp. '.number_format($dana_makmur_2, 0, ".", "."),1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'2. PROGRAM TALA CERDAS (PENDIDIKAN)',1,0);
@@ -357,38 +357,38 @@ $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(30,25,$total_mustahik_cerdas,1,0,'C'); // Total Mustahik 2. PROGRAM TALA CERDAS (PENDIDIKAN)
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,$jumlah_dana_cerdas,1,0,'C'); // Total Dana Zakat 2. PROGRAM TALA CERDAS (PENDIDIKAN)
+$pdf->Cell(30,25,'Rp. '.number_format($jumlah_dana_cerdas, 0, ".", "."),1,0,'C'); // Total Dana Zakat 2. PROGRAM TALA CERDAS (PENDIDIKAN)
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Bantuan Dana Non Beasiswa',1,0);
 $pdf->Cell(30,5,$cerdas_3,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,$dana_cerdas_3,1,0,'C');
+$pdf->Cell(30,5,'Rp. '.number_format($dana_cerdas_3, 0, ".", "."),1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  2. Bantuan Dana Beasiswa',1,0);
 $pdf->Cell(30,5,$cerdas_4,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,$dana_cerdas_4,1,0,'C');
+$pdf->Cell(30,5,'Rp. '.number_format($dana_cerdas_4, 0, ".", "."),1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  3. Bantuan Permodalan Keterampilan Sekolah',1,0);
 $pdf->Cell(30,5,$cerdas_5,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,$dana_cerdas_5,1,0,'C');
+$pdf->Cell(30,5,'Rp. '.number_format($dana_cerdas_5, 0, ".", "."),1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  4. Bantuan Untuk Guru Sekolah dan tenaga honorer',1,0);
 $pdf->Cell(30,5,$cerdas_6 ,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,$dana_cerdas_6,1,0,'C');
+$pdf->Cell(30,5,'Rp. '.number_format($dana_cerdas_6, 0, ".", "."),1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'3. PROGRAM TALA SEHAT',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(30,10,$sehat_7,1,0,'C'); // Total Mustahik 3. PROGRAM TALA SEHAT
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,10,$dana_sehat_7,1,0,'C'); 
-$pdf->Cell(30,10,$jumlah_dana_sehat,1,0,'C'); // Total Dana Zakat 3. PROGRAM TALA SEHAT
+$pdf->Cell(30,10,'Rp. '.number_format($dana_sehat_7, 0, ".", "."),1,0,'C'); 
+$pdf->Cell(30,10,'Rp. '.number_format($jumlah_dana_sehat, 0, ".", "."),1,0,'C'); // Total Dana Zakat 3. PROGRAM TALA SEHAT
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Bantuan Dana Berobat',1,0);
 $pdf->Cell(30,5,$sehat_7,1,0,'C');
@@ -400,62 +400,62 @@ $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(30,25,$total_mustahik_peduli,1,0,'C'); // Total Mustahik 4. PROGRAM TALA PEDULI
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,$jumlah_dana_peduli,1,0,'C'); // Total Dana Zakat 4. PROGRAM TALA PEDULI
+$pdf->Cell(30,25,'Rp. '.number_format($jumlah_dana_peduli, 0, ".", "."),1,0,'C'); // Total Dana Zakat 4. PROGRAM TALA PEDULI
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Bantuan Dana (Biaya Hidup)',1,0);
 $pdf->Cell(30,5,$peduli_8,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,$dana_peduli_8,1,0,'C');
+$pdf->Cell(30,5,'Rp. '.number_format($dana_peduli_8, 0, ".", "."),1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  2. Bantuan Bedah Rumah',1,0);
 $pdf->Cell(30,5,$peduli_9,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,$dana_peduli_9,1,0,'C');
+$pdf->Cell(30,5,'Rp. '.number_format($dana_peduli_9, 0, ".", "."),1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  3. Bantuan Dana Untuk Korban Kebakaran',1,0);
 $pdf->Cell(30,5,$peduli_10,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,$dana_peduli_10,1,0,'C');
+$pdf->Cell(30,5,'Rp. '.number_format($dana_peduli_10, 0, ".", "."),1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  4. Bantuan Dana Untuk Korban Kebanjiran',1,0);
 $pdf->Cell(30,5,$peduli_11,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,$dana_peduli_11,1,0,'C');
+$pdf->Cell(30,5,'Rp. '.number_format($dana_peduli_11, 0, ".", "."),1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'5. PROGRAM TALA TAQWA',1,0);
 $pdf->Cell(30,5,'',1,0,'C');
 $pdf->Cell(30,25,$total_mustahik_taqwa,1,0,'C');  // Total Mustahik 5. PROGRAM TALA TAQWA
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',1,0,'C');
-$pdf->Cell(30,25,$jumlah_dana_taqwa,1,0,'C'); // Total Dana Zakat 5. PROGRAM TALA TAQWA
+$pdf->Cell(30,25,'Rp. '.number_format($jumlah_dana_taqwa, 0, ".", "."),1,0,'C'); // Total Dana Zakat 5. PROGRAM TALA TAQWA
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  1. Santunan Dana Untuk Kaum Masjid',1,0);
 $pdf->Cell(30,5,$taqwa_12,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,$dana_taqwa_12,1,0,'C');
+$pdf->Cell(30,5,'Rp. '.number_format($dana_taqwa_12, 0, ".", "."),1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  2. Bantuan Pengadaan Buku (Al-Quran, Yasin, Dll)',1,0);
 $pdf->Cell(30,5,$taqwa_13,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,$dana_taqwa_13,1,0,'C');
+$pdf->Cell(30,5,'Rp. '.number_format($dana_taqwa_13, 0, ".", "."),1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  3. Bantuan Dana Untuk Guru Madrasah',1,0);
 $pdf->Cell(30,5,$taqwa_14,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,$dana_taqwa_14,1,0,'C');
+$pdf->Cell(30,5,'Rp. '.number_format($dana_taqwa_14, 0, ".", "."),1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 $pdf->Cell(105,5,'  4. Program bantuan pengadaan perlengkapan',1,0);
 $pdf->Cell(30,5,$taqwa_15,1,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
 $pdf->Cell(30,5,'',0,0,'C');
-$pdf->Cell(30,5,$dana_taqwa_15,1,0,'C');
+$pdf->Cell(30,5,'Rp. '.number_format($dana_taqwa_15, 0, ".", "."),1,0,'C');
 $pdf->Cell(0,5,'',0,1);
 
 $pdf->Output();

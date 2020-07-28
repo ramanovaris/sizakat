@@ -1,3 +1,3 @@
 <footer class="footer text-right">
-     2019 © Mahasiswa POLITALA
+     2020 © Mahasiswa POLITALA
 </footer>

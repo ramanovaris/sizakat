@@ -65,7 +65,7 @@
                                         </div>
                                     </fieldset>
 
-                                        <div class="form-group ">
+                                        <!-- <div class="form-group ">
                                             <div class="col-xs-12">
                                                 <div class="checkbox checkbox-success">
                                                     <input id="checkbox-signup" type="checkbox">
@@ -75,7 +75,7 @@
                                                 </div>
 
                                             </div>
-                                        </div>
+                                        </div> -->
                                       
 
                                         <div class="form-group account-btn text-center m-t-10">
